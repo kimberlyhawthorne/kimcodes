@@ -56,7 +56,7 @@
 
 <p>I must admit that at the start of this project, gulping mimosas sounded much more appealing than setting up a task runner for my projects. What’s more, as I got into building the Gulp file, I quickly realized that it would force me to rethink the directory structure of my website and blog. Sitting in The Perfect Cup on last week’s unseasonably warm Sunday, it took much resolve not to say “screw gulp” and go to brunch instead.</p>
 
-<p>But, despite the extra task of restructuring my whole website, setting up Gulp was more enjoyable than I expected. It made <a href="http://www.kimcod.es" target="_blank">www.kimcod.es</a> better constructed and will make my remaining 48 projects easier to develop.</p>
+<p>But, despite the extra task of restructuring my whole website, setting up Gulp was more enjoyable than I expected. It made <a href="http://www.kimcod.es" target="_blank">www.kimcod.es</a> better constructed and will make my remaining 47 projects easier to develop.</p>
 
 <p>Since I expect the file to be ever-changing, <a href="https://github.com/kimberlyhawthorne/kimcodes/blob/master/gulpfile.js" target="_blank">here's a link to it</a>.</p>
 
@@ -111,16 +111,16 @@ gulp.task('example-task’, function() {
 <p>Gulp works rather simply. You'll have:</p>
 
 <ul>
-<li>A <strong>task</strong>, or the name of a function that can be run from the terminal.</li>
+<li>A <strong>task</strong>, or the name of a function that can be run from the terminal or elsewhere in the gulpfile.</li>
 <li>A <strong>glob</strong>. This is a file or group of files in node. It's specified in <code>gulp.src(glob-here)</code>.</li>
 <li>A <strong>stream</strong> are objects that represent the glob files, which can then be passed to functions, modified and saved.</li>
-<li>A <strong>pipe</strong> is the means by which data is streamed to be processed. Or more crudely, the stream files are dumped into a plugin, then another plugin, then another plugin, until all processing is completed and the modified stream can be dumped in its final destination.</li>
+<li>A <strong>pipe</strong> is the means by which data is streamed to be processed. Or more crudely, the stream files are dumped into a plugin via a pipe, then another plugin via another pipe, then another plugin via another pipe, until all processing is completed and the modified stream can be dumped in its final destination via the last pipe.</li>
 </ul>
 
 
 <h3>What My Gulpfile Does</h3>
 
-<p>I'll give just a few examples here, rather than going through the entire file. You'll get the gist.</p>
+<p>I'll give just one example here, rather than going through the entire file. You get the gist.</p>
 
 <pre>
 <code class='language-javascript'> 
@@ -177,13 +177,13 @@ gulp.task('javascript', function() {
 
 <h4>Jekyll</h4>
 
-<p>This tasks runs after jekyll is built via its own, baked-in build system. It simply copies the finalized Jekyll website files to the destination.</p>
+<p>This task runs after Jekyll is built via its own build system. It simply copies the finalized Jekyll website files to the destination.</p>
 
 <h4>Watch</h4>
 
-<p>I've also included a <code>gulp watch</code> task to watch for changes in any JavaScript, CSS, HTML or Jekyll files, and run the corresponding task after changes are detected.</p>
+<p>I've also included a <code>gulp watch</code> task to listen for changes in any JavaScript, CSS, HTML or Jekyll files, and run the corresponding task after changes are detected.</p>
 
-<p>With this much-needed task behind me, I leave you with the wise words of Lloyd Christmas: "Big Gulps, huh? Welp, see ya later."</p>
+<p>With this much-needed task behind me, I leave you with the <a href="https://www.youtube.com/watch?v=praFGD51ih8" target="_blank">wise words</a> of Lloyd Christmas: "Big Gulps, huh? Alright. Welp, see ya later."</p>
 
 
 					<ul class='tags'>
