@@ -179,7 +179,7 @@ gulp.task('watch', function() {
 	gulp.watch([source + '/**/*.js'], ['javascript'])
 	gulp.watch([source + '/**/*.css', 'src/**/*.scss', paths.notJekyll], ['styles'])
 	gulp.watch([source + '/**/jekyll/_site/**/*'], ['jekyll'])
-	gulp.watch([source + '/**/*.*', '!' + source + '/**/*.html'], ['copy-all'])
+	gulp.watch([source + '/**/*.*', '!' + source + '/**/*.html', paths.notJekyll], ['copy-all'])
 	gulp.watch([source + '/**/img/**/*'], ['images'])
 });
 
