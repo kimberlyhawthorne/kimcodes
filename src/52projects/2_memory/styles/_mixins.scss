@@ -1,0 +1,4 @@
+@mixin backgroundImage($num) {
+	background: url('../img/lola#{$num}.jpg') center center no-repeat;
+	background-size: cover;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kim Codes</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Kim Hawthorne is a front-end web developer from Chicago. She is coding 52 projects in 52 weeks.'>
+	<meta name='author' content='Kim Hawthorne'>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<link rel='icon' type='image/png' href='/img/kim_favicon_32x32.ico'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	{% if jekyll.environment == "dev" %}
+	<link rel='stylesheet' type='text/css' href='/styles/vendor/10_normalize.css'>
+	<link rel='stylesheet' type='text/css' href='/styles/vendor/20_prism.css'>
+	<link rel='stylesheet' type='text/css' href='/styles/10_main.css'>
+	<link rel='stylesheet' type='text/css' href='/styles/20_blog.css'>
+
+	<script type='text/javascript' src='/js/vendor/prism.js'></script>
+	<script type='text/javascript' src='/js/main.js'></script>
+	{% endif %}
+	{% if jekyll.environment == "prod" %}
+	<link rel='stylesheet' type='text/css' href='/styles/main.min.css'>
+	<script type='text/javascript' src='/js/app.min.js'></script>
+	{% endif %}
+</head>

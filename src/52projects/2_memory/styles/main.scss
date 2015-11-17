@@ -1,0 +1,87 @@
+@import 'mixins';
+
+// colors
+$grey: #B0AEBF;
+
+body {
+	font-family: 'Source Sans Pro';
+	color: $grey;
+	margin: 0;
+	text-align: center;
+
+	h1 {
+		font-weight: 200;
+		margin-top: 3em;
+	}
+}
+
+.wrapper {
+	display: block;
+	max-width: 75%;
+	margin: 0 auto;
+}
+
+.replay {
+	background-color: lighten($grey, 10%);
+	display: block;
+	margin: 0 auto;
+	outline: 0;
+	border: 0;
+	width: 10em;
+	padding: 1em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	position: relative;
+	top: -5em;
+	-webkit-transition: 0.5s;
+
+	&:hover {
+		background-color: $grey;
+	}
+	&.show {
+		top: 6em;
+		-webkit-transition: 0.5s;
+	}
+}
+
+.card-container {
+	width: 10em;
+	height: 10em;
+	-webkit-perspective: 1000;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+	width: 10em;
+	height: 10em;
+	margin: 1em;
+	display: inline-block;
+	position: relative;
+
+	@for $i from 1 through 8 {
+		&.pair-#{$i} { 
+			.back {
+				background: url('../img/lola#{$i}.jpg') center center no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+
+	&.flip {
+		-webkit-transform: rotateY(180deg);
+	}
+
+	.front, .back {
+		backface-visibility: hidden;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.front {
+		background-image: repeating-linear-gradient(-45deg, $grey 0, $grey 1px, #F2DBD5 0, #F2DBD5 13px);
+		z-index: 1;
+	}
+	.back {
+		-webkit-transform: rotateY(180deg);
+	}
+}

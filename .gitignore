@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.css.map
+*.yml
+*.php
+.DS_Store
+.htaccess
+.jekyll-metadata

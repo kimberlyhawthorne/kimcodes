@@ -1,0 +1,80 @@
+{% include header.html %}
+
+<body id='blog'>
+	<div class='outer-wrapper'>
+
+		<header>
+			<h1><a href='/'><span>Kim Hawthorne</span></a> is coding 52 projects in 52 weeks</h1>
+		</header>
+
+		<div class='inner-wrapper'>
+
+			<div class='pagination'>
+
+				<a href='/blog' class='home'>
+					<p>&#8592; <span>Back to blog</span></p>
+				</a>
+	
+				<a href="/blog/tags/" class='see-all'>
+				{% assign post_count = site.posts | size %}
+				{% if post_count != 1 %}
+					<div>
+						<p>See all {{ post_count }} projects</p>
+					</div>
+				{% else %}
+					<div></div>
+				{% endif %}
+				</a>
+
+			</div>
+
+			<div class='projects-tags'>
+				<article id='list'>
+					<span class='tags-page-title'>
+						<h2>The Projects</h2>
+					</span>
+
+					<ul>
+					{% for post in site.posts reversed %}
+						<li>
+							<span>{{ post.number }}.</span>
+							&nbsp;
+							<a href='/blog{{ post.url }}'>{{ post.title }}</a></li>
+					{% endfor %}
+					</ul>
+				</article>
+				
+				<article id='tags'>
+					{% capture tags %}
+					  {% for tag in site.tags %}
+					    {{ tag[0] }}
+					  {% endfor %}
+					{% endcapture %}
+					{% assign sortedtags = tags | split:' ' | sort %}
+
+					<span class='tags-page-title'>
+						<h2>Tags</h2>
+					</span>
+
+					{% for tag in sortedtags %}
+					<div class='tag-section'>
+					  	<p id="{{ tag }}" class="tag-name">#{{ tag }}</p>
+					  	<ul>
+					  		{% for post in site.tags[tag] %}
+							    <li>
+							    	<a href='/blog{{ post.url }}'>{{ post.title }}</a> &mdash; <span class='tag-date'>{{ post.date | date: '%B %-d, %Y' }}</span>
+							    </li>
+							  {% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+				</article>
+			</div>
+
+		</div>
+
+		{% include footer.html %}
+
+	</div>
+</body>
+</html>

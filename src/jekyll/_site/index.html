@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kim Codes</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Kim Hawthorne is a front-end web developer from Chicago. She is coding 52 projects in 52 weeks.'>
+	<meta name='author' content='Kim Hawthorne'>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<link rel='icon' type='image/png' href='/img/kim_favicon_32x32.ico'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	
+	
+	<link rel='stylesheet' type='text/css' href='/styles/main.min.css'>
+	<script type='text/javascript' src='/js/app.min.js'></script>
+	
+</head>
+
+<body id='blog'>
+	<div class='outer-wrapper'>
+
+		<header>
+			<h1><a href='/'><span>Kim Hawthorne</span></a> is coding 52 projects in 52 weeks</h1>
+		</header>
+
+		<div class='inner-wrapper'>
+
+			<div class='pagination'>
+
+				<a href='/' class='home'>
+					<p>&#8592; <span>Back to home</span></p>
+				</a>
+	
+				<a href="./tags" class='see-all'>
+				
+				
+						<p>See all 4 projects</p>
+				
+				</a>
+
+			</div>
+
+			
+
+				<article>
+ 					<h2 class='post-number'>4</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog/2015/10/28/regex/'>Regular Expressions, Irregular Updates</a></h2>
+						<h3 class='post-date'>October 28, 2015</h3>
+					</div>
+
+					<div class='post-content'>
+						<p>Aaand, I'm back after an unintentional hiatus. Computer screens tend to take a backseat for me during the summer, because sometimes you have to:</p>
+
+<ul>
+<li><a href="https://instagram.com/p/6-5k9bFuA4/" target="_blank">Fly to Tahoe</a> to celebrate your sister's birthday.</li>
+<li><a href="https://instagram.com/p/7S4EX0luBS/" target="_blank">Ride your bike</a> across the state of Michigan to celebrate your dad's retirement.</li>
+<li>Move to your first "real" (i.e., not dumpy) <a href="https://instagram.com/p/8EhsoaluLy/" target="_blank">apartment</a>.</li>
+<li>Attend a <a href="https://instagram.com/p/9BhyNWFuD6/" target="_blank">Halloween masquerade</a> in Detroit.</li>
+</ul>
+
+
+<p>What better way to welcome myself back to the world of code than by practicing the never frustrating, always readable regular expressions? For the uninitiated, regular expressions can be used to determine if strings fit certain patterns. In my past life working in marketing for a software company, I overheard developers discussing using regexs to identify credit cards numbers, social security numbers and birthdates. Years later, I finally have an inkling of what they were talking about. Here, I built a few form fields that are validated with regular expressions. And yes, I wrote the patterns myself, although the impulse to search for "email address regular expression" was at times overwhelming.</p>
+
+<p><a href='/52projects/3_regex' class='project-link' target='_blank'>
+    <img src='/img/52projects/regular-expressions.png' alt='Regular Expressions' />
+    See the project
+</a></p>
+
+<p>I know, I know. HTML includes input properties that render this whole project almost useless. But, I learned some stuff, and that counts for something, right?</p>
+
+<h3>Some Reg Ex tokens</h3>
+
+<pre>
+<code class='language-javascript'> 
+^  // start of string
+$  //end of string
+
+\d  // any digit (0-9)
+\D  // any non-digit
+\w  // any character
+\W  // any non-character
+\s  // any white-space character
+\S  // any non-white-space character
+
+[a-c]  // a character in the range
+[^a-c]  // a character not in the range
+a{2}  // number of times the previous token should be repeated
+a*  // zero to unlimited of the previous token
+a+  // one to unlimited of the previous token
+a?  // zero or one of the previous token
+(a|b)  // a or b
+
+(?:alternate1|alternate2|alternate3)  // pattern for grouping alternative pattern options meant to evaluate the same string
+(?=)  //positive lookahead
+(?!)  // negative lookahead
+(?&lt;)  // positive lookbehind (not supported in JavaScript)
+(?&lt;!)  // negative lookbehind (not supported in JavaScript)
+</code>
+</pre>
+
+
+<h3>My examples, in plain English</h3>
+
+<p>Zipcode:</p>
+
+<pre>
+<code class='language-javascript'> 
+/^\d{5}$/  // any digit, repeated five times
+</code>
+</pre>
+
+
+<p>Phone number:</p>
+
+<pre>
+<code class='language-javascript'> 
+/^\d{10}$/  // any digit, repeated ten times
+</code>
+</pre>
+
+
+<p>Birthdate:</p>
+
+<pre>
+<code class='language-javascript'> 
+/^(?:0[1-9]|1[0-2])\/(?:[1-9]|0[1-9]|1\d|2\d|3[0-1])\/(?:19\d\d|20[0-1][0-5])$/
+
+// explanation:
+    ^   // beginning anchor
+    (?:0[1-9]|1[0-2])   // first group: any digit 1-12; single digits must begin with 0
+    \/   // escaped forward slash
+    (?:[1-9]|0[1-9]|1\d|2\d|3[0-1])   // second group: any digit 1-31
+    \/   // escaped forward slash
+    (?:19\d\d|20[0-1][0-5])   // third group: any digit 1900-2015
+    $   // ending anchor
+
+</code>
+</pre>
+
+
+<p>Email address (yikes):</p>
+
+<p>There may be a ton of email address validators that are better than this one. However, I tried to account for a majority of the rules to which email addresses should adhere. Shout out to <a href="http://rumkin.com/software/email/rules.php" target="_blank">this website</a> for listing those out so clearly.</p>
+
+<pre>
+<code class='language-javascript'> 
+/^(?!.*(\.)\1)(?:\w[\w\b!#$%&'*+\-\/=?^_`{|}~\.]{1,63})@(?:[\w\-]+)\.(?:[^\_\W]){2,}$/
+
+// explanation:
+    ^   // beginning anchor
+    (?!.*(\.)\1)   // a negative lookahead to ensure there are no consecutive periods
+    (?:   // first group
+        \w  // first character should be alphanumeric
+        [\w\b!#$%&'*+\-\/=?^_`{|}~\.]{0,63})  // subsequent chars can be alphanumeric or any of the specials chars you see buried in there. there should be between 0 and 63 of these.
+    @   // literal @ sign
+    (?:[\w\-]+)   // second group: one or more alphanumeric characters or hyphens
+    \.   // escaped period
+    (?:[^\_\W]){2,}   // third group: any alphanumeric character, except underscore. must be at least two characters long.
+    $   // ending anchor
+
+</code>
+</pre>
+
+
+<h3>Other credits</h3>
+
+<ul>
+<li><a href="http://www.regular-expressions.info/lookaround.html" target="_blank">regular-expressions.info</a> for explaining lookaheads/lookbehinds</li>
+<li><a href="" target="_blank">regex101.com</a> for a great validator</li>
+</ul>
+
+
+
+						<ul class='tags'>
+							
+								<li><a href='./tags/#javascript'> #javascript </a></li>
+							
+								<li><a href='./tags/#javascript-basics'> #javascript-basics </a></li>
+							
+								<li><a href='./tags/#regular-expressions'> #regular-expressions </a></li>
+							
+						</ul>
+
+					</div>
+
+				</article>
+
+			
+
+				<article>
+ 					<h2 class='post-number'>3</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog/2015/08/25/memory/'>Kitty Memory</a></h2>
+						<h3 class='post-date'>August 25, 2015</h3>
+					</div>
+
+					<div class='post-content'>
+						<p>I’m going on two vacations soon, which means nearly a week and a half away from my ultra lovable, never annoying and always tame kitten, Minoose. Because I want to keep her near and dear to my heart for the next ten days, I’ve created the official Minoose Kitty Memory game (see how that’s kind of a pun? Keeping my kitty... in my memory… while I’m on vacation……)</p>
+
+<p><a href='/52projects/2_memory' class='project-link' target='_blank'>
+    <img src='/img/52projects/kitty-memory.png' alt='Kitty Memory' />
+    See the project
+</a></p>
+
+<p>I’ll admit that I’m more familiar with jQuery than Javascript. After learning the basics of Javascript, I jumped right into jQuery for DOM manipulation. Now I use it daily at work, which leaves perusing MDN when it comes to coding in plain ol' Javascript. While this project doesn’t have too much exciting code, it did allow me to commit to memory (ho-hoh!) many of the methods and techniques that jQuery makes almost mindless, such as:</p>
+
+<h3>Working with event handlers</h3>
+
+<p>The Memory game requires a click event handler on each card, which then triggers functions to flip the card, check for a match, etc. Rather than attach event handlers to all of the cards, I attached one listener to the cards’ parent HTML element. When a card is clicked, the event bubbles up from the clicked card to its parent, where the event listener is all ears. Then, the below condition is run:</p>
+
+<pre>
+<code class='language-markup'>
+&lt;div class="wrapper"&gt; // event listener attached here
+    &lt;div class="card-container pair-3"&gt;
+        &lt;div class="front">&lt;/div&gt;
+        &lt;div class="back"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+<pre>
+<code class='language-javascript'> 
+if (e.target.parentElement !== e.currentTarget && !e.target.classList.contains('back')) {
+    memory.flipCard(e.target.parentElement);
+}
+</code>
+</pre>
+
+
+<ul>
+<li><code>e.target</code> = element on which the event occurred</li>
+<li><code>e.currentTarget</code> = element to which the event handler is attached (in this case, <code>.wrapper</code>)</li>
+</ul>
+
+
+<p>As long as the click truly occurred on a card (<code>e.target</code>) and not just the general wrapper (<code>e.currentTarget</code>) (and the card is face down), the next function is called.</p>
+
+<h3>Looping in SASS</h3>
+
+<p>Just basic looping using SASS’s syntax. This is pretty useful for applying similar styles to a bunch of elements. I use it to apply the different kitty images to the cards. The cards are paired by class name (<code>.pair-#</code>), and the images are named by number (<code>lola#.jpg</code>). I loop through the card classes and set the kitty image with the matching number (<code>lola{$i}.jpg</code>) as the background.</p>
+
+<pre>
+<code class='language-css'> 
+@for $i from 1 through 8 {
+    &.pair-#{$i} { 
+        .back {
+            background: url('../img/lola#{$i}.jpg') center center no-repeat;
+            background-size: cover;
+        }
+    }
+}
+</code>
+</pre>
+
+
+<h3>Shuffling</h3>
+
+<p>And lastly, a big shout out to <a href='http://bost.ocks.org/mike/shuffle/' target='_blank'>this website</a> for clearly explaining the Fisher-Yates shuffle, which sounds like an old-timey dance but is actually the method I’m using to mix up these kitty cards.</p>
+
+<p>Basically, Fisher-Yates is a method for efficiently shuffling the indexes of an array. Rather than using two arrays (one to hold all possible indexes and one to hold the newly shuffled indexes), this method uses one. As indexes are shuffled, they are moved to the back of the array. The unshuffled indexes remain at the front&mdash;a pool of unshuffleds. Indexes to be shuffled are drawn from this pool only, with the pool getting smaller and smaller until finally, all indexes have been shuffled.</p>
+
+<p>Fisher-Yates is more efficient than the double-looping required if you use two arrays. In that instance, when an index is randomly selected to be shuffled, it must first be checked against the indexes that have already been shuffled to ensure that it’s not selected twice.</p>
+
+<p>Phew. If that makes no sense, click that link for some visualizations that will.</p>
+
+
+						<ul class='tags'>
+							
+								<li><a href='./tags/#javascript'> #javascript </a></li>
+							
+								<li><a href='./tags/#javascript-basics'> #javascript-basics </a></li>
+							
+								<li><a href='./tags/#event-listeners'> #event-listeners </a></li>
+							
+								<li><a href='./tags/#css-patterns'> #css-patterns </a></li>
+							
+						</ul>
+
+					</div>
+
+				</article>
+
+			
+
+				<article>
+ 					<h2 class='post-number'>2</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog/2015/08/17/pub-sub/'>Publish, subscribe and lottery winnings</a></h2>
+						<h3 class='post-date'>August 17, 2015</h3>
+					</div>
+
+					<div class='post-content'>
+						<p>I’ve been thinking about playing the lottery. With the abysmal interest rate on my savings account, the lottery has begun to look like a sound investment. But, standing in the 7-11 in my office building with $1.00 in my pocket, I came to two sad realizations: 1) that lottery tickets cost $2.00, and 2) that I have no trusted method for choosing my numbers. Some use lucky numbers, and others <a href="http://www.use4.com/stepbystep.html">the Delta method</a>, but for this new financial venture I present to you my first project: a (winning) Powerball number generator.</p>
+
+<p>The main feature behind this wonderful tool is a publish/subscribe pattern, along with a few other nuggets of knowledge, including a detailed understanding of Powerball’s rules.</p>
+
+<p><a href='/52projects/1_pub-sub' class='project-link' target='_blank'>
+    <img src='/img/52projects/pub-sub-lottery.png' alt='Lottery' />
+    See the project
+</a></p>
+
+<h3>Publish/Subscribe Pattern</h3>
+
+<p>In technical terms, a publish/subscribe pattern can be used to decouple your code. In laymen terms, your code shouldn’t be so intertwined that a change to one part necessitates manual changes to a bunch of other parts. In a publish/subscribe pattern, one part of your code can listen (subscribe) for data to be made available (published) by another part of the application. You can have many subscribers for one publisher, and they aren’t managed and don’t interfere with the publisher.</p>
+
+<pre class='language-javascript'>
+<code>
+var pubSub = {
+    topics : {},
+    publish : function(topic, arguments) {
+        var key = topic,
+            listener;
+
+        // add topic to list if it doesn't exist already
+        if (!(key in this.topics)) {
+            this.topics[key] = [key];
+        }
+
+        // grab the listener function from the topics list
+        // call it, passing in the arguments parameter
+        listener = this.topics[key][1];
+        listener(arguments);
+    },
+    subscribe : function(topic, listener) {
+        var key = topic;
+
+        // create topic and add to list, if it doesn't exist already
+        if (!(key in this.topics)) {
+            this.topics[key] = [key];
+        }
+
+        // add the listener function to this topic in the topics list
+        this.topics[key].push(listener);
+    }
+}
+
+pubSub.publish(topic, arguments);
+pubSub.subscribe(topic, listener);
+</code>
+</pre>
+
+
+<ul>
+<li>Topic: A name for what you're doing. The publish and subscribe methods are linked by the topic name.</li>
+<li>Arguments: The data that is published.</li>
+<li>Listener: A function to do something with the published data.</li>
+</ul>
+
+
+<p>For the lottery example:</p>
+
+<ul>
+<li>Topic: <code>lotterySelections</code></li>
+<li>Subscribe: The subscribe function is initialized on page load, and so begins listening for something to be published under the <code>lotterySelections</code> topic as soon as the page is ready to go.</li>
+<li>Publish: When a user clicks on the “Show me the money!” button, a bunch of calculations return an array of six numbers, which make up the random lottery combination. The array is published to <code>lotterySelections</code>.</li>
+<li>Subscribe: Listening for data on the <code>lotterySelections</code> topic, the subscribe function picks up the array of lotto numbers that was passed as the publisher's arguments parameter. The subscriber then processes the array with its listener function. Here, the listener prints the array to the screen.</li>
+</ul>
+
+
+<p>I’ll admit that this project did not necessarily need a pub/sub pattern. However, should I decide to add more functionality—such as a way for users to copy the combinations or email them to themselves—all I’d need to do is create the new functionality and add it as a subscriber to the <code>lotterySelections</code> topic. Once the lottery numbers are published, any part of the application that is listening for those publications can access the published number array.</p>
+
+<h3>Setting object keys with a variable</h3>
+
+<p>Must be done with bracket notation.</p>
+
+<pre>
+<code class='language-javascript'> 
+var name = “key”,
+      object = {};
+
+object[name] = “value”;
+// prints object.key = "value";
+</code>
+</pre>
+
+
+<h3>How the lotto works</h3>
+
+<p>This application is built to generate combinations for the Powerball lottery. Twice per week, five white balls with numbers ranging from 1 to 59 are drawn, as well as one red ball with a number ranging from 1 to 35. The white balls do not have repeated numbers (which made for some fun looping).</p>
+
+<p>The next drawing is this Saturday. What are you waiting for?</p>
+
+
+						<ul class='tags'>
+							
+								<li><a href='./tags/#javascript'> #javascript </a></li>
+							
+								<li><a href='./tags/#css-animations'> #css-animations </a></li>
+							
+								<li><a href='./tags/#publish-subscribe'> #publish-subscribe </a></li>
+							
+						</ul>
+
+					</div>
+
+				</article>
+
+			
+
+				<article>
+ 					<h2 class='post-number'>1</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog/2015/07/29/where-i-see-myself-in-one-year/'>Where I see myself in one year</a></h2>
+						<h3 class='post-date'>July 29, 2015</h3>
+					</div>
+
+					<div class='post-content'>
+						<p>I wouldn't be a journalism school graduate if I didn't cite my sources. Thus in the spirit of ethical journalism, I hereby proclaim that I stole this idea&mdash;many, many months ago&mdash;from <a href='http://jenniferdewalt.com/' target='_blank'>Jennifer Dewalt</a>, who coded 180 websites in 180 days.</p>
+
+<p>In an effort to eat a less varied diet, alienate my friends and, above all, sharpen my development skills, I too will be undertaking a programming challenge: to code 52 projects in 52 weeks. Think of it as a nerdier version of Julie &amp; Julia, with much more typing and much fewer calories.</p>
+
+<p>My original intention was for this blog and <a href='/'>newly recoded portfolio</a> to be my first project. But, seeing as I coded the bulk of both sites more than three months ago, I've forgotten any insights or things I screwed up. So, you'll just have to live with the fact that this blog and accompanying portfolio are coded with <a href='http://jekyllrb.com' target='_blank'>Jekyll</a>. Three cheers for templating!</p>
+
+<p>The eternity elapsed between creating the Git repository for this site and actually launching it made me realize that sticking to a rigid one-project-per-week schedule may not be realistic. Because sometimes you have to <a href='http://www.dalmac.org/' target='_blank'>ride your bike across the state of Michigan</a>, or help your sister move to <a href='http://mimsydoodle.tumblr.com/' target='_blank'>San Francisco</a>, or go to New York to visit a friend and almost lose your eye when you get a speck of dust under your contact lens in a dirty karaoke bar.</p>
+
+<p>In light of this, I've settled on a few guidelines:</p>
+
+<h3>The Guidelines</h3>
+
+<ul>
+<li>I will TRY to code one project per week. Some weeks may have none and others two, but I will have 52 completed projects in the end.</li>
+<li>I will also TRY to code all projects using plain ol' Javascript, rather than jQuery or other libraries.</li>
+<li>I will more than likely use a CSS preprocessor for all of my projects because who wouldn't?</li>
+<li>I will ensure modern browser compatibility for all projects. That does not include you, Internet Explorer 7.</li>
+<li>I will add all projects to <a href='http://github.com/kforkimber/kimcodes'>this Github repository</a>.</li>
+<li>I will, whenever possible, code with my cat on my lap.</li>
+</ul>
+
+
+<p>And so, as my grandmother would say, "we're off like a herd of turtles!"</p>
+
+
+						<ul class='tags'>
+							
+								<li><a href='./tags/#jekyll'> #jekyll </a></li>
+							
+								<li><a href='./tags/#javascript'> #javascript </a></li>
+							
+						</ul>
+
+					</div>
+
+				</article>
+
+			
+
+		</div>
+
+		<div id='about'>
+	<div class='wrapper'>
+		<div class='headshot'>
+			<img src='/img/headshot.png' />
+			<p>Ask me about my cat, my veggie burger recipes and my love for all things French.</p>
+		</div>
+		<ul class='contact'>
+			<li><p><a href='/blog'>Blog</a></p></li>
+			<li><p><a href='http://github.com/kforkimber' target='_blank'>Github</a></p></li>
+			<li><p><a href='/KimHawthorne_resume.pdf' target='_blank'>Resume</a></p></li>
+			<li><p><a href='mailto:kim@kimcod.es'>Email</a></p></li>
+		</ul>
+	</div>				
+</div>
+
+<footer>
+	<p>&copy;2015 Kim Hawthorne</p>
+</footer>
+
+	</div>
+</body>
+</html>

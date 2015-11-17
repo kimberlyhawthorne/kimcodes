@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding-top: 2em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	color: #B799BF;
+}
+
+#genericForm {
+	display: block;
+	margin: 0 auto;
+
+	input {
+		display: block;
+		margin: 1em auto;
+		padding: 1em 0.5em;
+		border: 1px solid #ccc;
+		width: 20em;
+		color: #666;
+		font-size: 1em;
+		font-family: 'Source Sans Pro', sans-serif;
+		letter-spacing: 0.03em;
+
+		&[type='text'] {
+			display: block;
+			margin: 1em auto;
+			padding-right: 3em;
+
+			&.validated {
+				background: url('../img/checkmark.svg') no-repeat 98% top;
+				background-size: 15%;
+
+			}
+			&.error {
+				background: url('../img/error.svg') no-repeat 98% top;
+				background-size: 15%;
+			}
+		}
+
+		&[type='submit'] {
+			text-transform: uppercase;
+			background-color: #c0c0c0;
+			cursor: pointer;
+
+			&:hover {
+				background-color: darken(#c0c0c0, 6%);
+			}
+		}
+	}
+}
+
+footer {
+	p {
+		font-size: 0.7rem;
+	}
+}

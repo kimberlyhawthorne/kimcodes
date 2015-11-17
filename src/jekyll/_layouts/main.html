@@ -1,0 +1,58 @@
+{% include header.html %}
+
+<body id='blog'>
+	<div class='outer-wrapper'>
+
+		<header>
+			<h1><a href='/'><span>Kim Hawthorne</span></a> is coding 52 projects in 52 weeks</h1>
+		</header>
+
+		<div class='inner-wrapper'>
+
+			<div class='pagination'>
+
+				<a href='/' class='home'>
+					<p>&#8592; <span>Back to home</span></p>
+				</a>
+	
+				<a href="./tags" class='see-all'>
+				{% assign post_count = site.posts | size %}
+				{% if post_count != 1 %}
+						<p>See all {{ post_count }} projects</p>
+				{% endif %}
+				</a>
+
+			</div>
+
+			{% for post in site.posts limit: 10 %}
+
+				<article>
+ 					<h2 class='post-number'>{{post.number}}</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog{{ post.url }}'>{{ post.title }}</a></h2>
+						<h3 class='post-date'>{{ post.date | date: '%B %-d, %Y' }}</h3>
+					</div>
+
+					<div class='post-content'>
+						{{ post.content }}
+
+						<ul class='tags'>
+							{% for tag in post.tags %}
+								<li><a href='./tags/#{{tag}}'> #{{ tag }} </a></li>
+							{% endfor %}
+						</ul>
+
+					</div>
+
+				</article>
+
+			{% endfor %}
+
+		</div>
+
+		{% include footer.html %}
+
+	</div>
+</body>
+</html>
