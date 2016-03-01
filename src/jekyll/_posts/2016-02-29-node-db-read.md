@@ -18,13 +18,13 @@ This project hardly qualifies as an “app”, since all I’m doing is reading 
 
 ### The Tools
 
-I used <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the <a href="http://expressjs.com/" target="_blank">Express</a> framework to build the application framework. <a href="https://www.mongodb.org/" target="_blank">MongoDB</a> is the database, and <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a> is the templating for the views. The app is hosted on <a href="" target="_blank">Heroku</a>, with help from <a href="https://mlab.com/" target="_blank">mLab</a> as the cloud database service.
+I used <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and <a href="http://expressjs.com/" target="_blank">Express</a> to build the application framework. <a href="https://www.mongodb.org/" target="_blank">MongoDB</a> is the database, and <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a> is the templating for the views. The app is hosted on <a href="http://heroku.com" target="_blank">Heroku</a>, with help from <a href="https://mlab.com/" target="_blank">mLab</a> as the cloud database service.
 
 ### The Basics, or Why MVC is your Friend
 
-Coding an entire app can get messy. My first few tries at making a complete web app were a hot mess--hanging HTTP requests, a tangle of routes and views and database connections, crashing browsers, streaming error logs.
+Coding an entire app can get messy. My first few tries at making this app were a hot mess&mdash;hanging HTTP requests, a tangle of routes and views and database connections, crashing browsers, streaming error logs.
 
-MVC is one of those much-discussed resume acronyms. It stands for model-view-controller, and one of its main tenants is in separating the logic of your application. As a node newb, I found that following an MVC framework also gave some guidance for an application structure that could otherwise quickly become unruly.
+MVC is one of those much-discussed resume acronyms. It stands for model-view-controller, and one of its main principles is in separating the application logic. As a node newb, I found that following an MVC framework also gave some guidance for an application structure that could otherwise quickly become unruly.
 
 * The <strong>model</strong> deals with the database and only the database. It doesn't care about what the application looks like, or does, or that it even exists. The model simply reads and writes to the database.
 * The <strong>controllers</strong> are the main logic of the application. They interpret incoming HTTP requests, and may fetch data, change the data and/or send the data to a view.
@@ -38,7 +38,7 @@ One challenge I ran into was (drum roll) connecting to the database. In an early
 <code class="language-javascript">
 var db; 
 
-mongodb.MongoClient.connect(&gt;&gt;database address&lt;&lt;, function(err, database) {
+mongodb.MongoClient.connect(&lt;&lt;database address&gt;&gt;, function(err, database) {
 	if (err) throw err;
 
 	database.collection('kittens', function(err, results) {
