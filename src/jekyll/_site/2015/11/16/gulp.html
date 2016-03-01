@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kim Codes</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Kim Hawthorne is a front-end web developer from Chicago. She is coding 52 projects in 52 weeks.'>
+	<meta name='author' content='Kim Hawthorne'>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<link rel='icon' type='image/png' href='/img/kim_favicon_32x32.ico'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	
+	
+	<link rel='stylesheet' type='text/css' href='/styles/main.min.css'>
+	<script type='text/javascript' src='/js/app.min.js'></script>
+	
+</head>
+
+<body id='blog'>
+	<div class='outer-wrapper'>
+
+		<header>
+			<h1><a href='/'><span>Kim Hawthorne</span></a> is coding 52 projects in 52 weeks</h1>
+		</header>
+
+		<div class='inner-wrapper'>
+
+			<div class='pagination'>
+				<a href='/blog' class='home'>
+					<p>&#8592; <span>Back to blog</span></p>
+				</a>
+			
+				<a href="/blog/tags/" class='see-all'>
+				
+				
+					<div>
+						<p>See all 6 projects</p>
+					</div>
+				
+				</a>
+			</div>
+
+			<article>
+				<h2 class='post-number'>5</h2>
+
+				<div class='post-info'>
+					<h2 class='post-title'><a href='/blog/2015/11/16/gulp.html'>Gulp: the Task of Setting Up a Task Runner</a></h2>
+					<h3 class='post-date'>November 16, 2015</h3>
+				</div>
+
+				<div class='post-content'>
+					<p><a href="http://brunch.io/" target="_blank">Brunch</a>, <a href="http://broccolijs.com/" target="_blank">Broccoli</a>, <a href="http://mimosa.io/" target="_blank">Mimosa</a>, <a href="http://gulpjs.com/" target="_blank">Gulp</a>. A caveman describing his Sunday morning routine, or a sampling of build tools available to JavaScript developers?</p>
+
+<p>I must admit that at the start of this project, gulping mimosas sounded much more appealing than setting up a task runner for my projects. What’s more, as I got into building the Gulp file, I quickly realized that it would force me to rethink the directory structure of my website and blog. Sitting in The Perfect Cup on last week’s unseasonably warm Sunday, it took much resolve not to say “screw gulp” and go to brunch instead.</p>
+
+<p>But, despite the extra task of restructuring my whole website, setting up Gulp was more enjoyable than I expected. It made <a href="http://www.kimcod.es" target="_blank">www.kimcod.es</a> better constructed and will make my remaining 47 projects easier to develop.</p>
+
+<p>Since I expect the file to be ever-changing, <a href="https://github.com/kimberlyhawthorne/kimcodes/blob/master/gulpfile.js" target="_blank">here’s a link to it</a>.</p>
+
+<h3 id="about-gulp">About Gulp</h3>
+
+<p>Gulp is a build system built on top of Node. This makes setting it up easy for two reasons: 1) there are a ton of plugins that are a breeze to install via NPM and 2) Gulp tasks are written in JavaScript.</p>
+
+<h3 id="the-directory-structure">The Directory Structure</h3>
+<p>I’m now using a pretty standard structure that uses two main folders. All source files live in <code>src/</code>, and all final, ready-for-the-live-website files live in <code>dist/</code>. Files from <code>src/</code> are processed in gulp and copied to <code>dist/</code>. Oooh. Aaah.</p>
+
+<pre>
+<code class="language-javascript"> 
+/*
+
+	Directory structure:
+	    | -- src
+	    |   | -- index.html
+	    |   | -- styles
+	    |   | -- | -- vendor
+	    |   | -- js
+	    |   | -- | -- vendor
+	    |   | -- img
+	    | -- dist
+	    |   | -- index.html
+	    |   | -- styles
+	    |   | -- | -- main.min.css
+	    |   | -- js
+	    |   | -- | -- app.min.js
+	    |   | -- img
+
+*/
+</code>
+</pre>
+
+<h3 id="gulp-generally">Gulp, Generally</h3>
+<pre>
+<code class="language-javascript"> 
+gulp.task('example-task’, function() {
+
+	var stream = gulp.src(source + '/files')
+		.pipe(doSomething())
+		.pipe(gulp.dest(destination))
+
+}
+</code>
+</pre>
+
+<p>Gulp works rather simply. You’ll have:</p>
+
+<ul>
+  <li>A <strong>task</strong>, or the name of a function that can be run from the terminal or elsewhere in the gulpfile.</li>
+  <li>A <strong>glob</strong>. This is a file or group of files in node. It’s specified in <code>gulp.src(glob-here)</code>.</li>
+  <li>A <strong>stream</strong> are objects that represent the glob files, which can then be passed to functions, modified and saved.</li>
+  <li>A <strong>pipe</strong> is the means by which data is streamed to be processed. Or more crudely, the stream files are dumped into a plugin via a pipe, then another plugin via another pipe, then another plugin via another pipe, until all processing is completed and the modified stream can be dumped in its final destination via the last pipe.</li>
+</ul>
+
+<h3 id="what-my-gulpfile-does">What My Gulpfile Does</h3>
+<p>I’ll give just one example here, rather than going through the entire file. You get the gist.</p>
+<pre>
+<code class="language-javascript"> 
+//	javascript
+gulp.task('javascript', function() {
+	var dirs = getAllDirs(source, 'js');  // run a function to grab all js/ directories. See note below.**
+
+	var tasks = dirs.map(function(currentDir) {  // iterate through each directory
+
+		return gulp.src(path.join(currentDir, '**/*.js'))  // grab all JavaScript files within the current directory
+			.pipe(_if(prod, order([  // in a production build,
+				'vendor/*.js',  // grab vendor files first
+				'*.js'  // this ensures that vendor files are concatenated before the site-specific scripts
+			], { base: currentDir })))
+			.pipe(_if(prod, sourcemaps.init()))  // in a prod build, create sourcemaps
+				.pipe(_if(prod, concat('app.js')))  // concatenate all JS files into one file
+				.pipe(_if(prod, uglify({  // minify and obfuscate JS file
+					preserveComments: 'all'
+				})))
+				.pipe(_if(prod, rename({  // change file extension to ".min.js"
+					extname: '.min.js'
+				})))
+			.pipe(_if(prod, sourcemaps.write('./')))
+			.pipe(gulp.dest(dest + currentDir.replace('src', '')));  // move app.min.js to destination folder
+	});
+})
+</code>
+</pre>
+
+<p>** This ensures that all <code>.js</code> files are processed relative to their parent <code>js/</code> folder. Since I have several sub-websites under my main portfolio website, I didn’t want the sub-sites’ JavaScript files to be concatenated and minified with the main site’s files into one giant JavaScript file.</p>
+
+<p>In addition to JavaScript processing, the gulpfile also does the following:</p>
+
+<h4 id="html">HTML</h4>
+<ul>
+  <li>Update JavaScript and CSS filenames, depending on build type (development vs. production)</li>
+  <li>Copy HTML files to destination</li>
+</ul>
+
+<h4 id="styles">Styles</h4>
+<ul>
+  <li>Process SASS/SCSS files into CSS</li>
+  <li>Add browser prefixes to style properties</li>
+  <li>In a prod build, concatenate all CSS files into one file</li>
+  <li>In a prod build, minify the CSS file</li>
+  <li>In a prod build, change the file extension to “.min.css”</li>
+  <li>Copy CSS files to destination</li>
+</ul>
+
+<h4 id="jekyll">Jekyll</h4>
+<p>This task runs after Jekyll is built via its own build system. It simply copies the finalized Jekyll website files to the destination.</p>
+
+<h4 id="watch">Watch</h4>
+<p>I’ve also included a <code>gulp watch</code> task to listen for changes in any JavaScript, CSS, HTML or Jekyll files, and run the corresponding task after changes are detected.</p>
+
+<p>With this much-needed task behind me, I leave you with the <a href="https://www.youtube.com/watch?v=praFGD51ih8" target="_blank">wise words</a> of Lloyd Christmas: “Big Gulps, huh? Alright. Welp, see ya later.”</p>
+
+
+					<ul class='tags'>
+						
+							<li><a href='/blog/tags/#gulp'> #gulp </a></li>
+						
+							<li><a href='/blog/tags/#task-runner'> #task-runner </a></li>
+						
+							<li><a href='/blog/tags/#javascript'> #javascript </a></li>
+						
+							<li><a href='/blog/tags/#node'> #node </a></li>
+						
+							<li><a href='/blog/tags/#development-processes'> #development-processes </a></li>
+						
+					</ul>
+				</div>
+			</article>
+
+		</div>
+
+		<div id='about'>
+	<div class='wrapper'>
+		<div class='headshot'>
+			<img src='/img/headshot.png' />
+			<p>Ask me about my cat, my veggie burger recipes and my love for all things French.</p>
+		</div>
+		<ul class='contact'>
+			<li><p><a href='/blog'>Blog</a></p></li>
+			<li><p><a href='http://github.com/kimberlyhawthorne' target='_blank'>Github</a></p></li>
+			<li><p><a href='/KimHawthorne_resume.pdf' target='_blank'>Resume</a></p></li>
+			<li><p><a href='mailto:kim@kimcod.es'>Email</a></p></li>
+		</ul>
+	</div>				
+</div>
+
+<footer>
+	<p>&copy;2015 Kim Hawthorne</p>
+</footer>
+
+	</div>
+</body>
+</html>

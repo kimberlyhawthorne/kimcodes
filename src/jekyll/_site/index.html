@@ -37,7 +37,7 @@
 				<a href="./tags" class='see-all'>
 				
 				
-						<p>See all 5 projects</p>
+						<p>See all 6 projects</p>
 				
 				</a>
 
@@ -46,10 +46,120 @@
 			
 
 				<article>
+ 					<h2 class='post-number'>6</h2>
+
+					<div class='post-info'>
+						<h2 class='post-title'><a href='/blog/2016/02/29/node-db-read.html'>Node Beginnings</a></h2>
+						<h3 class='post-date'>February 29, 2016</h3>
+					</div>
+
+					<div class='post-content'>
+						<p>Well, this is embarrassing.</p>
+
+<p>Some of you may be wondering, “how is she going to code 52 projects in 52 weeks if the last project that she completed was before Thanksgiving?” I, too, am wondering the same thing, dear readers. But, don’t despair! For I’ve just woken from a wonderful three-month food and vacation coma, armed with an idea for a web app. And thus I have decided to take the pluge into the wild world of Node.js.</p>
+
+<p>This project hardly qualifies as an “app”, since all I’m doing is reading some very important kitten information from an incredibly complex database. But, for a node newb for whom the “server side” was still a dark and scary place, I picked up many of the basics. Though not necessary for such a small project, I also followed an MVC pattern because practice makes perfect.</p>
+
+<p><a href="https://kimcodes-kitten-database.herokuapp.com/" class="project-link" target="_blank">
+	<img src="/img/52projects/kitten-database.png" alt="A Very Kitten Database" />
+	See the project
+</a></p>
+
+<h3 id="the-tools">The Tools</h3>
+
+<p>I used <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the <a href="http://expressjs.com/" target="_blank">Express</a> framework to build the application framework. <a href="https://www.mongodb.org/" target="_blank">MongoDB</a> is the database, and <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a> is the templating for the views. The app is hosted on <a href="" target="_blank">Heroku</a>, with help from <a href="https://mlab.com/" target="_blank">mLab</a> as the cloud database service.</p>
+
+<h3 id="the-basics-or-why-mvc-is-your-friend">The Basics, or Why MVC is your Friend</h3>
+
+<p>Coding an entire app can get messy. My first few tries at making a complete web app were a hot mess–hanging HTTP requests, a tangle of routes and views and database connections, crashing browsers, streaming error logs.</p>
+
+<p>MVC is one of those much-discussed resume acronyms. It stands for model-view-controller, and one of its main tenants is in separating the logic of your application. As a node newb, I found that following an MVC framework also gave some guidance for an application structure that could otherwise quickly become unruly.</p>
+
+<ul>
+  <li>The <strong>model</strong> deals with the database and only the database. It doesn’t care about what the application looks like, or does, or that it even exists. The model simply reads and writes to the database.</li>
+  <li>The <strong>controllers</strong> are the main logic of the application. They interpret incoming HTTP requests, and may fetch data, change the data and/or send the data to a view.</li>
+  <li>Finally, the <strong>view</strong> displays the data to the browser.</li>
+</ul>
+
+<h3 id="connecting-to-the-database">Connecting to the Database</h3>
+
+<p>One challenge I ran into was (drum roll) connecting to the database. In an early and very messed-up implementation, I was unable to make consecutive calls to the database without the application hanging. To fix that, I ended up connecting to the database just once and passing to the controller a reference to the database object.</p>
+
+<pre>
+<code class="language-javascript">
+var db; 
+
+mongodb.MongoClient.connect(&gt;&gt;database address&lt;&lt;, function(err, database) {
+	if (err) throw err;
+
+	database.collection('kittens', function(err, results) {
+		if (err) throw err;
+
+		db = results;  // assign successful results to db variable
+		app.listen(3000); // start server if db connection is successful
+		appConfig(app);
+	})
+});
+
+
+function appConfig(app) {
+	// include controllers and pass db reference
+	var controllers = require('./controllers/index')(db);
+
+	// middleware
+	app.use(controllers);
+};
+</code>
+</pre>
+
+<h3 id="deploying-to-heroku">Deploying to Heroku</h3>
+
+<p>Heroku apps are managed via a git repository. Each time code is pushed to a certain branch (in this case, master), the app is built and deployed to Heroku.</p>
+
+<p>Getting set up with Heroku was blissfully easy. To ensure that the application can be used both locally and on Heroku without tons of manual changes, I had to ensure the port number could change depending on the environment. I’m sure I’ll run into much more environment-specific configuration as I build more complex apps, but this was a good example to get thinking about it.</p>
+
+<pre>
+<code class="language-javascript">
+var port = process.env.PORT || 3000; // use Heroku's port number or default to 3000
+</code>
+</pre>
+
+<p>There you have it, folks: my first Node app. Since this is hosted on Heroku, the code lives in its own repository, which you can see <a href="https://github.com/kimberlyhawthorne/52projects_06" target="_blank">here</a>.</p>
+
+<p>If you know of any kitties who should be added to this exhaustive list, please contact me. In the meantime, excuse me while I head to New York City for just one more quick weekend getaway…</p>
+
+
+						<ul class='tags'>
+							
+								<li><a href='./tags/#node'> #node </a></li>
+							
+								<li><a href='./tags/#express'> #express </a></li>
+							
+								<li><a href='./tags/#mongodb'> #mongodb </a></li>
+							
+								<li><a href='./tags/#database'> #database </a></li>
+							
+								<li><a href='./tags/#mvc'> #mvc </a></li>
+							
+								<li><a href='./tags/#handlebars'> #handlebars </a></li>
+							
+								<li><a href='./tags/#heroku'> #heroku </a></li>
+							
+								<li><a href='./tags/#javascript'> #javascript </a></li>
+							
+						</ul>
+
+					</div>
+
+				</article>
+
+			
+
+				<article>
  					<h2 class='post-number'>5</h2>
 
 					<div class='post-info'>
-						<h2 class='post-title'><a href='/blog/2015/11/16/gulp/'>Gulp: the Task of Setting Up a Task Runner</a></h2>
+						<h2 class='post-title'><a href='/blog/2015/11/16/gulp.html'>Gulp: the Task of Setting Up a Task Runner</a></h2>
 						<h3 class='post-date'>November 16, 2015</h3>
 					</div>
 
@@ -60,132 +170,118 @@
 
 <p>But, despite the extra task of restructuring my whole website, setting up Gulp was more enjoyable than I expected. It made <a href="http://www.kimcod.es" target="_blank">www.kimcod.es</a> better constructed and will make my remaining 47 projects easier to develop.</p>
 
-<p>Since I expect the file to be ever-changing, <a href="https://github.com/kimberlyhawthorne/kimcodes/blob/master/gulpfile.js" target="_blank">here's a link to it</a>.</p>
+<p>Since I expect the file to be ever-changing, <a href="https://github.com/kimberlyhawthorne/kimcodes/blob/master/gulpfile.js" target="_blank">here’s a link to it</a>.</p>
 
-<h3>About Gulp</h3>
+<h3 id="about-gulp">About Gulp</h3>
 
 <p>Gulp is a build system built on top of Node. This makes setting it up easy for two reasons: 1) there are a ton of plugins that are a breeze to install via NPM and 2) Gulp tasks are written in JavaScript.</p>
 
-<h3>The Directory Structure</h3>
-
-<p>I'm now using a pretty standard structure that uses two main folders. All source files live in <code>src/</code>, and all final, ready-for-the-live-website files live in <code>dist/</code>. Files from <code>src/</code> are processed in gulp and copied to <code>dist/</code>. Oooh. Aaah.</p>
+<h3 id="the-directory-structure">The Directory Structure</h3>
+<p>I’m now using a pretty standard structure that uses two main folders. All source files live in <code>src/</code>, and all final, ready-for-the-live-website files live in <code>dist/</code>. Files from <code>src/</code> are processed in gulp and copied to <code>dist/</code>. Oooh. Aaah.</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /*
 
-    Directory structure:
-        | -- src
-        |   | -- index.html
-        |   | -- styles
-        |   | -- | -- vendor
-        |   | -- js
-        |   | -- | -- vendor
-        |   | -- img
-        | -- dist
-        |   | -- index.html
-        |   | -- styles
-        |   | -- | -- main.min.css
-        |   | -- js
-        |   | -- | -- app.min.js
-        |   | -- img
+	Directory structure:
+	    | -- src
+	    |   | -- index.html
+	    |   | -- styles
+	    |   | -- | -- vendor
+	    |   | -- js
+	    |   | -- | -- vendor
+	    |   | -- img
+	    | -- dist
+	    |   | -- index.html
+	    |   | -- styles
+	    |   | -- | -- main.min.css
+	    |   | -- js
+	    |   | -- | -- app.min.js
+	    |   | -- img
 
 */
 </code>
 </pre>
 
-
-<h3>Gulp, Generally</h3>
-
+<h3 id="gulp-generally">Gulp, Generally</h3>
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 gulp.task('example-task’, function() {
 
-    var stream = gulp.src(source + '/files')
-        .pipe(doSomething())
-        .pipe(gulp.dest(destination))
+	var stream = gulp.src(source + '/files')
+		.pipe(doSomething())
+		.pipe(gulp.dest(destination))
 
 }
 </code>
 </pre>
 
-
-<p>Gulp works rather simply. You'll have:</p>
+<p>Gulp works rather simply. You’ll have:</p>
 
 <ul>
-<li>A <strong>task</strong>, or the name of a function that can be run from the terminal or elsewhere in the gulpfile.</li>
-<li>A <strong>glob</strong>. This is a file or group of files in node. It's specified in <code>gulp.src(glob-here)</code>.</li>
-<li>A <strong>stream</strong> are objects that represent the glob files, which can then be passed to functions, modified and saved.</li>
-<li>A <strong>pipe</strong> is the means by which data is streamed to be processed. Or more crudely, the stream files are dumped into a plugin via a pipe, then another plugin via another pipe, then another plugin via another pipe, until all processing is completed and the modified stream can be dumped in its final destination via the last pipe.</li>
+  <li>A <strong>task</strong>, or the name of a function that can be run from the terminal or elsewhere in the gulpfile.</li>
+  <li>A <strong>glob</strong>. This is a file or group of files in node. It’s specified in <code>gulp.src(glob-here)</code>.</li>
+  <li>A <strong>stream</strong> are objects that represent the glob files, which can then be passed to functions, modified and saved.</li>
+  <li>A <strong>pipe</strong> is the means by which data is streamed to be processed. Or more crudely, the stream files are dumped into a plugin via a pipe, then another plugin via another pipe, then another plugin via another pipe, until all processing is completed and the modified stream can be dumped in its final destination via the last pipe.</li>
 </ul>
 
-
-<h3>What My Gulpfile Does</h3>
-
-<p>I'll give just one example here, rather than going through the entire file. You get the gist.</p>
-
+<h3 id="what-my-gulpfile-does">What My Gulpfile Does</h3>
+<p>I’ll give just one example here, rather than going through the entire file. You get the gist.</p>
 <pre>
-<code class='language-javascript'> 
-//  javascript
+<code class="language-javascript"> 
+//	javascript
 gulp.task('javascript', function() {
-    var dirs = getAllDirs(source, 'js');  // run a function to grab all js/ directories. See note below.**
+	var dirs = getAllDirs(source, 'js');  // run a function to grab all js/ directories. See note below.**
 
-    var tasks = dirs.map(function(currentDir) {  // iterate through each directory
+	var tasks = dirs.map(function(currentDir) {  // iterate through each directory
 
-        return gulp.src(path.join(currentDir, '**/*.js'))  // grab all JavaScript files within the current directory
-            .pipe(_if(prod, order([  // in a production build,
-                'vendor/*.js',  // grab vendor files first
-                '*.js'  // this ensures that vendor files are concatenated before the site-specific scripts
-            ], { base: currentDir })))
-            .pipe(_if(prod, sourcemaps.init()))  // in a prod build, create sourcemaps
-                .pipe(_if(prod, concat('app.js')))  // concatenate all JS files into one file
-                .pipe(_if(prod, uglify({  // minify and obfuscate JS file
-                    preserveComments: 'all'
-                })))
-                .pipe(_if(prod, rename({  // change file extension to ".min.js"
-                    extname: '.min.js'
-                })))
-            .pipe(_if(prod, sourcemaps.write('./')))
-            .pipe(gulp.dest(dest + currentDir.replace('src', '')));  // move app.min.js to destination folder
-    });
+		return gulp.src(path.join(currentDir, '**/*.js'))  // grab all JavaScript files within the current directory
+			.pipe(_if(prod, order([  // in a production build,
+				'vendor/*.js',  // grab vendor files first
+				'*.js'  // this ensures that vendor files are concatenated before the site-specific scripts
+			], { base: currentDir })))
+			.pipe(_if(prod, sourcemaps.init()))  // in a prod build, create sourcemaps
+				.pipe(_if(prod, concat('app.js')))  // concatenate all JS files into one file
+				.pipe(_if(prod, uglify({  // minify and obfuscate JS file
+					preserveComments: 'all'
+				})))
+				.pipe(_if(prod, rename({  // change file extension to ".min.js"
+					extname: '.min.js'
+				})))
+			.pipe(_if(prod, sourcemaps.write('./')))
+			.pipe(gulp.dest(dest + currentDir.replace('src', '')));  // move app.min.js to destination folder
+	});
 })
 </code>
 </pre>
 
-
-<p>** This ensures that all <code>.js</code> files are processed relative to their parent <code>js/</code> folder. Since I have several sub-websites under my main portfolio website, I didn't want the sub-sites' JavaScript files to be concatenated and minified with the main site's files into one giant JavaScript file.</p>
+<p>** This ensures that all <code>.js</code> files are processed relative to their parent <code>js/</code> folder. Since I have several sub-websites under my main portfolio website, I didn’t want the sub-sites’ JavaScript files to be concatenated and minified with the main site’s files into one giant JavaScript file.</p>
 
 <p>In addition to JavaScript processing, the gulpfile also does the following:</p>
 
-<h4>HTML</h4>
-
+<h4 id="html">HTML</h4>
 <ul>
-<li>Update JavaScript and CSS filenames, depending on build type (development vs. production)</li>
-<li>Copy HTML files to destination</li>
+  <li>Update JavaScript and CSS filenames, depending on build type (development vs. production)</li>
+  <li>Copy HTML files to destination</li>
 </ul>
 
-
-<h4>Styles</h4>
-
+<h4 id="styles">Styles</h4>
 <ul>
-<li>Process SASS/SCSS files into CSS</li>
-<li>Add browser prefixes to style properties</li>
-<li>In a prod build, concatenate all CSS files into one file</li>
-<li>In a prod build, minify the CSS file</li>
-<li>In a prod build, change the file extension to ".min.css"</li>
-<li>Copy CSS files to destination</li>
+  <li>Process SASS/SCSS files into CSS</li>
+  <li>Add browser prefixes to style properties</li>
+  <li>In a prod build, concatenate all CSS files into one file</li>
+  <li>In a prod build, minify the CSS file</li>
+  <li>In a prod build, change the file extension to “.min.css”</li>
+  <li>Copy CSS files to destination</li>
 </ul>
 
-
-<h4>Jekyll</h4>
-
+<h4 id="jekyll">Jekyll</h4>
 <p>This task runs after Jekyll is built via its own build system. It simply copies the finalized Jekyll website files to the destination.</p>
 
-<h4>Watch</h4>
+<h4 id="watch">Watch</h4>
+<p>I’ve also included a <code>gulp watch</code> task to listen for changes in any JavaScript, CSS, HTML or Jekyll files, and run the corresponding task after changes are detected.</p>
 
-<p>I've also included a <code>gulp watch</code> task to listen for changes in any JavaScript, CSS, HTML or Jekyll files, and run the corresponding task after changes are detected.</p>
-
-<p>With this much-needed task behind me, I leave you with the <a href="https://www.youtube.com/watch?v=praFGD51ih8" target="_blank">wise words</a> of Lloyd Christmas: "Big Gulps, huh? Alright. Welp, see ya later."</p>
+<p>With this much-needed task behind me, I leave you with the <a href="https://www.youtube.com/watch?v=praFGD51ih8" target="_blank">wise words</a> of Lloyd Christmas: “Big Gulps, huh? Alright. Welp, see ya later.”</p>
 
 
 						<ul class='tags'>
@@ -212,34 +308,33 @@ gulp.task('javascript', function() {
  					<h2 class='post-number'>4</h2>
 
 					<div class='post-info'>
-						<h2 class='post-title'><a href='/blog/2015/10/28/regex/'>Regular Expressions, Irregular Updates</a></h2>
+						<h2 class='post-title'><a href='/blog/2015/10/28/regex.html'>Regular Expressions, Irregular Updates</a></h2>
 						<h3 class='post-date'>October 28, 2015</h3>
 					</div>
 
 					<div class='post-content'>
-						<p>Aaand, I'm back after an unintentional hiatus. Computer screens tend to take a backseat for me during the summer, because sometimes you have to:</p>
+						<p>Aaand, I’m back after an unintentional hiatus. Computer screens tend to take a backseat for me during the summer, because sometimes you have to:</p>
 
 <ul>
-<li><a href="https://instagram.com/p/6-5k9bFuA4/" target="_blank">Fly to Tahoe</a> to celebrate your sister's birthday.</li>
-<li><a href="https://instagram.com/p/7S4EX0luBS/" target="_blank">Ride your bike</a> across the state of Michigan to celebrate your dad's retirement.</li>
-<li>Move to your first "real" (i.e., not dumpy) <a href="https://instagram.com/p/8EhsoaluLy/" target="_blank">apartment</a>.</li>
-<li>Attend a <a href="https://instagram.com/p/9BhyNWFuD6/" target="_blank">Halloween masquerade</a> in Detroit.</li>
+  <li><a href="https://instagram.com/p/6-5k9bFuA4/" target="_blank">Fly to Tahoe</a> to celebrate your sister’s birthday.</li>
+  <li><a href="https://instagram.com/p/7S4EX0luBS/" target="_blank">Ride your bike</a> across the state of Michigan to celebrate your dad’s retirement.</li>
+  <li>Move to your first “real” (i.e., not dumpy) <a href="https://instagram.com/p/8EhsoaluLy/" target="_blank">apartment</a>.</li>
+  <li>Attend a <a href="https://instagram.com/p/9BhyNWFuD6/" target="_blank">Halloween masquerade</a> in Detroit.</li>
 </ul>
 
+<p>What better way to welcome myself back to the world of code than by practicing the never frustrating, always readable regular expressions? For the uninitiated, regular expressions can be used to determine if strings fit certain patterns. In my past life working in marketing for a software company, I overheard developers discussing using regexs to identify credit cards numbers, social security numbers and birthdates. Years later, I finally have an inkling of what they were talking about. Here, I built a few form fields that are validated with regular expressions. And yes, I wrote the patterns myself, although the impulse to search for “email address regular expression” was at times overwhelming.</p>
 
-<p>What better way to welcome myself back to the world of code than by practicing the never frustrating, always readable regular expressions? For the uninitiated, regular expressions can be used to determine if strings fit certain patterns. In my past life working in marketing for a software company, I overheard developers discussing using regexs to identify credit cards numbers, social security numbers and birthdates. Years later, I finally have an inkling of what they were talking about. Here, I built a few form fields that are validated with regular expressions. And yes, I wrote the patterns myself, although the impulse to search for "email address regular expression" was at times overwhelming.</p>
-
-<p><a href='/52projects/3_regex' class='project-link' target='_blank'>
-    <img src='/img/52projects/regular-expressions.png' alt='Regular Expressions' />
-    See the project
+<p><a href="/52projects/3_regex" class="project-link" target="_blank">
+	<img src="/img/52projects/regular-expressions.png" alt="Regular Expressions" />
+	See the project
 </a></p>
 
 <p>I know, I know. HTML includes input properties that render this whole project almost useless. But, I learned some stuff, and that counts for something, right?</p>
 
-<h3>Some Reg Ex tokens</h3>
+<h3 id="some-reg-ex-tokens">Some Reg Ex tokens</h3>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 ^  // start of string
 $  //end of string
 
@@ -266,77 +361,69 @@ a?  // zero or one of the previous token
 </code>
 </pre>
 
-
-<h3>My examples, in plain English</h3>
+<h3 id="my-examples-in-plain-english">My examples, in plain English</h3>
 
 <p>Zipcode:</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^\d{5}$/  // any digit, repeated five times
 </code>
 </pre>
 
-
 <p>Phone number:</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^\d{10}$/  // any digit, repeated ten times
 </code>
 </pre>
 
-
 <p>Birthdate:</p>
-
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^(?:0[1-9]|1[0-2])\/(?:[1-9]|0[1-9]|1\d|2\d|3[0-1])\/(?:19\d\d|20[0-1][0-5])$/
 
 // explanation:
-    ^   // beginning anchor
-    (?:0[1-9]|1[0-2])   // first group: any digit 1-12; single digits must begin with 0
-    \/   // escaped forward slash
-    (?:[1-9]|0[1-9]|1\d|2\d|3[0-1])   // second group: any digit 1-31
-    \/   // escaped forward slash
-    (?:19\d\d|20[0-1][0-5])   // third group: any digit 1900-2015
-    $   // ending anchor
+	^   // beginning anchor
+	(?:0[1-9]|1[0-2])   // first group: any digit 1-12; single digits must begin with 0
+	\/   // escaped forward slash
+	(?:[1-9]|0[1-9]|1\d|2\d|3[0-1])   // second group: any digit 1-31
+	\/   // escaped forward slash
+	(?:19\d\d|20[0-1][0-5])   // third group: any digit 1900-2015
+	$   // ending anchor
 
 </code>
 </pre>
-
 
 <p>Email address (yikes):</p>
 
 <p>There may be a ton of email address validators that are better than this one. However, I tried to account for a majority of the rules to which email addresses should adhere. Shout out to <a href="http://rumkin.com/software/email/rules.php" target="_blank">this website</a> for listing those out so clearly.</p>
 
 <pre>
-<code class='language-javascript'> 
-/^(?!.*(\.)\1)(?:\w[\w\b!#$%&'*+\-\/=?^_`{|}~\.]{1,63})@(?:[\w\-]+)\.(?:[^\_\W]){2,}$/
+<code class="language-javascript"> 
+/^(?!.*(\.)\1)(?:\w[\w\b!#$%&amp;'*+\-\/=?^_`{|}~\.]{1,63})@(?:[\w\-]+)\.(?:[^\_\W]){2,}$/
 
 // explanation:
-    ^   // beginning anchor
-    (?!.*(\.)\1)   // a negative lookahead to ensure there are no consecutive periods
-    (?:   // first group
-        \w  // first character should be alphanumeric
-        [\w\b!#$%&'*+\-\/=?^_`{|}~\.]{0,63})  // subsequent chars can be alphanumeric or any of the specials chars you see buried in there. there should be between 0 and 63 of these.
-    @   // literal @ sign
-    (?:[\w\-]+)   // second group: one or more alphanumeric characters or hyphens
-    \.   // escaped period
-    (?:[^\_\W]){2,}   // third group: any alphanumeric character, except underscore. must be at least two characters long.
-    $   // ending anchor
+	^   // beginning anchor
+	(?!.*(\.)\1)   // a negative lookahead to ensure there are no consecutive periods
+	(?:   // first group
+		\w  // first character should be alphanumeric
+		[\w\b!#$%&amp;'*+\-\/=?^_`{|}~\.]{0,63})  // subsequent chars can be alphanumeric or any of the specials chars you see buried in there. there should be between 0 and 63 of these.
+	@   // literal @ sign
+	(?:[\w\-]+)   // second group: one or more alphanumeric characters or hyphens
+	\.   // escaped period
+	(?:[^\_\W]){2,}   // third group: any alphanumeric character, except underscore. must be at least two characters long.
+	$   // ending anchor
 
 </code>
 </pre>
 
-
-<h3>Other credits</h3>
-
+<h3 id="other-credits">Other credits</h3>
 <ul>
-<li><a href="http://www.regular-expressions.info/lookaround.html" target="_blank">regular-expressions.info</a> for explaining lookaheads/lookbehinds</li>
-<li><a href="" target="_blank">regex101.com</a> for a great validator</li>
+  <li><a href="http://www.regular-expressions.info/lookaround.html" target="_blank">regular-expressions.info</a> for explaining lookaheads/lookbehinds</li>
+  <li><a href="" target="_blank">regex101.com</a> for a great validator</li>
 </ul>
-
 
 
 						<ul class='tags'>
@@ -359,82 +446,75 @@ a?  // zero or one of the previous token
  					<h2 class='post-number'>3</h2>
 
 					<div class='post-info'>
-						<h2 class='post-title'><a href='/blog/2015/08/25/memory/'>Kitty Memory</a></h2>
+						<h2 class='post-title'><a href='/blog/2015/08/25/memory.html'>Kitty Memory</a></h2>
 						<h3 class='post-date'>August 25, 2015</h3>
 					</div>
 
 					<div class='post-content'>
-						<p>I’m going on two vacations soon, which means nearly a week and a half away from my ultra lovable, never annoying and always tame kitten, Minoose. Because I want to keep her near and dear to my heart for the next ten days, I’ve created the official Minoose Kitty Memory game (see how that’s kind of a pun? Keeping my kitty... in my memory… while I’m on vacation……)</p>
+						<p>I’m going on two vacations soon, which means nearly a week and a half away from my ultra lovable, never annoying and always tame kitten, Minoose. Because I want to keep her near and dear to my heart for the next ten days, I’ve created the official Minoose Kitty Memory game (see how that’s kind of a pun? Keeping my kitty… in my memory… while I’m on vacation……)</p>
 
-<p><a href='/52projects/2_memory' class='project-link' target='_blank'>
-    <img src='/img/52projects/kitty-memory.png' alt='Kitty Memory' />
-    See the project
+<p><a href="/52projects/2_memory" class="project-link" target="_blank">
+	<img src="/img/52projects/kitty-memory.png" alt="Kitty Memory" />
+	See the project
 </a></p>
 
-<p>I’ll admit that I’m more familiar with jQuery than Javascript. After learning the basics of Javascript, I jumped right into jQuery for DOM manipulation. Now I use it daily at work, which leaves perusing MDN when it comes to coding in plain ol' Javascript. While this project doesn’t have too much exciting code, it did allow me to commit to memory (ho-hoh!) many of the methods and techniques that jQuery makes almost mindless, such as:</p>
+<p>I’ll admit that I’m more familiar with jQuery than Javascript. After learning the basics of Javascript, I jumped right into jQuery for DOM manipulation. Now I use it daily at work, which leaves perusing MDN when it comes to coding in plain ol’ Javascript. While this project doesn’t have too much exciting code, it did allow me to commit to memory (ho-hoh!) many of the methods and techniques that jQuery makes almost mindless, such as:</p>
 
-<h3>Working with event handlers</h3>
-
+<h3 id="working-with-event-handlers">Working with event handlers</h3>
 <p>The Memory game requires a click event handler on each card, which then triggers functions to flip the card, check for a match, etc. Rather than attach event handlers to all of the cards, I attached one listener to the cards’ parent HTML element. When a card is clicked, the event bubbles up from the clicked card to its parent, where the event listener is all ears. Then, the below condition is run:</p>
 
 <pre>
-<code class='language-markup'>
+<code class="language-markup">
 &lt;div class="wrapper"&gt; // event listener attached here
-    &lt;div class="card-container pair-3"&gt;
-        &lt;div class="front">&lt;/div&gt;
-        &lt;div class="back"&gt;&lt;/div&gt;
-    &lt;/div&gt;
+	&lt;div class="card-container pair-3"&gt;
+		&lt;div class="front"&gt;&lt;/div&gt;
+		&lt;div class="back"&gt;&lt;/div&gt;
+	&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre>
 
-
-
-
 <pre>
-<code class='language-javascript'> 
-if (e.target.parentElement !== e.currentTarget && !e.target.classList.contains('back')) {
-    memory.flipCard(e.target.parentElement);
+<code class="language-javascript"> 
+if (e.target.parentElement !== e.currentTarget &amp;&amp; !e.target.classList.contains('back')) {
+	memory.flipCard(e.target.parentElement);
 }
 </code>
 </pre>
 
-
 <ul>
-<li><code>e.target</code> = element on which the event occurred</li>
-<li><code>e.currentTarget</code> = element to which the event handler is attached (in this case, <code>.wrapper</code>)</li>
+  <li><code>e.target</code> = element on which the event occurred</li>
+  <li><code>e.currentTarget</code> = element to which the event handler is attached (in this case, <code>.wrapper</code>)</li>
 </ul>
-
 
 <p>As long as the click truly occurred on a card (<code>e.target</code>) and not just the general wrapper (<code>e.currentTarget</code>) (and the card is face down), the next function is called.</p>
 
-<h3>Looping in SASS</h3>
-
+<h3 id="looping-in-sass">Looping in SASS</h3>
 <p>Just basic looping using SASS’s syntax. This is pretty useful for applying similar styles to a bunch of elements. I use it to apply the different kitty images to the cards. The cards are paired by class name (<code>.pair-#</code>), and the images are named by number (<code>lola#.jpg</code>). I loop through the card classes and set the kitty image with the matching number (<code>lola{$i}.jpg</code>) as the background.</p>
 
 <pre>
-<code class='language-css'> 
+<code class="language-css"> 
 @for $i from 1 through 8 {
-    &.pair-#{$i} { 
-        .back {
-            background: url('../img/lola#{$i}.jpg') center center no-repeat;
-            background-size: cover;
-        }
-    }
+	&amp;.pair-#{$i} { 
+		.back {
+			background: url('../img/lola#{$i}.jpg') center center no-repeat;
+			background-size: cover;
+		}
+	}
 }
 </code>
 </pre>
 
+<h3 id="shuffling">Shuffling</h3>
 
-<h3>Shuffling</h3>
+<p>And lastly, a big shout out to <a href="http://bost.ocks.org/mike/shuffle/" target="_blank">this website</a> for clearly explaining the Fisher-Yates shuffle, which sounds like an old-timey dance but is actually the method I’m using to mix up these kitty cards.</p>
 
-<p>And lastly, a big shout out to <a href='http://bost.ocks.org/mike/shuffle/' target='_blank'>this website</a> for clearly explaining the Fisher-Yates shuffle, which sounds like an old-timey dance but is actually the method I’m using to mix up these kitty cards.</p>
-
-<p>Basically, Fisher-Yates is a method for efficiently shuffling the indexes of an array. Rather than using two arrays (one to hold all possible indexes and one to hold the newly shuffled indexes), this method uses one. As indexes are shuffled, they are moved to the back of the array. The unshuffled indexes remain at the front&mdash;a pool of unshuffleds. Indexes to be shuffled are drawn from this pool only, with the pool getting smaller and smaller until finally, all indexes have been shuffled.</p>
+<p>Basically, Fisher-Yates is a method for efficiently shuffling the indexes of an array. Rather than using two arrays (one to hold all possible indexes and one to hold the newly shuffled indexes), this method uses one. As indexes are shuffled, they are moved to the back of the array. The unshuffled indexes remain at the front—a pool of unshuffleds. Indexes to be shuffled are drawn from this pool only, with the pool getting smaller and smaller until finally, all indexes have been shuffled.</p>
 
 <p>Fisher-Yates is more efficient than the double-looping required if you use two arrays. In that instance, when an index is randomly selected to be shuffled, it must first be checked against the indexes that have already been shuffled to ensure that it’s not selected twice.</p>
 
 <p>Phew. If that makes no sense, click that link for some visualizations that will.</p>
+
 
 
 						<ul class='tags'>
@@ -459,7 +539,7 @@ if (e.target.parentElement !== e.currentTarget && !e.target.classList.contains('
  					<h2 class='post-number'>2</h2>
 
 					<div class='post-info'>
-						<h2 class='post-title'><a href='/blog/2015/08/17/pub-sub/'>Publish, subscribe and lottery winnings</a></h2>
+						<h2 class='post-title'><a href='/blog/2015/08/17/pub-sub.html'>Publish, subscribe and lottery winnings</a></h2>
 						<h3 class='post-date'>August 17, 2015</h3>
 					</div>
 
@@ -468,44 +548,43 @@ if (e.target.parentElement !== e.currentTarget && !e.target.classList.contains('
 
 <p>The main feature behind this wonderful tool is a publish/subscribe pattern, along with a few other nuggets of knowledge, including a detailed understanding of Powerball’s rules.</p>
 
-<p><a href='/52projects/1_pub-sub' class='project-link' target='_blank'>
-    <img src='/img/52projects/pub-sub-lottery.png' alt='Lottery' />
-    See the project
+<p><a href="/52projects/1_pub-sub" class="project-link" target="_blank">
+	<img src="/img/52projects/pub-sub-lottery.png" alt="Lottery" />
+	See the project
 </a></p>
 
-<h3>Publish/Subscribe Pattern</h3>
-
+<h3 id="publishsubscribe-pattern">Publish/Subscribe Pattern</h3>
 <p>In technical terms, a publish/subscribe pattern can be used to decouple your code. In laymen terms, your code shouldn’t be so intertwined that a change to one part necessitates manual changes to a bunch of other parts. In a publish/subscribe pattern, one part of your code can listen (subscribe) for data to be made available (published) by another part of the application. You can have many subscribers for one publisher, and they aren’t managed and don’t interfere with the publisher.</p>
 
-<pre class='language-javascript'>
+<pre class="language-javascript">
 <code>
 var pubSub = {
-    topics : {},
-    publish : function(topic, arguments) {
-        var key = topic,
-            listener;
+	topics : {},
+	publish : function(topic, arguments) {
+		var key = topic,
+			listener;
 
-        // add topic to list if it doesn't exist already
-        if (!(key in this.topics)) {
-            this.topics[key] = [key];
-        }
+		// add topic to list if it doesn't exist already
+		if (!(key in this.topics)) {
+			this.topics[key] = [key];
+		}
 
-        // grab the listener function from the topics list
-        // call it, passing in the arguments parameter
-        listener = this.topics[key][1];
-        listener(arguments);
-    },
-    subscribe : function(topic, listener) {
-        var key = topic;
+		// grab the listener function from the topics list
+		// call it, passing in the arguments parameter
+		listener = this.topics[key][1];
+		listener(arguments);
+	},
+	subscribe : function(topic, listener) {
+		var key = topic;
 
-        // create topic and add to list, if it doesn't exist already
-        if (!(key in this.topics)) {
-            this.topics[key] = [key];
-        }
+		// create topic and add to list, if it doesn't exist already
+		if (!(key in this.topics)) {
+			this.topics[key] = [key];
+		}
 
-        // add the listener function to this topic in the topics list
-        this.topics[key].push(listener);
-    }
+		// add the listener function to this topic in the topics list
+		this.topics[key].push(listener);
+	}
 }
 
 pubSub.publish(topic, arguments);
@@ -513,32 +592,28 @@ pubSub.subscribe(topic, listener);
 </code>
 </pre>
 
-
 <ul>
-<li>Topic: A name for what you're doing. The publish and subscribe methods are linked by the topic name.</li>
-<li>Arguments: The data that is published.</li>
-<li>Listener: A function to do something with the published data.</li>
+  <li>Topic: A name for what you’re doing. The publish and subscribe methods are linked by the topic name.</li>
+  <li>Arguments: The data that is published.</li>
+  <li>Listener: A function to do something with the published data.</li>
 </ul>
-
 
 <p>For the lottery example:</p>
 
 <ul>
-<li>Topic: <code>lotterySelections</code></li>
-<li>Subscribe: The subscribe function is initialized on page load, and so begins listening for something to be published under the <code>lotterySelections</code> topic as soon as the page is ready to go.</li>
-<li>Publish: When a user clicks on the “Show me the money!” button, a bunch of calculations return an array of six numbers, which make up the random lottery combination. The array is published to <code>lotterySelections</code>.</li>
-<li>Subscribe: Listening for data on the <code>lotterySelections</code> topic, the subscribe function picks up the array of lotto numbers that was passed as the publisher's arguments parameter. The subscriber then processes the array with its listener function. Here, the listener prints the array to the screen.</li>
+  <li>Topic: <code>lotterySelections</code></li>
+  <li>Subscribe: The subscribe function is initialized on page load, and so begins listening for something to be published under the <code>lotterySelections</code> topic as soon as the page is ready to go.</li>
+  <li>Publish: When a user clicks on the “Show me the money!” button, a bunch of calculations return an array of six numbers, which make up the random lottery combination. The array is published to <code>lotterySelections</code>.</li>
+  <li>Subscribe: Listening for data on the <code>lotterySelections</code> topic, the subscribe function picks up the array of lotto numbers that was passed as the publisher’s arguments parameter. The subscriber then processes the array with its listener function. Here, the listener prints the array to the screen.</li>
 </ul>
-
 
 <p>I’ll admit that this project did not necessarily need a pub/sub pattern. However, should I decide to add more functionality—such as a way for users to copy the combinations or email them to themselves—all I’d need to do is create the new functionality and add it as a subscriber to the <code>lotterySelections</code> topic. Once the lottery numbers are published, any part of the application that is listening for those publications can access the published number array.</p>
 
-<h3>Setting object keys with a variable</h3>
-
+<h3 id="setting-object-keys-with-a-variable">Setting object keys with a variable</h3>
 <p>Must be done with bracket notation.</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 var name = “key”,
       object = {};
 
@@ -547,9 +622,7 @@ object[name] = “value”;
 </code>
 </pre>
 
-
-<h3>How the lotto works</h3>
-
+<h3 id="how-the-lotto-works">How the lotto works</h3>
 <p>This application is built to generate combinations for the Powerball lottery. Twice per week, five white balls with numbers ranging from 1 to 59 are drawn, as well as one red ball with a number ranging from 1 to 35. The white balls do not have repeated numbers (which made for some fun looping).</p>
 
 <p>The next drawing is this Saturday. What are you waiting for?</p>
@@ -575,34 +648,33 @@ object[name] = “value”;
  					<h2 class='post-number'>1</h2>
 
 					<div class='post-info'>
-						<h2 class='post-title'><a href='/blog/2015/07/29/where-i-see-myself-in-one-year/'>Where I see myself in one year</a></h2>
+						<h2 class='post-title'><a href='/blog/2015/07/29/where-i-see-myself-in-one-year.html'>Where I see myself in one year</a></h2>
 						<h3 class='post-date'>July 29, 2015</h3>
 					</div>
 
 					<div class='post-content'>
-						<p>I wouldn't be a journalism school graduate if I didn't cite my sources. Thus in the spirit of ethical journalism, I hereby proclaim that I stole this idea&mdash;many, many months ago&mdash;from <a href='http://jenniferdewalt.com/' target='_blank'>Jennifer Dewalt</a>, who coded 180 websites in 180 days.</p>
+						<p>I wouldn’t be a journalism school graduate if I didn’t cite my sources. Thus in the spirit of ethical journalism, I hereby proclaim that I stole this idea—many, many months ago—from <a href="http://jenniferdewalt.com/" target="_blank">Jennifer Dewalt</a>, who coded 180 websites in 180 days.</p>
 
 <p>In an effort to eat a less varied diet, alienate my friends and, above all, sharpen my development skills, I too will be undertaking a programming challenge: to code 52 projects in 52 weeks. Think of it as a nerdier version of Julie &amp; Julia, with much more typing and much fewer calories.</p>
 
-<p>My original intention was for this blog and <a href='/'>newly recoded portfolio</a> to be my first project. But, seeing as I coded the bulk of both sites more than three months ago, I've forgotten any insights or things I screwed up. So, you'll just have to live with the fact that this blog and accompanying portfolio are coded with <a href='http://jekyllrb.com' target='_blank'>Jekyll</a>. Three cheers for templating!</p>
+<p>My original intention was for this blog and <a href="/">newly recoded portfolio</a> to be my first project. But, seeing as I coded the bulk of both sites more than three months ago, I’ve forgotten any insights or things I screwed up. So, you’ll just have to live with the fact that this blog and accompanying portfolio are coded with <a href="http://jekyllrb.com" target="_blank">Jekyll</a>. Three cheers for templating!</p>
 
-<p>The eternity elapsed between creating the Git repository for this site and actually launching it made me realize that sticking to a rigid one-project-per-week schedule may not be realistic. Because sometimes you have to <a href='http://www.dalmac.org/' target='_blank'>ride your bike across the state of Michigan</a>, or help your sister move to <a href='http://mimsydoodle.tumblr.com/' target='_blank'>San Francisco</a>, or go to New York to visit a friend and almost lose your eye when you get a speck of dust under your contact lens in a dirty karaoke bar.</p>
+<p>The eternity elapsed between creating the Git repository for this site and actually launching it made me realize that sticking to a rigid one-project-per-week schedule may not be realistic. Because sometimes you have to <a href="http://www.dalmac.org/" target="_blank">ride your bike across the state of Michigan</a>, or help your sister move to <a href="http://mimsydoodle.tumblr.com/" target="_blank">San Francisco</a>, or go to New York to visit a friend and almost lose your eye when you get a speck of dust under your contact lens in a dirty karaoke bar.</p>
 
-<p>In light of this, I've settled on a few guidelines:</p>
+<p>In light of this, I’ve settled on a few guidelines:</p>
 
-<h3>The Guidelines</h3>
+<h3 id="the-guidelines">The Guidelines</h3>
 
 <ul>
-<li>I will TRY to code one project per week. Some weeks may have none and others two, but I will have 52 completed projects in the end.</li>
-<li>I will also TRY to code all projects using plain ol' Javascript, rather than jQuery or other libraries.</li>
-<li>I will more than likely use a CSS preprocessor for all of my projects because who wouldn't?</li>
-<li>I will ensure modern browser compatibility for all projects. That does not include you, Internet Explorer 7.</li>
-<li>I will add all projects to <a href='http://github.com/kforkimber/kimcodes'>this Github repository</a>.</li>
-<li>I will, whenever possible, code with my cat on my lap.</li>
+  <li>I will TRY to code one project per week. Some weeks may have none and others two, but I will have 52 completed projects in the end.</li>
+  <li>I will also TRY to code all projects using plain ol’ Javascript, rather than jQuery or other libraries.</li>
+  <li>I will more than likely use a CSS preprocessor for all of my projects because who wouldn’t?</li>
+  <li>I will ensure modern browser compatibility for all projects. That does not include you, Internet Explorer 7.</li>
+  <li>I will add all projects to <a href="http://github.com/kforkimber/kimcodes">this Github repository</a>.</li>
+  <li>I will, whenever possible, code with my cat on my lap.</li>
 </ul>
 
-
-<p>And so, as my grandmother would say, "we're off like a herd of turtles!"</p>
+<p>And so, as my grandmother would say, “we’re off like a herd of turtles!”</p>
 
 
 						<ul class='tags'>

@@ -37,7 +37,7 @@
 				
 				
 					<div>
-						<p>See all 5 projects</p>
+						<p>See all 6 projects</p>
 					</div>
 				
 				</a>
@@ -47,7 +47,7 @@
 				<h2 class='post-number'>2</h2>
 
 				<div class='post-info'>
-					<h2 class='post-title'><a href='/blog/2015/08/17/pub-sub/'>Publish, subscribe and lottery winnings</a></h2>
+					<h2 class='post-title'><a href='/blog/2015/08/17/pub-sub.html'>Publish, subscribe and lottery winnings</a></h2>
 					<h3 class='post-date'>August 17, 2015</h3>
 				</div>
 
@@ -56,44 +56,43 @@
 
 <p>The main feature behind this wonderful tool is a publish/subscribe pattern, along with a few other nuggets of knowledge, including a detailed understanding of Powerball’s rules.</p>
 
-<p><a href='/52projects/1_pub-sub' class='project-link' target='_blank'>
-    <img src='/img/52projects/pub-sub-lottery.png' alt='Lottery' />
-    See the project
+<p><a href="/52projects/1_pub-sub" class="project-link" target="_blank">
+	<img src="/img/52projects/pub-sub-lottery.png" alt="Lottery" />
+	See the project
 </a></p>
 
-<h3>Publish/Subscribe Pattern</h3>
-
+<h3 id="publishsubscribe-pattern">Publish/Subscribe Pattern</h3>
 <p>In technical terms, a publish/subscribe pattern can be used to decouple your code. In laymen terms, your code shouldn’t be so intertwined that a change to one part necessitates manual changes to a bunch of other parts. In a publish/subscribe pattern, one part of your code can listen (subscribe) for data to be made available (published) by another part of the application. You can have many subscribers for one publisher, and they aren’t managed and don’t interfere with the publisher.</p>
 
-<pre class='language-javascript'>
+<pre class="language-javascript">
 <code>
 var pubSub = {
-    topics : {},
-    publish : function(topic, arguments) {
-        var key = topic,
-            listener;
+	topics : {},
+	publish : function(topic, arguments) {
+		var key = topic,
+			listener;
 
-        // add topic to list if it doesn't exist already
-        if (!(key in this.topics)) {
-            this.topics[key] = [key];
-        }
+		// add topic to list if it doesn't exist already
+		if (!(key in this.topics)) {
+			this.topics[key] = [key];
+		}
 
-        // grab the listener function from the topics list
-        // call it, passing in the arguments parameter
-        listener = this.topics[key][1];
-        listener(arguments);
-    },
-    subscribe : function(topic, listener) {
-        var key = topic;
+		// grab the listener function from the topics list
+		// call it, passing in the arguments parameter
+		listener = this.topics[key][1];
+		listener(arguments);
+	},
+	subscribe : function(topic, listener) {
+		var key = topic;
 
-        // create topic and add to list, if it doesn't exist already
-        if (!(key in this.topics)) {
-            this.topics[key] = [key];
-        }
+		// create topic and add to list, if it doesn't exist already
+		if (!(key in this.topics)) {
+			this.topics[key] = [key];
+		}
 
-        // add the listener function to this topic in the topics list
-        this.topics[key].push(listener);
-    }
+		// add the listener function to this topic in the topics list
+		this.topics[key].push(listener);
+	}
 }
 
 pubSub.publish(topic, arguments);
@@ -101,32 +100,28 @@ pubSub.subscribe(topic, listener);
 </code>
 </pre>
 
-
 <ul>
-<li>Topic: A name for what you're doing. The publish and subscribe methods are linked by the topic name.</li>
-<li>Arguments: The data that is published.</li>
-<li>Listener: A function to do something with the published data.</li>
+  <li>Topic: A name for what you’re doing. The publish and subscribe methods are linked by the topic name.</li>
+  <li>Arguments: The data that is published.</li>
+  <li>Listener: A function to do something with the published data.</li>
 </ul>
-
 
 <p>For the lottery example:</p>
 
 <ul>
-<li>Topic: <code>lotterySelections</code></li>
-<li>Subscribe: The subscribe function is initialized on page load, and so begins listening for something to be published under the <code>lotterySelections</code> topic as soon as the page is ready to go.</li>
-<li>Publish: When a user clicks on the “Show me the money!” button, a bunch of calculations return an array of six numbers, which make up the random lottery combination. The array is published to <code>lotterySelections</code>.</li>
-<li>Subscribe: Listening for data on the <code>lotterySelections</code> topic, the subscribe function picks up the array of lotto numbers that was passed as the publisher's arguments parameter. The subscriber then processes the array with its listener function. Here, the listener prints the array to the screen.</li>
+  <li>Topic: <code>lotterySelections</code></li>
+  <li>Subscribe: The subscribe function is initialized on page load, and so begins listening for something to be published under the <code>lotterySelections</code> topic as soon as the page is ready to go.</li>
+  <li>Publish: When a user clicks on the “Show me the money!” button, a bunch of calculations return an array of six numbers, which make up the random lottery combination. The array is published to <code>lotterySelections</code>.</li>
+  <li>Subscribe: Listening for data on the <code>lotterySelections</code> topic, the subscribe function picks up the array of lotto numbers that was passed as the publisher’s arguments parameter. The subscriber then processes the array with its listener function. Here, the listener prints the array to the screen.</li>
 </ul>
-
 
 <p>I’ll admit that this project did not necessarily need a pub/sub pattern. However, should I decide to add more functionality—such as a way for users to copy the combinations or email them to themselves—all I’d need to do is create the new functionality and add it as a subscriber to the <code>lotterySelections</code> topic. Once the lottery numbers are published, any part of the application that is listening for those publications can access the published number array.</p>
 
-<h3>Setting object keys with a variable</h3>
-
+<h3 id="setting-object-keys-with-a-variable">Setting object keys with a variable</h3>
 <p>Must be done with bracket notation.</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 var name = “key”,
       object = {};
 
@@ -135,9 +130,7 @@ object[name] = “value”;
 </code>
 </pre>
 
-
-<h3>How the lotto works</h3>
-
+<h3 id="how-the-lotto-works">How the lotto works</h3>
 <p>This application is built to generate combinations for the Powerball lottery. Twice per week, five white balls with numbers ranging from 1 to 59 are drawn, as well as one red ball with a number ranging from 1 to 35. The white balls do not have repeated numbers (which made for some fun looping).</p>
 
 <p>The next drawing is this Saturday. What are you waiting for?</p>

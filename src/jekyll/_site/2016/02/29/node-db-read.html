@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kim Codes</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Kim Hawthorne is a front-end web developer from Chicago. She is coding 52 projects in 52 weeks.'>
+	<meta name='author' content='Kim Hawthorne'>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<link rel='icon' type='image/png' href='/img/kim_favicon_32x32.ico'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	
+	
+	<link rel='stylesheet' type='text/css' href='/styles/main.min.css'>
+	<script type='text/javascript' src='/js/app.min.js'></script>
+	
+</head>
+
+<body id='blog'>
+	<div class='outer-wrapper'>
+
+		<header>
+			<h1><a href='/'><span>Kim Hawthorne</span></a> is coding 52 projects in 52 weeks</h1>
+		</header>
+
+		<div class='inner-wrapper'>
+
+			<div class='pagination'>
+				<a href='/blog' class='home'>
+					<p>&#8592; <span>Back to blog</span></p>
+				</a>
+			
+				<a href="/blog/tags/" class='see-all'>
+				
+				
+					<div>
+						<p>See all 6 projects</p>
+					</div>
+				
+				</a>
+			</div>
+
+			<article>
+				<h2 class='post-number'>6</h2>
+
+				<div class='post-info'>
+					<h2 class='post-title'><a href='/blog/2016/02/29/node-db-read.html'>Node Beginnings</a></h2>
+					<h3 class='post-date'>February 29, 2016</h3>
+				</div>
+
+				<div class='post-content'>
+					<p>Well, this is embarrassing.</p>
+
+<p>Some of you may be wondering, “how is she going to code 52 projects in 52 weeks if the last project that she completed was before Thanksgiving?” I, too, am wondering the same thing, dear readers. But, don’t despair! For I’ve just woken from a wonderful three-month food and vacation coma, armed with an idea for a web app. And thus I have decided to take the pluge into the wild world of Node.js.</p>
+
+<p>This project hardly qualifies as an “app”, since all I’m doing is reading some very important kitten information from an incredibly complex database. But, for a node newb for whom the “server side” was still a dark and scary place, I picked up many of the basics. Though not necessary for such a small project, I also followed an MVC pattern because practice makes perfect.</p>
+
+<p><a href="https://kimcodes-kitten-database.herokuapp.com/" class="project-link" target="_blank">
+	<img src="/img/52projects/kitten-database.png" alt="A Very Kitten Database" />
+	See the project
+</a></p>
+
+<h3 id="the-tools">The Tools</h3>
+
+<p>I used <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the <a href="http://expressjs.com/" target="_blank">Express</a> framework to build the application framework. <a href="https://www.mongodb.org/" target="_blank">MongoDB</a> is the database, and <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a> is the templating for the views. The app is hosted on <a href="" target="_blank">Heroku</a>, with help from <a href="https://mlab.com/" target="_blank">mLab</a> as the cloud database service.</p>
+
+<h3 id="the-basics-or-why-mvc-is-your-friend">The Basics, or Why MVC is your Friend</h3>
+
+<p>Coding an entire app can get messy. My first few tries at making a complete web app were a hot mess–hanging HTTP requests, a tangle of routes and views and database connections, crashing browsers, streaming error logs.</p>
+
+<p>MVC is one of those much-discussed resume acronyms. It stands for model-view-controller, and one of its main tenants is in separating the logic of your application. As a node newb, I found that following an MVC framework also gave some guidance for an application structure that could otherwise quickly become unruly.</p>
+
+<ul>
+  <li>The <strong>model</strong> deals with the database and only the database. It doesn’t care about what the application looks like, or does, or that it even exists. The model simply reads and writes to the database.</li>
+  <li>The <strong>controllers</strong> are the main logic of the application. They interpret incoming HTTP requests, and may fetch data, change the data and/or send the data to a view.</li>
+  <li>Finally, the <strong>view</strong> displays the data to the browser.</li>
+</ul>
+
+<h3 id="connecting-to-the-database">Connecting to the Database</h3>
+
+<p>One challenge I ran into was (drum roll) connecting to the database. In an early and very messed-up implementation, I was unable to make consecutive calls to the database without the application hanging. To fix that, I ended up connecting to the database just once and passing to the controller a reference to the database object.</p>
+
+<pre>
+<code class="language-javascript">
+var db; 
+
+mongodb.MongoClient.connect(&gt;&gt;database address&lt;&lt;, function(err, database) {
+	if (err) throw err;
+
+	database.collection('kittens', function(err, results) {
+		if (err) throw err;
+
+		db = results;  // assign successful results to db variable
+		app.listen(3000); // start server if db connection is successful
+		appConfig(app);
+	})
+});
+
+
+function appConfig(app) {
+	// include controllers and pass db reference
+	var controllers = require('./controllers/index')(db);
+
+	// middleware
+	app.use(controllers);
+};
+</code>
+</pre>
+
+<h3 id="deploying-to-heroku">Deploying to Heroku</h3>
+
+<p>Heroku apps are managed via a git repository. Each time code is pushed to a certain branch (in this case, master), the app is built and deployed to Heroku.</p>
+
+<p>Getting set up with Heroku was blissfully easy. To ensure that the application can be used both locally and on Heroku without tons of manual changes, I had to ensure the port number could change depending on the environment. I’m sure I’ll run into much more environment-specific configuration as I build more complex apps, but this was a good example to get thinking about it.</p>
+
+<pre>
+<code class="language-javascript">
+var port = process.env.PORT || 3000; // use Heroku's port number or default to 3000
+</code>
+</pre>
+
+<p>There you have it, folks: my first Node app. Since this is hosted on Heroku, the code lives in its own repository, which you can see <a href="https://github.com/kimberlyhawthorne/52projects_06" target="_blank">here</a>.</p>
+
+<p>If you know of any kitties who should be added to this exhaustive list, please contact me. In the meantime, excuse me while I head to New York City for just one more quick weekend getaway…</p>
+
+
+					<ul class='tags'>
+						
+							<li><a href='/blog/tags/#node'> #node </a></li>
+						
+							<li><a href='/blog/tags/#express'> #express </a></li>
+						
+							<li><a href='/blog/tags/#mongodb'> #mongodb </a></li>
+						
+							<li><a href='/blog/tags/#database'> #database </a></li>
+						
+							<li><a href='/blog/tags/#mvc'> #mvc </a></li>
+						
+							<li><a href='/blog/tags/#handlebars'> #handlebars </a></li>
+						
+							<li><a href='/blog/tags/#heroku'> #heroku </a></li>
+						
+							<li><a href='/blog/tags/#javascript'> #javascript </a></li>
+						
+					</ul>
+				</div>
+			</article>
+
+		</div>
+
+		<div id='about'>
+	<div class='wrapper'>
+		<div class='headshot'>
+			<img src='/img/headshot.png' />
+			<p>Ask me about my cat, my veggie burger recipes and my love for all things French.</p>
+		</div>
+		<ul class='contact'>
+			<li><p><a href='/blog'>Blog</a></p></li>
+			<li><p><a href='http://github.com/kimberlyhawthorne' target='_blank'>Github</a></p></li>
+			<li><p><a href='/KimHawthorne_resume.pdf' target='_blank'>Resume</a></p></li>
+			<li><p><a href='mailto:kim@kimcod.es'>Email</a></p></li>
+		</ul>
+	</div>				
+</div>
+
+<footer>
+	<p>&copy;2015 Kim Hawthorne</p>
+</footer>
+
+	</div>
+</body>
+</html>

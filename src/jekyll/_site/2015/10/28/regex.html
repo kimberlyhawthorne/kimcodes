@@ -37,7 +37,7 @@
 				
 				
 					<div>
-						<p>See all 5 projects</p>
+						<p>See all 6 projects</p>
 					</div>
 				
 				</a>
@@ -47,34 +47,33 @@
 				<h2 class='post-number'>4</h2>
 
 				<div class='post-info'>
-					<h2 class='post-title'><a href='/blog/2015/10/28/regex/'>Regular Expressions, Irregular Updates</a></h2>
+					<h2 class='post-title'><a href='/blog/2015/10/28/regex.html'>Regular Expressions, Irregular Updates</a></h2>
 					<h3 class='post-date'>October 28, 2015</h3>
 				</div>
 
 				<div class='post-content'>
-					<p>Aaand, I'm back after an unintentional hiatus. Computer screens tend to take a backseat for me during the summer, because sometimes you have to:</p>
+					<p>Aaand, I’m back after an unintentional hiatus. Computer screens tend to take a backseat for me during the summer, because sometimes you have to:</p>
 
 <ul>
-<li><a href="https://instagram.com/p/6-5k9bFuA4/" target="_blank">Fly to Tahoe</a> to celebrate your sister's birthday.</li>
-<li><a href="https://instagram.com/p/7S4EX0luBS/" target="_blank">Ride your bike</a> across the state of Michigan to celebrate your dad's retirement.</li>
-<li>Move to your first "real" (i.e., not dumpy) <a href="https://instagram.com/p/8EhsoaluLy/" target="_blank">apartment</a>.</li>
-<li>Attend a <a href="https://instagram.com/p/9BhyNWFuD6/" target="_blank">Halloween masquerade</a> in Detroit.</li>
+  <li><a href="https://instagram.com/p/6-5k9bFuA4/" target="_blank">Fly to Tahoe</a> to celebrate your sister’s birthday.</li>
+  <li><a href="https://instagram.com/p/7S4EX0luBS/" target="_blank">Ride your bike</a> across the state of Michigan to celebrate your dad’s retirement.</li>
+  <li>Move to your first “real” (i.e., not dumpy) <a href="https://instagram.com/p/8EhsoaluLy/" target="_blank">apartment</a>.</li>
+  <li>Attend a <a href="https://instagram.com/p/9BhyNWFuD6/" target="_blank">Halloween masquerade</a> in Detroit.</li>
 </ul>
 
+<p>What better way to welcome myself back to the world of code than by practicing the never frustrating, always readable regular expressions? For the uninitiated, regular expressions can be used to determine if strings fit certain patterns. In my past life working in marketing for a software company, I overheard developers discussing using regexs to identify credit cards numbers, social security numbers and birthdates. Years later, I finally have an inkling of what they were talking about. Here, I built a few form fields that are validated with regular expressions. And yes, I wrote the patterns myself, although the impulse to search for “email address regular expression” was at times overwhelming.</p>
 
-<p>What better way to welcome myself back to the world of code than by practicing the never frustrating, always readable regular expressions? For the uninitiated, regular expressions can be used to determine if strings fit certain patterns. In my past life working in marketing for a software company, I overheard developers discussing using regexs to identify credit cards numbers, social security numbers and birthdates. Years later, I finally have an inkling of what they were talking about. Here, I built a few form fields that are validated with regular expressions. And yes, I wrote the patterns myself, although the impulse to search for "email address regular expression" was at times overwhelming.</p>
-
-<p><a href='/52projects/3_regex' class='project-link' target='_blank'>
-    <img src='/img/52projects/regular-expressions.png' alt='Regular Expressions' />
-    See the project
+<p><a href="/52projects/3_regex" class="project-link" target="_blank">
+	<img src="/img/52projects/regular-expressions.png" alt="Regular Expressions" />
+	See the project
 </a></p>
 
 <p>I know, I know. HTML includes input properties that render this whole project almost useless. But, I learned some stuff, and that counts for something, right?</p>
 
-<h3>Some Reg Ex tokens</h3>
+<h3 id="some-reg-ex-tokens">Some Reg Ex tokens</h3>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 ^  // start of string
 $  //end of string
 
@@ -101,77 +100,69 @@ a?  // zero or one of the previous token
 </code>
 </pre>
 
-
-<h3>My examples, in plain English</h3>
+<h3 id="my-examples-in-plain-english">My examples, in plain English</h3>
 
 <p>Zipcode:</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^\d{5}$/  // any digit, repeated five times
 </code>
 </pre>
 
-
 <p>Phone number:</p>
 
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^\d{10}$/  // any digit, repeated ten times
 </code>
 </pre>
 
-
 <p>Birthdate:</p>
-
 <pre>
-<code class='language-javascript'> 
+<code class="language-javascript"> 
 /^(?:0[1-9]|1[0-2])\/(?:[1-9]|0[1-9]|1\d|2\d|3[0-1])\/(?:19\d\d|20[0-1][0-5])$/
 
 // explanation:
-    ^   // beginning anchor
-    (?:0[1-9]|1[0-2])   // first group: any digit 1-12; single digits must begin with 0
-    \/   // escaped forward slash
-    (?:[1-9]|0[1-9]|1\d|2\d|3[0-1])   // second group: any digit 1-31
-    \/   // escaped forward slash
-    (?:19\d\d|20[0-1][0-5])   // third group: any digit 1900-2015
-    $   // ending anchor
+	^   // beginning anchor
+	(?:0[1-9]|1[0-2])   // first group: any digit 1-12; single digits must begin with 0
+	\/   // escaped forward slash
+	(?:[1-9]|0[1-9]|1\d|2\d|3[0-1])   // second group: any digit 1-31
+	\/   // escaped forward slash
+	(?:19\d\d|20[0-1][0-5])   // third group: any digit 1900-2015
+	$   // ending anchor
 
 </code>
 </pre>
-
 
 <p>Email address (yikes):</p>
 
 <p>There may be a ton of email address validators that are better than this one. However, I tried to account for a majority of the rules to which email addresses should adhere. Shout out to <a href="http://rumkin.com/software/email/rules.php" target="_blank">this website</a> for listing those out so clearly.</p>
 
 <pre>
-<code class='language-javascript'> 
-/^(?!.*(\.)\1)(?:\w[\w\b!#$%&'*+\-\/=?^_`{|}~\.]{1,63})@(?:[\w\-]+)\.(?:[^\_\W]){2,}$/
+<code class="language-javascript"> 
+/^(?!.*(\.)\1)(?:\w[\w\b!#$%&amp;'*+\-\/=?^_`{|}~\.]{1,63})@(?:[\w\-]+)\.(?:[^\_\W]){2,}$/
 
 // explanation:
-    ^   // beginning anchor
-    (?!.*(\.)\1)   // a negative lookahead to ensure there are no consecutive periods
-    (?:   // first group
-        \w  // first character should be alphanumeric
-        [\w\b!#$%&'*+\-\/=?^_`{|}~\.]{0,63})  // subsequent chars can be alphanumeric or any of the specials chars you see buried in there. there should be between 0 and 63 of these.
-    @   // literal @ sign
-    (?:[\w\-]+)   // second group: one or more alphanumeric characters or hyphens
-    \.   // escaped period
-    (?:[^\_\W]){2,}   // third group: any alphanumeric character, except underscore. must be at least two characters long.
-    $   // ending anchor
+	^   // beginning anchor
+	(?!.*(\.)\1)   // a negative lookahead to ensure there are no consecutive periods
+	(?:   // first group
+		\w  // first character should be alphanumeric
+		[\w\b!#$%&amp;'*+\-\/=?^_`{|}~\.]{0,63})  // subsequent chars can be alphanumeric or any of the specials chars you see buried in there. there should be between 0 and 63 of these.
+	@   // literal @ sign
+	(?:[\w\-]+)   // second group: one or more alphanumeric characters or hyphens
+	\.   // escaped period
+	(?:[^\_\W]){2,}   // third group: any alphanumeric character, except underscore. must be at least two characters long.
+	$   // ending anchor
 
 </code>
 </pre>
 
-
-<h3>Other credits</h3>
-
+<h3 id="other-credits">Other credits</h3>
 <ul>
-<li><a href="http://www.regular-expressions.info/lookaround.html" target="_blank">regular-expressions.info</a> for explaining lookaheads/lookbehinds</li>
-<li><a href="" target="_blank">regex101.com</a> for a great validator</li>
+  <li><a href="http://www.regular-expressions.info/lookaround.html" target="_blank">regular-expressions.info</a> for explaining lookaheads/lookbehinds</li>
+  <li><a href="" target="_blank">regex101.com</a> for a great validator</li>
 </ul>
-
 
 
 					<ul class='tags'>
