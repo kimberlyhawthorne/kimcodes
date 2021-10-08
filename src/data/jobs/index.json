@@ -1,0 +1,48 @@
+{
+	"jobs": [{
+		"company": "jobs-footlocker-company",
+		"endDate": "jobs-footlocker-endDate",
+		"startDate": "jobs-footlocker-startDate",
+		"tasks": [
+			"jobs-footlocker-task-sprintTeams",
+			"jobs-footlocker-task-reactRedux",
+			"jobs-footlocker-task-accessibility",
+			"jobs-footlocker-task-accessibleCommonComponents",
+			"jobs-footlocker-task-technicalDebt",
+			"jobs-footlocker-task-localization",
+			"jobs-footlocker-task-deviceCompatibility",
+			"jobs-footlocker-task-codeReview",
+			"jobs-footlocker-task-unitTests",
+			"jobs-footlocker-task-aem",
+			"jobs-footlocker-task-uiuxCollaboration",
+			"jobs-footlocker-task-agile"
+		],
+		"title": "jobs-footlocker-title",
+		"website": "http://www.footlocker.com"
+	}, {
+		"company": "jobs-grainger-company",
+		"endDate": "jobs-grainger-endDate",
+		"startDate": "jobs-grainger-startDate",
+		"tasks": [
+			"jobs-grainger-task-featuresAndMaintain",
+			"jobs-grainger-task-searchSelect",
+			"jobs-grainger-task-tieredPricing",
+			"jobs-grainger-task-collaboration",
+			"jobs-grainger-task-compatability"
+		],
+		"title": "jobs-grainger-title",
+		"website": "http://www.grainger.com"
+	}, {
+		"company": "jobs-fcb-company",
+		"endDate": "jobs-fcb-endDate",
+		"startDate": "jobs-fcb-startDate",
+		"tasks": [
+			"jobs-fcb-task-emails",
+			"jobs-fcb-task-clients",
+			"jobs-fcb-task-compataibility",
+			"jobs-fcb-task-template"
+		],
+		"title": "jobs-fcb-title",
+		"website": "https://fcbnorthamerica.com/"
+	}]
+}

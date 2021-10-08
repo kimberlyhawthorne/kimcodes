@@ -1,0 +1,27 @@
+{
+	"languages": [
+		"skills-languages-javascript",
+		"skills-languages-typescript",
+		"skills-languages-react",
+		"skills-languages-redux",
+		"skills-languages-html",
+		"skills-languages-css",
+		"skills-languages-jest",
+		"skills-languages-webpack"
+	],
+	"skills": [
+		"skills-skills-accessibility",
+		"skills-skills-agile",
+		"skills-skills-localization",
+		"skills-skills-collaboration"
+	],
+	"software": [
+		"skills-software-git",
+		"skills-software-storybook",
+		"skills-software-github",
+		"skills-software-devTools",
+		"skills-software-jira",
+		"skills-software-browserStack",
+		"skills-software-voiceOver"
+	]
+}

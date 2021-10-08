@@ -1,0 +1,8 @@
+{
+	"wants": [
+		"about-wants-react",
+		"about-wants-ecommerce",
+		"about-wants-slack",
+		"about-wants-hybrid"
+	]
+}

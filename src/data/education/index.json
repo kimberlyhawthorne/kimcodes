@@ -1,0 +1,15 @@
+{
+	"education": [{
+		"location": "education-concordia-location",
+		"school": "education-concordia-school",
+		"startDate": "education-concordia-startDate",
+		"endDate": "education-concordia-endDate",
+		"degree": "education-concordia-degree"
+	}, {
+		"location": "education-illinois-location",
+		"school": "education-illinois-school",
+		"startDate": "education-illinois-startDate",
+		"endDate": "education-illinois-endDate",
+		"degree": "education-illinois-degree"
+	}]
+}
