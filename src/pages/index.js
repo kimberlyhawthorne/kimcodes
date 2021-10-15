@@ -13,7 +13,7 @@ import "@fontsource/source-sans-pro";
 import {COLORS} from 'styles/variables';
 
 // CONFIGS
-import {LOCALES, messages} from 'locales/config';
+import {LOCALES, messages as messagesConfig} from 'locales/config';
 
 // STORES
 import localeStore from 'store/locale';
@@ -37,12 +37,13 @@ const App = styled.div`
 const AppView = () => {
 	const defaultLocale = localeStore.getDefaultLocale();
 	const [locale, dispatchLocale] = React.useReducer(localeStore.reducer, defaultLocale);
+	const messages = React.useMemo(() => messagesConfig[locale], [locale]);
 
 	return (
 		<App>
 			<localeStore.context.Provider value={{dispatchLocale}}>
 				<IntlProvider
-					messages={messages[locale]}
+					messages={messages}
 					locale={locale}
 					defaultLocale={LOCALES.EN}>
 
