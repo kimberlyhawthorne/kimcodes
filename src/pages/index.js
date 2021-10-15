@@ -35,8 +35,8 @@ const App = styled.div`
 `;
 
 const AppView = () => {
-	const detectedLanguage = localeStore.getDetectedLanguage();
-	const [locale, dispatchLocale] = React.useReducer(localeStore.reducer, detectedLanguage);
+	const defaultLocale = localeStore.getDefaultLocale();
+	const [locale, dispatchLocale] = React.useReducer(localeStore.reducer, defaultLocale);
 
 	return (
 		<App>

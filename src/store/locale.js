@@ -22,9 +22,15 @@ const reducer = (state, action) => {
 }
 
 // HELPERS
-export const getDetectedLanguage = () => {
+export const getDefaultLocale = () => {
+	// server environment, no navigator to detect
+	if (typeof window === 'undefined') {
+		return LOCALES.EN;
+	}
+
 	const detected = navigator?.language;
 
+	// browser has no detected language, just return default
 	if (!detected) {
 		return LOCALES.EN;
 	}
@@ -44,5 +50,5 @@ export default {
 	ACTIONS,
 	context,
 	reducer,
-	getDetectedLanguage
+	getDefaultLocale
 };
