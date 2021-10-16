@@ -2,6 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 import {IntlProvider} from 'react-intl';
 import {Helmet} from "react-helmet";
+import {BaseCSS} from 'styled-bootstrap-grid';
 
 // STYLES AND FONTS
 import 'normalize.css';
@@ -41,6 +42,7 @@ const AppView = () => {
 
 	return (
 		<App>
+			<BaseCSS />
 			<localeStore.context.Provider value={{dispatchLocale}}>
 				<IntlProvider
 					messages={messages}

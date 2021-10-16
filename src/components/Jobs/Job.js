@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Heading3, ExternalLink} from 'styles/typography';
-import {COLORS, FONTS, MARGINS} from 'styles/variables';
-import {Row} from 'styles/grid';
+import {COLORS, FONTS} from 'styles/variables';
+import {Col, Row} from 'styles/grid';
 
 import List from 'components/List/List';
 import Translation from 'components/Localization/Translation';
@@ -20,6 +20,7 @@ const Company = styled(ExternalLink)`
 	padding: 0.75rem;
 	min-width: 6rem;
 	text-align: center;
+	display: inline-block;
 	background-color: ${COLORS.peach};
 	color: ${COLORS.black};
 	font-weight: 600;
@@ -32,7 +33,8 @@ const Company = styled(ExternalLink)`
 
 `;
 
-const Dates = styled.p`
+const Dates = styled(Col)`
+	font-weight: 600;
 `;
 
 const Job = ({
@@ -49,12 +51,14 @@ const Job = ({
 				<Translation id={title} />
 			</JobTitle>
 
-			<Row gutter={MARGINS.small}>
-				<Company href={website} target="_blank">
-					<Translation id={company} />
-				</Company>
+			<Row alignItems="center">
+				<Col xs={12} mdAuto={true}>
+					<Company href={website} target="_blank">
+						<Translation id={company} />
+					</Company>
+				</Col>
 
-				<Dates>
+				<Dates xs={12} mdAuto={true}>
 					<Translation id={startDate} />
 					{` - `}
 					<Translation id={endDate} />

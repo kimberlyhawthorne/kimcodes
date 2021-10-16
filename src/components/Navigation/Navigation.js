@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {COLORS, FONTS} from 'styles/variables';
-import {Container as ContainerBase} from 'styles/grid';
 import {ExternalLink} from 'styles/typography';
+import {media} from 'styled-bootstrap-grid';
+import {Container as ContainerBase} from 'styles/grid';
 
 import Translation from 'components/Localization/Translation';
 
 const Container = styled(ContainerBase)`
-	text-align: center;
+	padding-bottom: 0;
 `;
 
 const Link = styled(ExternalLink)`
@@ -17,28 +18,35 @@ const Link = styled(ExternalLink)`
 	font-family: ${FONTS.ibm};
 	text-transform: uppercase;
 	font-weight: 600;
-	margin: 0 1rem;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 1rem;
+	text-align: center;
 
 	&:hover {
 		color: ${COLORS.white}
 	}
+
+	${media.md`
+		width: auto;
+		margin-right: 1rem;
+	`}
 `
 
 const Navigation = () => {
 	return (
 		<Container backgroundColor={COLORS.white}>
-			 <Link href="/" target="_blank">
-				 <Translation id="navigation-resume" />
-			 </Link>
+			<Link href="/" target="_blank">
+				<Translation id="navigation-resume" />
+			</Link>
+			<Link href="/" target="_blank">
+				<Translation id="navigation-github" />
+			</Link>
 
-			 <Link href="https://www.linkedin.com/in/kim-hawthorne-66ba6729" target="_blank">
-				 <Translation id="navigation-linkedIn" />
-			 </Link>
-
-			  <Link href="mailto:kimberlyrhawthorne@gmail.com" target="_blank">
-			 	 <Translation id="navigation-email" />
-			  </Link>
-		 </Container>
+			<Link href="/" target="_blank">
+				<Translation id="navigation-email" />
+			</Link>
+		</Container>
 	);
 }
 

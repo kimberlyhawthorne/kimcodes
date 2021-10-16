@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES
-import {COLORS, MARGINS} from 'styles/variables';
-import {Container, Row} from 'styles/grid';
+import {COLORS} from 'styles/variables';
+import {Col, Container, Row} from 'styles/grid';
 import {SectionTitle, Heading4} from 'styles/typography';
 
 // COMPONENTS
@@ -14,6 +14,7 @@ import Translation from 'components/Localization/Translation';
 const Heading = styled(Heading4)`
 	font-weight: 100;
 	position: relative;
+	display: inline-block;
 
 	&:after {
 		content: '';
@@ -56,7 +57,7 @@ const Education = () => {
 				<Translation id="education-title" />
 			</SectionTitle>
 
-			<Row gutter={MARGINS.large}>
+			<Row>
 				{programs.map(({
 					degree,
 					endDate,
@@ -66,7 +67,7 @@ const Education = () => {
 				}) => {
 
 					return (
-						<div>
+						<Col xs={12} xl={4}>
 							<Heading>
 								<Translation id={degree} />
 							</Heading>
@@ -76,7 +77,7 @@ const Education = () => {
 							</Paragraph>
 
 							<Paragraph>
-								<Translation id={location} />							
+								<Translation id={location} />
 							</Paragraph>
 
 							<Paragraph>
@@ -84,7 +85,7 @@ const Education = () => {
 								{' - '}
 								<Translation id={endDate} />
 							</Paragraph>
-						</div>
+						</Col>
 					);
 				})}
 			</Row>
