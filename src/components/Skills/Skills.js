@@ -4,12 +4,17 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES AND FONTS
 import {COLORS} from 'styles/variables';
-import {Col, Container, Row} from 'styles/grid';
+import {Col, Container, Row as RowBase} from 'styles/grid';
 import {SectionTitle} from 'styles/typography';
+import {BulletlessList, ListItem} from 'styles/base';
 
 // COMPONENTS
-import List from 'components/List/List';
 import Translation from 'components/Localization/Translation';
+
+// COMPONENT STYLES
+const Row = styled(RowBase)`
+	color: ${COLORS.lilac};
+`;
 
 const Skills = () => {
 	const data = useStaticQuery(graphql`
@@ -28,22 +33,29 @@ const Skills = () => {
 	}
 
 	return (
- 		<Container backgroundColor={COLORS.black} color={COLORS.white}>
- 			<Row>
- 				{Object.keys(data.skillsJson).map(key => {
+		<Row>
+			{Object.keys(data.skillsJson).map(key => {
+				const skills = data.skillsJson[key];
 
- 					return (
-	 					<Col xs={12} lg={4}>
-	 						<SectionTitle>
-	 							<Translation id={key} />
- 							</SectionTitle>
+				return (
+					<Col xs={12} lg={4}>
+						<SectionTitle>
+							<Translation id={key} />
+						</SectionTitle>
 
- 							<List items={data.skillsJson[key]} />
-	 					</Col>
-					);
- 				})}
- 			</Row>
- 		</Container>
+						{!!skills.length &&
+							<BulletlessList>
+								{skills.map(skill => (
+									<ListItem>
+										<Translation id={skill} />
+									</ListItem>
+								))}
+							</BulletlessList>
+						}
+					</Col>
+				);
+			})}
+		</Row>
 	);
 };
 

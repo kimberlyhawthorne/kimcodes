@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // STYLES
 import {COLORS} from 'styles/variables';
-import {Container, Row} from 'styles/grid';
+import {Row} from 'styles/grid';
 import {Heading1} from 'styles/typography';
 
 // COMPONENTS
@@ -22,23 +22,21 @@ const Heading = styled(Heading1)`
 	color: ${COLORS.lilac};
 `;
 
-const Header = ({children}) => {
+const Header = () => {
 	return (
-		<Row backgroundColor={COLORS.maroon}>
-			<Container>
-				<Row justifyContent="center" xlJustifyContent="end">
-					<LanguageToggle />
-				</Row>
+		<>
+			<Row justifyContent="center" xlJustifyContent="end">
+				<LanguageToggle />
+			</Row>
 
-				<HeadingRow justifyContent="center">
-					<Heading>
-						<Translation id="heading-title" />
-					</Heading>
-				</HeadingRow>
+			<HeadingRow justifyContent="center">
+				<Heading>
+					<Translation id="heading-title" />
+				</Heading>
+			</HeadingRow>
 
-				<Navigation />
-			</Container>
-		</Row>
+			<Navigation />
+		</>
 	);
 }
 

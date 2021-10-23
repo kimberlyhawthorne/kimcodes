@@ -16,7 +16,7 @@ export const Container = styled(ContainerBase)`
 
 export const Row = styled(RowBase)`
 	background-color: ${(props) => props.backgroundColor};
+	color: ${(props) => props.color};
 `;
 
-export const Col = styled(ColBase)`
-`;
+export const Col = ColBase;

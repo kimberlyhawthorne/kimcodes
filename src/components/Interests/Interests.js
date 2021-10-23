@@ -29,7 +29,7 @@ export const Container = styled.div\`
 
 const Interests = () => {
 	return (
-		<Container backgroundColor={COLORS.brick} color={COLORS.white}>
+		<>
 			<SectionTitle>
 				<Translation id="interests-title" />
 			</SectionTitle>
@@ -56,7 +56,7 @@ const Interests = () => {
 					</SyntaxHighlighter>
 				</ListItem>
 			</UnorderedList>
-		</Container>
+		</>
 	);
 }
 

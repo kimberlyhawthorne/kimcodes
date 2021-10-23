@@ -12,6 +12,7 @@ import "@fontsource/ibm-plex-sans";
 import "@fontsource/playfair-display";
 import "@fontsource/source-sans-pro";
 import {COLORS} from 'styles/variables';
+import {Container, Row} from 'styles/grid';
 
 // CONFIGS
 import {LOCALES, messages as messagesConfig} from 'locales/config';
@@ -53,12 +54,37 @@ const AppView = () => {
 						</title>
 					</Helmet>
 
-					<Header />
-					<Jobs />
-					<Skills />
-					<Interests />
-					<Education />
-					<About />
+					<Row backgroundColor={COLORS.maroon}>
+						<Container>
+							<Header />
+							<Jobs />
+						</Container>
+					</Row>
+
+					<Row backgroundColor={COLORS.brick}>
+						<Container>
+							<Skills />
+						</Container>
+					</Row>
+
+					<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+						<Container>
+							<Interests />
+							<Education />
+						</Container>
+					</Row>
+
+					<Row backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
+						<Container>
+							<About />
+						</Container>
+					</Row>
+
+					<Row backgroundColor={COLORS.black}>
+						<Container>
+							footer
+						</Container>
+					</Row>
 
 				</IntlProvider>
 			</localeStore.context.Provider>

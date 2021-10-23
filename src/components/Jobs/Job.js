@@ -1,40 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// STYLES
 import {Heading3, ExternalLink} from 'styles/typography';
 import {COLORS, FONTS} from 'styles/variables';
-import {Col, Row} from 'styles/grid';
+import {
+	BulletlessList as BulletlessListBase,
+	ListItem,
+	UnorderedList
+} from 'styles/base';
 
-import List from 'components/List/List';
+// COMPONENTS
 import Translation from 'components/Localization/Translation';
 
+// STYLED COMPONENTS
 const JobContainer = styled.div`
-	border-top: 1px solid ${COLORS.peach};
-`;
-
-const JobTitle = styled(Heading3)`
-	color: ${COLORS.brick}
-`;
-
-const Company = styled(ExternalLink)`
-	padding: 0.75rem;
-	min-width: 6rem;
-	text-align: center;
-	display: inline-block;
-	background-color: ${COLORS.peach};
-	color: ${COLORS.black};
-	font-weight: 600;
-	text-transform: uppercase;
-
-	&:hover {
-		background-color: ${COLORS.brick};
-		color: ${COLORS.white};
+	&:not(:last-child) {
+		margin-bottom: 3rem;
 	}
-
 `;
 
-const Dates = styled(Col)`
-	font-weight: 600;
+const BulletlessList = styled(BulletlessListBase)`
+	display: inline-block;
 `;
 
 const Job = ({
@@ -47,26 +34,34 @@ const Job = ({
 }) => {
 	return (
 		<JobContainer>
-			<JobTitle>
-				<Translation id={title} />
-			</JobTitle>
+			<div>
+				<span>image</span>
+				<BulletlessList>
+					<ListItem>
+						<Translation id={title} />
+					</ListItem>
+					<ListItem>
+						<ExternalLink href={website} target="_blank">
+							<Translation id={company} />
+						</ExternalLink>
+					</ListItem>
+					<ListItem>
+						<Translation id={startDate} />
+						{` - `}
+						<Translation id={endDate} />
+					</ListItem>
+				</BulletlessList>
+			</div>
 
-			<Row alignItems="center">
-				<Col xs={12} mdAuto={true}>
-					<Company href={website} target="_blank">
-						<Translation id={company} />
-					</Company>
-				</Col>
-
-				<Dates xs={12} mdAuto={true}>
-					<Translation id={startDate} />
-					{` - `}
-					<Translation id={endDate} />
-				</Dates>
-			</Row>
-
-
-			<List items={tasks} />
+			{!!tasks.length &&
+				<UnorderedList>
+					{tasks.map(task => (
+						<ListItem>
+							<Translation id={task} />
+						</ListItem>
+					))}
+				</UnorderedList>
+			}
 		</JobContainer>
 	);
 };

@@ -10,26 +10,6 @@ import {SectionTitle, Heading4} from 'styles/typography';
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
 
-// COMPONENT STYLES
-const Heading = styled(Heading4)`
-	font-weight: 100;
-	position: relative;
-	display: inline-block;
-
-	&:after {
-		content: '';
-		position: absolute;
-		top: calc(100% + 8px);
-		left: 0;
-		width: 100%;
-		border-top: 2px solid ${COLORS.brick};
-	}
-`;
-
-const Paragraph = styled.p`
-	margin: 0.25rem 0;
-`;
-
 const Education = () => {
 	const data = useStaticQuery(graphql`
 		query GetEducation {
@@ -52,7 +32,7 @@ const Education = () => {
 	}
 
 	return (
-		<Container backgroundColor={COLORS.white}>
+		<>
 			<SectionTitle>
 				<Translation id="education-title" />
 			</SectionTitle>
@@ -67,29 +47,31 @@ const Education = () => {
 				}) => {
 
 					return (
-						<Col xs={12} xl={4}>
-							<Heading>
-								<Translation id={degree} />
-							</Heading>
+						<Col key={school} xs={12} xl={4}>
+							<Heading4>
+								<strong>
+									<Translation id={degree} />
+								</strong>
+							</Heading4>
 
-							<Paragraph>
+							<p>
 								<Translation id={school} />
-							</Paragraph>
+							</p>
 
-							<Paragraph>
+							<p>
 								<Translation id={location} />
-							</Paragraph>
+							</p>
 
-							<Paragraph>
+							<p>
 								<Translation id={startDate} />
 								{' - '}
 								<Translation id={endDate} />
-							</Paragraph>
+							</p>
 						</Col>
 					);
 				})}
 			</Row>
-		</Container>
+		</>
 	);
 }
 

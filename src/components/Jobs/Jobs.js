@@ -33,7 +33,7 @@ const Jobs = () => {
 	}
 
 	return (
-		<Container backgroundColor={COLORS.white} color={COLORS.black}>
+		<Container backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
 			<SectionTitle>
 				<Translation id="jobs-title" />
 			</SectionTitle>
