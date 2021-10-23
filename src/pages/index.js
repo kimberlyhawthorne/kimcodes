@@ -24,9 +24,7 @@ import About from 'components/About/About';
 import Education from 'components/Education/Education';
 import Header from 'components/Header/Header';
 import Interests from 'components/Interests/Interests';
-import Introduction from 'components/Introduction/Introduction';
 import Jobs from 'components/Jobs/Jobs';
-import Navigation from 'components/Navigation/Navigation';
 import Skills from 'components/Skills/Skills';
 
 const App = styled.div`
@@ -43,11 +41,11 @@ const AppView = () => {
 	return (
 		<App>
 			<BaseCSS />
-			<localeStore.context.Provider value={{dispatchLocale}}>
+			<localeStore.context.Provider value={{dispatchLocale, locale}}>
 				<IntlProvider
 					messages={messages}
 					locale={locale}
-					defaultLocale={LOCALES.EN}>
+					defaultLocale={LOCALES.EN.value}>
 
 					<Helmet>
 						<title>
@@ -56,8 +54,6 @@ const AppView = () => {
 					</Helmet>
 
 					<Header />
-					<Introduction />
-					<Navigation />
 					<Jobs />
 					<Skills />
 					<Interests />

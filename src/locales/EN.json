@@ -18,9 +18,10 @@
 	"education-illinois-location": "Urbana-Champaign, Illinois",
 	"education-illinois-startDate": "September 2007",
 	"education-illinois-endDate": "May 2011",
-	"education-illinois-degree": "B.A. Journalism",
+	"education-illinois-degree": "B.A. Journalism",	"greeting-title": "Hi, Bonjour!",
 
-	"greeting-title": "Hi, Bonjour!",
+	"locale-en-label": "Hi!",
+	"locale-fr-label": "Bonjour!",
 
 	"interests-title": "What I've been doing lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",
@@ -28,7 +29,7 @@
 	"interests-reactHookForms": "Discovering the joys of using hooks for building complex forms with <link>React Hook Forms</link>",
 	"interests-cssInJs": "CSS in JS — used for this portfolio",
 
-	"introduction-title": "I'm Kim, a front-end React developer.",
+	"heading-title": "I'm Kim, a front-end React developer.",
 
 	"jobs-title": "Relevant experience",
 	"jobs-fcb-company": "FCB",

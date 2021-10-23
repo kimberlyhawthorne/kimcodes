@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+ import styled from 'styled-components';
 import {CONTENT_WIDTH} from 'styles/variables';
 
 import {
@@ -18,4 +18,5 @@ export const Row = styled(RowBase)`
 	background-color: ${(props) => props.backgroundColor};
 `;
 
-export const Col = ColBase;
+export const Col = styled(ColBase)`
+`;

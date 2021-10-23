@@ -25,7 +25,8 @@
 	"education-illinois-endDate": "mai 2011",
 	"education-illinois-degree": "Bachelors in Journalism",
 
-	"greeting-title": "Bonjour, Hi!",
+	"locale-en-label": "Hi!",
+	"locale-fr-label": "Bonjour!",
 
 	"interests-title": "What I've been doing lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",
@@ -33,7 +34,7 @@
 	"interests-reactHookForms": "Discovering the joys of using hooks for building complex forms with React Hook Forms",
 	"interests-cssInJs": "CSS in JS — used for this portfolio",
 
-	"introduction-title": "Je suis Kim, une programmeuse front-end en React.",
+	"heading-title": "Je suis Kim, une programmeuse front-end en React.",
 
 	"jobs-title": "Relevant experience",
 	"jobs-fcb-company": "FCB",

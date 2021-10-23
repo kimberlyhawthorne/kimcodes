@@ -1,53 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {COLORS, FONTS} from 'styles/variables';
-import {ExternalLink} from 'styles/typography';
-import {media} from 'styled-bootstrap-grid';
-import {Container as ContainerBase} from 'styles/grid';
+import {Col as ColBase, Row} from 'styles/grid';
 
-import Translation from 'components/Localization/Translation';
+import {ButtonLink as ButtonLinkBase} from 'components/Button/ButtonLink';
 
-const Container = styled(ContainerBase)`
-	padding-bottom: 0;
+const Col = styled(ColBase)`
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 `;
 
-const Link = styled(ExternalLink)`
-	border: 5px solid ${COLORS.brick};
-	padding: 0.5rem 1rem;
-	font-family: ${FONTS.ibm};
-	text-transform: uppercase;
-	font-weight: 600;
-	display: inline-block;
+const ButtonLink = styled(ButtonLinkBase)`
 	width: 100%;
-	margin-bottom: 1rem;
-	text-align: center;
+	max-width: 24rem;
+`;
 
-	&:hover {
-		color: ${COLORS.white}
-	}
-
-	${media.md`
-		width: auto;
-		margin-right: 1rem;
-	`}
-`
-
-const Navigation = () => {
-	return (
-		<Container backgroundColor={COLORS.white}>
-			<Link href="/" target="_blank">
-				<Translation id="navigation-resume" />
-			</Link>
-			<Link href="/" target="_blank">
-				<Translation id="navigation-github" />
-			</Link>
-
-			<Link href="/" target="_blank">
-				<Translation id="navigation-email" />
-			</Link>
-		</Container>
-	);
-}
+const Navigation = () => (
+	<Row justifyContent="center">
+		<Col col={12} xl={3}>
+			<ButtonLink
+				href="/"
+				isNewWindow={true}
+				message="navigation-resume"
+			/>
+		</Col>
+		<Col col={12} xl={3}>
+			<ButtonLink
+				href="/"
+				isNewWindow={true}
+				message="navigation-github"
+			/>
+		</Col>
+		<Col col={12} xl={3}>
+			<ButtonLink
+				href="/"
+				isNewWindow={true}
+				message="navigation-email"
+			/>
+		</Col>
+	</Row>
+);
 
 export default Navigation;

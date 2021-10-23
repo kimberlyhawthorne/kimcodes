@@ -8,6 +8,7 @@ import {ExternalLink} from 'styles/typography';
 
 const Translation = ({
 	id,
+	className,
 	linkColor,
 	url,
 	values
@@ -21,7 +22,16 @@ const Translation = ({
 				link: string => <ExternalLink color={linkColor} href={url} target="_blank">{string}</ExternalLink>,
 				...values
 			}}
-		/>
+		>
+			{(message) => {
+				if (className) {
+					return (<span className={className}>{message}</span>);
+				}
+
+				return message;
+
+			}}
+		</FormattedMessage>
 	);
 };
 

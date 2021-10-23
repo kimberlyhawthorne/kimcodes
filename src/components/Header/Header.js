@@ -1,42 +1,42 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
 import styled from 'styled-components';
 
 // STYLES
 import {COLORS} from 'styles/variables';
-import {Container as ContainerBase, Row} from 'styles/grid';
-import {Heading2} from 'styles/typography';
+import {Container, Row} from 'styles/grid';
+import {Heading1} from 'styles/typography';
 
 // COMPONENTS
 import LanguageToggle from 'components/Localization/LanguageToggle';
+import Navigation from 'components/Navigation/Navigation';
 import Translation from 'components/Localization/Translation';
 
-const Container = styled(ContainerBase)`
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+const HeadingRow = styled(Row)`
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	margin-left: inherit;
+	margin-right: inherit;
 `;
 
-const Heading = styled(Heading2)`
-	color: ${COLORS.black}
-`;
-
-const LanguageToggleWrapper = styled.div`
-	margin-left: auto;
+const Heading = styled(Heading1)`
+	color: ${COLORS.lilac};
 `;
 
 const Header = ({children}) => {
 	return (
-		<Row backgroundColor={COLORS.white}>
+		<Row backgroundColor={COLORS.maroon}>
 			<Container>
-				<Row>
-					<Heading>
-						<Translation id="greeting-title" />
-					</Heading>
-
-					<LanguageToggleWrapper>
-						<LanguageToggle />
-					</LanguageToggleWrapper>
+				<Row justifyContent="center" xlJustifyContent="end">
+					<LanguageToggle />
 				</Row>
+
+				<HeadingRow justifyContent="center">
+					<Heading>
+						<Translation id="heading-title" />
+					</Heading>
+				</HeadingRow>
+
+				<Navigation />
 			</Container>
 		</Row>
 	);

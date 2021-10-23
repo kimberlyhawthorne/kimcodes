@@ -3,8 +3,12 @@ export const COLORS = {
 	lime: '#CFDB46',
 	white: '#fff',
 	peach: '#E3B668',
-	brick: '#BE3426',
-	grey: '#D4D1CB'
+	grey: '#D4D1CB',
+	// new
+	brick: '#401718',
+	lilac: '#d29bf4',
+	lilac_light: '#e4cff0',
+	maroon: '#5f3233'
 };
 
 export const FONTS = {

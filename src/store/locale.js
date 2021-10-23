@@ -25,24 +25,24 @@ const reducer = (state, action) => {
 export const getDefaultLocale = () => {
 	// server environment, no navigator to detect
 	if (typeof window === 'undefined') {
-		return LOCALES.EN;
+		return LOCALES.EN.value;
 	}
 
 	const detected = navigator?.language;
 
 	// browser has no detected language, just return default
 	if (!detected) {
-		return LOCALES.EN;
+		return LOCALES.EN.value;
 	}
 
 	// loop through website locales
 	// if the detected locale matches one of the listed locales, grab the listed locale key
-	const [match] = Object.entries(ALL_LOCALES)
+	const [key] = Object.entries(ALL_LOCALES)
 		.find(([localeKey, localeValues]) => {
 			return localeValues.includes(detected);
 		});
 
-	return match;
+	return key;
 }
 
 
