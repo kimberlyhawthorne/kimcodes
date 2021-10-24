@@ -4,17 +4,16 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES AND FONTS
 import {COLORS} from 'styles/variables';
-import {Col, Container, Row as RowBase} from 'styles/grid';
+import {Col, Container, Row} from 'styles/grid';
 import {SectionTitle} from 'styles/typography';
-import {BulletlessList, ListItem} from 'styles/base';
+import {
+	BulletlessList,
+	ListItem,
+	Section
+} from 'styles/base';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
-
-// COMPONENT STYLES
-const Row = styled(RowBase)`
-	color: ${COLORS.lilac};
-`;
 
 const Skills = () => {
 	const data = useStaticQuery(graphql`
@@ -38,7 +37,7 @@ const Skills = () => {
 				const skills = data.skillsJson[key];
 
 				return (
-					<Col xs={12} lg={4}>
+					<Col as={Section} xs={12} lg={4}>
 						<SectionTitle>
 							<Translation id={key} />
 						</SectionTitle>

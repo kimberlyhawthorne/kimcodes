@@ -1,5 +1,5 @@
 {
-	"about-title": "About me",
+	"about-title": "About Me",
 	"about-me-blurb": "My name is Kim and I'm a front-end developer. I hail from Chicago but now call Montréal {montrealEmoji} home. I love my cat (Lola) {catEmoji}, cooking vegetarian dishes {vegetableEmoji} and hunting for vintage goods {vintageEmoji}.",
 	"about-wants-title": "What I'm looking for",
 	"about-wants-react": "A front-end gig using React",
@@ -23,7 +23,7 @@
 	"locale-en-label": "Hi!",
 	"locale-fr-label": "Bonjour!",
 
-	"interests-title": "What I've been doing lately",
+	"interests-title": "What I've Been Doing Lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",
 	"interests-localization": "Localization challenges such as pluralization, inserting dynamic values and translating ARIA attributes",
 	"interests-reactHookForms": "Discovering the joys of using hooks for building complex forms with <link>React Hook Forms</link>",
@@ -31,7 +31,7 @@
 
 	"heading-title": "I'm Kim, a front-end React developer.",
 
-	"jobs-title": "Relevant experience",
+	"jobs-title": "Relevant Experience",
 	"jobs-fcb-company": "FCB",
 	"jobs-fcb-startDate": "July 2014",
 	"jobs-fcb-endDate": "December 2017",

@@ -1,10 +1,5 @@
 export const COLORS = {
 	black: '#000',
-	lime: '#CFDB46',
-	white: '#fff',
-	peach: '#E3B668',
-	grey: '#D4D1CB',
-	// new
 	brick: '#401718',
 	lilac: '#d29bf4',
 	lilac_light: '#e4cff0',
@@ -24,3 +19,5 @@ export const MARGINS = {
 	medium: '1rem',
 	large: '2rem'
 };
+
+export const PADDING = '3rem';

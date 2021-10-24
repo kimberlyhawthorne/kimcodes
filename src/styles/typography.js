@@ -29,8 +29,6 @@ export const ExternalLink = styled.a`
 
 export const SectionTitle = styled.h2`
 	font-family: ${FONTS.ibm};
-	font-weight: 100;
 	color: ${COLORS.lilac};
-	text-transform: uppercase;
 	text-align: center;
 `;

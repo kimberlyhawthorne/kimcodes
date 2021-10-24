@@ -3,21 +3,13 @@ import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 // STYLES
-import {UnorderedList, ListItem as ListItemBase} from 'styles/base';
+import {UnorderedList, ListItem, Section} from 'styles/base';
 import {COLORS} from 'styles/variables';
 import {Container} from 'styles/grid';
 import {SectionTitle} from 'styles/typography';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
-
-const ListItem = styled(ListItemBase)`
-	font-size: 1.25rem;
-
-	a {
-		color: ${COLORS.peach};
-	}
-`;
 
 const cssJSCode = `
 export const Container = styled.div\`
@@ -29,7 +21,7 @@ export const Container = styled.div\`
 
 const Interests = () => {
 	return (
-		<>
+		<Section>
 			<SectionTitle>
 				<Translation id="interests-title" />
 			</SectionTitle>
@@ -56,7 +48,7 @@ const Interests = () => {
 					</SyntaxHighlighter>
 				</ListItem>
 			</UnorderedList>
-		</>
+		</Section>
 	);
 }
 

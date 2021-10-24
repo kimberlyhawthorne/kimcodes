@@ -34,6 +34,7 @@ const Toggler = styled.div`
 			position: relative;
 			align-items: center;
 			margin: 0 0.5rem;
+			transition: background 0.2s ease-out;
 
 
 			&:after {
@@ -44,11 +45,20 @@ const Toggler = styled.div`
 				background-color: ${COLORS.lilac};
 				position: absolute;
 				left: ${props.isLeft ? '0' : 'calc(100% - 1.9rem)'};
-				transition: 0.2s;
+				transition: 0.2s ease-out;
 			}
 
-			&:active:after {
-				width: calc(${buttonSize} + 3px);
+			&:active {
+				background-color: ${COLORS.brick};
+
+
+				&:after {
+					width: calc(${buttonSize} + 4px);
+				}
+			}
+
+			&:hover:after {
+				filter: brightness(90%);
 			}
 		`;
 	}}

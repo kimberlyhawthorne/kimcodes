@@ -3,7 +3,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 
 // STYLES AND FONTS
 import {COLORS} from 'styles/variables';
-import {Container} from 'styles/grid';
+import {Section} from 'styles/base';
 import {SectionTitle} from 'styles/typography';
 
 // COMPONENTS
@@ -33,7 +33,7 @@ const Jobs = () => {
 	}
 
 	return (
-		<Container backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+		<Section>
 			<SectionTitle>
 				<Translation id="jobs-title" />
 			</SectionTitle>
@@ -43,7 +43,7 @@ const Jobs = () => {
 					<Job {...job} />
 				);
 			})}
-		</Container>
+		</Section>
 	);
 }
 

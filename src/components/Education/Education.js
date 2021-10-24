@@ -4,11 +4,18 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES
 import {COLORS} from 'styles/variables';
+import {Section as SectionBase} from 'styles/base';
 import {Col, Container, Row} from 'styles/grid';
 import {SectionTitle, Heading4} from 'styles/typography';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
+
+// COMPONENT STYLES
+// make room for About photo
+const Section = styled(SectionBase)`
+	padding-bottom: 7.5rem;
+`;
 
 const Education = () => {
 	const data = useStaticQuery(graphql`
@@ -32,7 +39,7 @@ const Education = () => {
 	}
 
 	return (
-		<>
+		<Section>
 			<SectionTitle>
 				<Translation id="education-title" />
 			</SectionTitle>
@@ -47,7 +54,7 @@ const Education = () => {
 				}) => {
 
 					return (
-						<Col key={school} xs={12} xl={4}>
+						<Col key={school} xs={12} md={6}>
 							<Heading4>
 								<strong>
 									<Translation id={degree} />
@@ -71,7 +78,7 @@ const Education = () => {
 					);
 				})}
 			</Row>
-		</>
+		</Section>
 	);
 }
 

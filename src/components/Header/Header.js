@@ -8,8 +8,12 @@ import {Heading1} from 'styles/typography';
 
 // COMPONENTS
 import LanguageToggle from 'components/Localization/LanguageToggle';
-import Navigation from 'components/Navigation/Navigation';
 import Translation from 'components/Localization/Translation';
+
+const HeaderContainer = styled.header`
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+`;
 
 const HeadingRow = styled(Row)`
 	margin-top: 3rem;
@@ -24,7 +28,7 @@ const Heading = styled(Heading1)`
 
 const Header = () => {
 	return (
-		<>
+		<HeaderContainer>
 			<Row justifyContent="center" xlJustifyContent="end">
 				<LanguageToggle />
 			</Row>
@@ -34,9 +38,7 @@ const Header = () => {
 					<Translation id="heading-title" />
 				</Heading>
 			</HeadingRow>
-
-			<Navigation />
-		</>
+		</HeaderContainer>
 	);
 }
 

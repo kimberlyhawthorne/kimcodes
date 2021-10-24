@@ -5,15 +5,32 @@ import styled from 'styled-components';
 // STYLES
 import {COLORS} from 'styles/variables';
 import {Container} from 'styles/grid';
-import {SectionTitle} from 'styles/typography';
-import {UnorderedList, ListItem} from 'styles/base';
+import {Heading3, SectionTitle} from 'styles/typography';
+import {UnorderedList, ListItem, Section} from 'styles/base';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
 
 // COMPONENT STYLES
-const Blurb = styled.p`
-	font-size: 2rem;
+const size = '10rem';
+
+const AboutContainer = styled(Section)`
+	position: relative;
+	padding-top: calc(${size} * .75);
+
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		margin: 0 auto;
+		width: ${size};
+		height: ${size};
+		bottom: calc(100% - calc(${size} / 2));
+		left: 0;
+		right: 0;
+		background-color: white;
+		border-radius: 100%;
+	}
 `;
 
 const About = () => {
@@ -28,12 +45,12 @@ const About = () => {
 	const wishlist = data?.aboutJson?.wants;
 
 	return (
-		<>
+		<AboutContainer>
 			<SectionTitle>
 				<Translation id="about-title" />
 			</SectionTitle>
 
-			<Blurb>
+			<p>
 				<Translation
 					id="about-me-blurb"
 					values={{
@@ -42,11 +59,11 @@ const About = () => {
 						vegetableEmoji: '🥦',
 						vintageEmoji: '🛋'
 					}}/>
-			</Blurb>
+			</p>
 
-			<SectionTitle>
+			<Heading3>
 				<Translation id="about-wants-title" />
-			</SectionTitle>
+			</Heading3>
 
 			{!!wishlist.length &&
 				<UnorderedList>
@@ -57,7 +74,7 @@ const About = () => {
 					))}
 				</UnorderedList>
 			}
-		</>
+		</AboutContainer>
 	);
 }
 

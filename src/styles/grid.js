@@ -9,7 +9,8 @@ import {
 
 export const Container = styled(ContainerBase)`
 	margin: 0 auto;
-	padding: 3rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
 	background-color: ${(props) => props.backgroundColor};
 	color: ${(props) => props.color};
 `;

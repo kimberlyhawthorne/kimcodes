@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Col as ColBase, Row} from 'styles/grid';
+import {PADDING} from 'styles/variables';
 
 import {ButtonLink as ButtonLinkBase} from 'components/Button/ButtonLink';
 
@@ -17,12 +18,13 @@ const ButtonLink = styled(ButtonLinkBase)`
 	max-width: 24rem;
 `;
 
-const Navigation = () => (
-	<Row justifyContent="center">
+const Navigation = ({isSecondary}) => (
+	<Row as="navigation" justifyContent="center">
 		<Col col={12} xl={3}>
 			<ButtonLink
 				href="/"
 				isNewWindow={true}
+				isSecondary={isSecondary}
 				message="navigation-resume"
 			/>
 		</Col>
@@ -30,6 +32,7 @@ const Navigation = () => (
 			<ButtonLink
 				href="/"
 				isNewWindow={true}
+				isSecondary={isSecondary}
 				message="navigation-github"
 			/>
 		</Col>
@@ -37,6 +40,7 @@ const Navigation = () => (
 			<ButtonLink
 				href="/"
 				isNewWindow={true}
+				isSecondary={isSecondary}
 				message="navigation-email"
 			/>
 		</Col>

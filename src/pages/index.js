@@ -23,9 +23,11 @@ import localeStore from 'store/locale';
 // COMPONENTS
 import About from 'components/About/About';
 import Education from 'components/Education/Education';
+import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import Interests from 'components/Interests/Interests';
 import Jobs from 'components/Jobs/Jobs';
+import Navigation from 'components/Navigation/Navigation';
 import Skills from 'components/Skills/Skills';
 
 const App = styled.div`
@@ -54,9 +56,10 @@ const AppView = () => {
 						</title>
 					</Helmet>
 
-					<Row backgroundColor={COLORS.maroon}>
+					<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
 						<Container>
 							<Header />
+							<Navigation />
 							<Jobs />
 						</Container>
 					</Row>
@@ -77,12 +80,13 @@ const AppView = () => {
 					<Row backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
 						<Container>
 							<About />
+							<Navigation isSecondary={true} />
 						</Container>
 					</Row>
 
-					<Row backgroundColor={COLORS.black}>
+					<Row backgroundColor={COLORS.black} color={COLORS.lilac_light}>
 						<Container>
-							footer
+							<Footer />
 						</Container>
 					</Row>
 

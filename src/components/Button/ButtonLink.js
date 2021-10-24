@@ -29,7 +29,7 @@ const Secondary = `
 
 const Button = styled.a`
 	display: inline-block;
-	padding: 0.5rem 3.5rem;
+	padding: 1rem 3.5rem;
 	border-radius: 25px;
 	text-decoration: none;
 	text-align: center;
