@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, useIntl} from 'react-intl';
 
 import DEFAULTS from 'locales/EN';
 
@@ -7,12 +7,15 @@ import DEFAULTS from 'locales/EN';
 import {ExternalLink} from 'styles/typography';
 
 const Translation = ({
-	id,
+	ariaLabel,
 	className,
+	id,
 	linkColor,
 	url,
 	values
 }) => {
+	const {formatMessage} = useIntl();
+
 	return (
 		<FormattedMessage
 			id={id}
@@ -24,12 +27,30 @@ const Translation = ({
 			}}
 		>
 			{(message) => {
+				const props = {};
+
 				if (className) {
-					return (<span className={className}>{message}</span>);
+					props.className = className;
 				}
 
-				return message;
+				if (ariaLabel) {
+					props['aria-label'] = formatMessage({id: ariaLabel});
+				}
 
+				// Some props are needed on the translated message
+				// Render a span and add them
+				if (!!Object.keys(props).length) {
+					return (
+						<span
+							{...(className && {className})}
+							{...(ariaLabel && {['aria-label']: formatMessage({id: ariaLabel})})}>
+							{message}
+						</span>
+					);
+				}
+
+				// Otherwise just return the plain ol' message
+				return message;
 			}}
 		</FormattedMessage>
 	);

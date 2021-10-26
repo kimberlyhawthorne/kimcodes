@@ -7,6 +7,8 @@
 	"about-wants-slack": "Must use Slack for communication (kidding, sort of)",
 	"about-wants-hybrid": "Hybrid of remote and in-person work",
 
+	"accessibility-prompt": "Turn on a screen reader for accessibility goodness!",
+
 	"education-title": "Education",
 	"education-concordia-school": "Concordia University",
 	"education-concordia-location": "Montréal, Quebec",
@@ -20,8 +22,12 @@
 	"education-illinois-endDate": "May 2011",
 	"education-illinois-degree": "B.A. Journalism",	"greeting-title": "Hi, Bonjour!",
 
-	"locale-en-label": "Hi!",
-	"locale-fr-label": "Bonjour!",
+	"languageToggle-en-label": "Hi!",
+	"languageToggle-fr-label": "Bonjour!",
+	"languageToggle-en-aria-label": "English",
+	"languageToggle-fr-aria-label": "français",
+	"languageToggle-aria-title": "Choose your language",
+	"languageToggle-changed-announcement": "Your language was changed",
 
 	"interests-title": "What I've Been Doing Lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",
@@ -29,7 +35,7 @@
 	"interests-reactHookForms": "Discovering the joys of using hooks for building complex forms with <link>React Hook Forms</link>",
 	"interests-cssInJs": "CSS in JS — used for this portfolio",
 
-	"heading-title": "I'm Kim, a front-end React developer.",
+	"header-introduction": "I'm Kim, a front-end React developer.",
 
 	"jobs-title": "Relevant Experience",
 	"jobs-fcb-company": "FCB",
@@ -71,6 +77,8 @@
 	"navigation-email": "Email me",
 	"navigation-github": "Github",
 	"navigation-resume": "Resumé",
+
+	"portrait-altText": "A photo of me!",
 
 	"skills-languages-title": "Languages",
 	"skills-languages-javascript": "JavaScript",

@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
 
 const HeadingRow = styled(Row)`
 	margin-top: 3rem;
-	margin-bottom: 3rem;
+	margin-bottom: 0;
 	margin-left: inherit;
 	margin-right: inherit;
 `;
@@ -34,8 +34,8 @@ const Header = () => {
 			</Row>
 
 			<HeadingRow justifyContent="center">
-				<Heading>
-					<Translation id="heading-title" />
+				<Heading aria-live="polite">
+					<Translation id="header-introduction" />
 				</Heading>
 			</HeadingRow>
 		</HeaderContainer>

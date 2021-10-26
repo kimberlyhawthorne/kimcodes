@@ -43,7 +43,7 @@ const Interests = () => {
 				<ListItem>
 					<Translation id="interests-cssInJs" />
 
-					<SyntaxHighlighter>
+					<SyntaxHighlighter aria-hidden="true">
 						{cssJSCode}
 					</SyntaxHighlighter>
 				</ListItem>

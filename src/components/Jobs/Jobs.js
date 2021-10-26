@@ -11,12 +11,14 @@ import Job from 'components/Jobs/Job';
 import Translation from 'components/Localization/Translation';
 
 const Jobs = () => {
+	const id = "jobs-section";
 	const data = useStaticQuery(graphql`
 		query GetJobs {
 			jobsJson {
 				jobs {
-					endDate
 					company
+					endDate
+					logo
 					startDate
 					tasks
 					title
@@ -33,8 +35,8 @@ const Jobs = () => {
 	}
 
 	return (
-		<Section>
-			<SectionTitle>
+		<Section aria-describedBy={id}>
+			<SectionTitle id={id}>
 				<Translation id="jobs-title" />
 			</SectionTitle>
 

@@ -13,7 +13,9 @@ module.exports = {
 			options: {
 				root: path.join(__dirname, 'src'),
 				components: path.join(__dirname, 'src/components'),
-				styles: path.join(__dirname, 'src/styles')
+				images: path.join(__dirname, 'src/images'),
+				styles: path.join(__dirname, 'src/styles'),
+				fonts: path.join(__dirname, 'src/fonts')
 			}
 		},
 		`gatsby-transformer-json`,

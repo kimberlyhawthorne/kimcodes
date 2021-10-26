@@ -9,6 +9,7 @@ import {
 	ListItem,
 	UnorderedList
 } from 'styles/base';
+import {Row} from 'styles/grid';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
@@ -24,9 +25,20 @@ const BulletlessList = styled(BulletlessListBase)`
 	display: inline-block;
 `;
 
+const Logo = styled.img`
+	margin-top: 1rem;
+	max-width: 5rem;
+`;
+
+const JobTitleContainer = styled.div`
+	display: flex;
+	align-items: start;
+`;
+
 const Job = ({
 	company,
 	endDate,
+	logo,
 	startDate,
 	tasks,
 	title,
@@ -34,8 +46,8 @@ const Job = ({
 }) => {
 	return (
 		<JobContainer>
-			<div>
-				<span>image</span>
+			<JobTitleContainer>
+				<Logo alt={company} src={`/images/${logo}.png`} />
 				<BulletlessList>
 					<ListItem>
 						<Translation id={title} />
@@ -51,7 +63,7 @@ const Job = ({
 						<Translation id={endDate} />
 					</ListItem>
 				</BulletlessList>
-			</div>
+			</JobTitleContainer>
 
 			{!!tasks.length &&
 				<UnorderedList>

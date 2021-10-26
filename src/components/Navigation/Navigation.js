@@ -18,8 +18,11 @@ const ButtonLink = styled(ButtonLinkBase)`
 	max-width: 24rem;
 `;
 
-const Navigation = ({isSecondary}) => (
-	<Row as="navigation" justifyContent="center">
+const Navigation = ({ariaHidden, isSecondary}) => (
+	<Row
+		as="nav"
+		aria-hidden={ariaHidden}
+		justifyContent="center">
 		<Col col={12} xl={3}>
 			<ButtonLink
 				href="/"

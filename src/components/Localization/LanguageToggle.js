@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useIntl} from 'react-intl';
 
 // CONTEXTS
-import {IntlContext} from 'react-intl';
 import localeStore from 'store/locale';
 
 // CONFIGS
@@ -20,15 +20,17 @@ const Container = styled.div`
 	align-items: center;
 `;
 
-const Toggler = styled.div`
+const Toggler = styled.button`
 	${(props) => {
-		const buttonSize = '1.9rem';
+		const toggleSize = '20px';
+		const left = props.isLeft ? '0' : `calc(100% - ${toggleSize})`;
 
 		return `
 			display: inline-flex;
 			background-color: ${COLORS.black};
-			width: 3.5rem;
-			height: 1.75rem;
+			width: 36px;
+			height: ${toggleSize};
+			border: 0;
 			border-radius: 100px;
 			cursor: pointer;
 			position: relative;
@@ -39,12 +41,12 @@ const Toggler = styled.div`
 
 			&:after {
 				content: '';
-				width: ${buttonSize};
-				height: ${buttonSize};
+				width: ${toggleSize};
+				height: ${toggleSize};
 				border-radius: 100%;
 				background-color: ${COLORS.lilac};
 				position: absolute;
-				left: ${props.isLeft ? '0' : 'calc(100% - 1.9rem)'};
+				left: ${left};
 				transition: 0.2s ease-out;
 			}
 
@@ -53,7 +55,7 @@ const Toggler = styled.div`
 
 
 				&:after {
-					width: calc(${buttonSize} + 4px);
+					width: calc(${toggleSize} + 4px);
 				}
 			}
 
@@ -69,8 +71,9 @@ const Label = styled(Translation)`
 `;
 
 const LanguageToggle = () => {
-	const {locale, dispatchLocale} = React.useContext(localeStore.context);
-	const intl = React.useContext(IntlContext);
+	const dispatchLocale = React.useContext(localeStore.context);
+	const {formatMessage, locale} = useIntl();
+
 
 	/**
 	* Track toggle state in a boolean
@@ -92,10 +95,16 @@ const LanguageToggle = () => {
 	};
 
 	return (
-		<Container>
-			<Label id={LOCALES.EN.label} />
-			<Toggler isLeft={isEnglish} onClick={handleClick} />
-			<Label id={LOCALES.FR.label} />
+		<Container aria-label={formatMessage({id: 'languageToggle-aria-title'})}>
+			<Label
+				id={LOCALES.EN.label}
+				aria-label={LOCALES.EN.ariaLabel} />
+			<Toggler
+				isLeft={isEnglish}
+				onClick={handleClick} />
+			<Label
+				id={LOCALES.FR.label}
+				ariaLabel={LOCALES.FR.ariaLabel} />
 		</Container>
 	);
 }

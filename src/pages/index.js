@@ -4,14 +4,11 @@ import {IntlProvider} from 'react-intl';
 import {Helmet} from "react-helmet";
 import {BaseCSS} from 'styled-bootstrap-grid';
 
-// STYLES AND FONTS
+// STYLES
 import 'normalize.css';
-import 'styles/reset.css';
+import 'styles/index.css';
 import 'prismjs/themes/prism-solarizedlight.css';
-import "@fontsource/ibm-plex-sans";
-import "@fontsource/playfair-display";
-import "@fontsource/source-sans-pro";
-import {COLORS} from 'styles/variables';
+import {COLORS, FONTS} from 'styles/variables';
 import {Container, Row} from 'styles/grid';
 
 // CONFIGS
@@ -22,6 +19,7 @@ import localeStore from 'store/locale';
 
 // COMPONENTS
 import About from 'components/About/About';
+import AccessibilityEasterEgg from 'components/Navigation/AccessibilityEasterEgg';
 import Education from 'components/Education/Education';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
@@ -31,9 +29,9 @@ import Navigation from 'components/Navigation/Navigation';
 import Skills from 'components/Skills/Skills';
 
 const App = styled.div`
-	background-color: ${COLORS.lime};
 	width: 100%;
-	font-family: 'Source Sans Pro'
+	font-family: ${FONTS.recoleta};
+	position: relative;
 `;
 
 const AppView = () => {
@@ -44,7 +42,7 @@ const AppView = () => {
 	return (
 		<App>
 			<BaseCSS />
-			<localeStore.context.Provider value={{dispatchLocale, locale}}>
+			<localeStore.context.Provider value={dispatchLocale}>
 				<IntlProvider
 					messages={messages}
 					locale={locale}
@@ -56,39 +54,48 @@ const AppView = () => {
 						</title>
 					</Helmet>
 
+					<AccessibilityEasterEgg />
+
 					<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
 						<Container>
 							<Header />
-							<Navigation />
-							<Jobs />
 						</Container>
 					</Row>
 
-					<Row backgroundColor={COLORS.brick}>
-						<Container>
-							<Skills />
-						</Container>
-					</Row>
+					<main>
+						<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+							<Container>
+								<Navigation />
+								<Jobs />
+							</Container>
+						</Row>
 
-					<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
-						<Container>
-							<Interests />
-							<Education />
-						</Container>
-					</Row>
+						<Row backgroundColor={COLORS.brick}>
+							<Container>
+								<Skills />
+							</Container>
+						</Row>
 
-					<Row backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
-						<Container>
-							<About />
-							<Navigation isSecondary={true} />
-						</Container>
-					</Row>
+						<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+							<Container>
+								<Interests />
+								<Education />
+							</Container>
+						</Row>
 
-					<Row backgroundColor={COLORS.black} color={COLORS.lilac_light}>
-						<Container>
-							<Footer />
-						</Container>
-					</Row>
+						<Row backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
+							<Container>
+								<About />
+								<Navigation isSecondary={true} ariaHidden="true" />
+							</Container>
+						</Row>
+
+						<Row backgroundColor={COLORS.black} color={COLORS.lilac_light}>
+							<Container>
+								<Footer />
+							</Container>
+						</Row>
+					</main>
 
 				</IntlProvider>
 			</localeStore.context.Provider>

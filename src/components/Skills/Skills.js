@@ -4,10 +4,10 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES AND FONTS
 import {COLORS} from 'styles/variables';
-import {Col, Container, Row} from 'styles/grid';
-import {SectionTitle} from 'styles/typography';
+import {Col, Container, Row as RowBase} from 'styles/grid';
+import {BodyText, SectionTitle as SectionTitleBase} from 'styles/typography';
 import {
-	BulletlessList,
+	BulletlessList as BulletlessListBase,
 	ListItem,
 	Section
 } from 'styles/base';
@@ -15,38 +15,54 @@ import {
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
 
+// STYLED
+const SectionTitle = styled(SectionTitleBase)`
+	${BodyText};
+	text-align: left;
+`;
+
+const Row = styled(RowBase)`
+	color: ${COLORS.lilac};
+`;
+
+const BulletlessList = styled(BulletlessListBase)`
+	padding-left: 0;
+`;
+
 const Skills = () => {
 	const data = useStaticQuery(graphql`
 		query GetSkills {
 			skillsJson {
-				languages
-				skills
-				software
+				skillsets {
+					title,
+					items
+				}
 			}
 		}
 	`);
+	const skillsets = data?.skillsJson?.skillsets;
 
 	// RENDERING
-	if (!data.skillsJson) {
+	if (!skillsets) {
 		return null;
 	}
 
 	return (
 		<Row>
-			{Object.keys(data.skillsJson).map(key => {
-				const skills = data.skillsJson[key];
+			{skillsets.map((set) => {
+				const {title, items} = set;
 
 				return (
 					<Col as={Section} xs={12} lg={4}>
 						<SectionTitle>
-							<Translation id={key} />
+							<Translation id={title} />
 						</SectionTitle>
 
-						{!!skills.length &&
+						{!!items.length &&
 							<BulletlessList>
-								{skills.map(skill => (
+								{items.map(item => (
 									<ListItem>
-										<Translation id={skill} />
+										<Translation id={item} />
 									</ListItem>
 								))}
 							</BulletlessList>

@@ -14,6 +14,7 @@ const Primary = `
 	&:hover {
 		background-color: ${COLORS.lilac};
 		color: ${COLORS.brick};
+		transition: 0.2s;
 	}
 `;
 
@@ -24,6 +25,7 @@ const Secondary = `
 	&:hover {
 		background-color: ${COLORS.maroon};
 		color: ${COLORS.lilac};
+		transition: 0.2s;
 	}
 `;
 

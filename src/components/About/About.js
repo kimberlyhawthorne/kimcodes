@@ -28,7 +28,9 @@ const AboutContainer = styled(Section)`
 		bottom: calc(100% - calc(${size} / 2));
 		left: 0;
 		right: 0;
-		background-color: white;
+		background-image: url('/images/portrait-kim.jpg');
+		background-size: cover;
+		background-color: ${COLORS.brick};
 		border-radius: 100%;
 	}
 `;
@@ -54,10 +56,10 @@ const About = () => {
 				<Translation
 					id="about-me-blurb"
 					values={{
-						catEmoji: '🐱',
-						montrealEmoji: '🇨🇦',
-						vegetableEmoji: '🥦',
-						vintageEmoji: '🛋'
+						catEmoji: <span aria-hidden="true">🐱</span>,
+						montrealEmoji: <span aria-hidden="true">🇨🇦</span>,
+						vegetableEmoji: <span aria-hidden="true">🥦</span>,
+						vintageEmoji: <span aria-hidden="true">🛋</span>
 					}}/>
 			</p>
 

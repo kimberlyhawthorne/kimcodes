@@ -2,19 +2,19 @@ import styled from 'styled-components';
 import {FONTS, COLORS} from 'styles/variables';
 
 export const Heading1 = styled.h1`
-	font-family: ${FONTS.playfair};
+	font-family: ${FONTS.recoleta};
 `;
 
 export const Heading2 = styled.h2`
-	font-family: ${FONTS.playfair};
+	font-family: ${FONTS.recoleta};
 `;
 
 export const Heading3 = styled.h3`
-	font-family: ${FONTS.source};
+	font-family: ${FONTS.recoleta};
 `;
 
 export const Heading4 = styled.h4`
-	font-family: ${FONTS.source};
+	font-family: ${FONTS.recoleta};
 `;
 
 export const ExternalLink = styled.a`
@@ -28,7 +28,11 @@ export const ExternalLink = styled.a`
 `;
 
 export const SectionTitle = styled.h2`
-	font-family: ${FONTS.ibm};
 	color: ${COLORS.lilac};
 	text-align: center;
+`;
+
+// mixin
+export const BodyText = `
+	font-size: 0.875rem;
 `;
