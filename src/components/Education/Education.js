@@ -3,19 +3,31 @@ import styled from 'styled-components';
 import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES
-import {COLORS} from 'styles/variables';
-import {Section as SectionBase} from 'styles/base';
-import {Col, Container, Row} from 'styles/grid';
-import {SectionTitle, Heading4} from 'styles/typography';
+import {SPACING} from 'styles/variables';
+import {Section} from 'styles/base';
+import {Col, Row} from 'styles/grid';
+import {Heading4, SectionTitle} from 'styles/typography';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
 
 // COMPONENT STYLES
-// make room for About photo
-const Section = styled(SectionBase)`
-	padding-bottom: 7.5rem;
+const marginBottom = '0.5rem';
+
+const EducationSection = styled(Section)`
+	margin-top: ${SPACING.lg};
+	margin-bottom: ${SPACING.xl}; // extra space for portrait
 `;
+
+const Paragraph = styled.p`
+	margin-top: 0;
+	margin-bottom: ${marginBottom};
+`;
+
+const Degree = styled(Heading4)`
+	margin-bottom: ${marginBottom};
+`;
+
 
 const Education = () => {
 	const data = useStaticQuery(graphql`
@@ -39,7 +51,7 @@ const Education = () => {
 	}
 
 	return (
-		<Section>
+		<EducationSection>
 			<SectionTitle>
 				<Translation id="education-title" />
 			</SectionTitle>
@@ -55,30 +67,28 @@ const Education = () => {
 
 					return (
 						<Col key={school} xs={12} md={6}>
-							<Heading4>
-								<strong>
-									<Translation id={degree} />
-								</strong>
-							</Heading4>
+							<Degree>
+								<Translation id={degree} />
+							</Degree>
 
-							<p>
+							<Paragraph>
 								<Translation id={school} />
-							</p>
+							</Paragraph>
 
-							<p>
+							<Paragraph>
 								<Translation id={location} />
-							</p>
+							</Paragraph>
 
-							<p>
+							<Paragraph>
 								<Translation id={startDate} />
 								{' - '}
 								<Translation id={endDate} />
-							</p>
+							</Paragraph>
 						</Col>
 					);
 				})}
 			</Row>
-		</Section>
+		</EducationSection>
 	);
 }
 

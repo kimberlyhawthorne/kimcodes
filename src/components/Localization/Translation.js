@@ -1,16 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 import {FormattedMessage, useIntl} from 'react-intl';
 
 import DEFAULTS from 'locales/EN';
 
 // STYLES
-import {ExternalLink} from 'styles/typography';
+import {LINKS} from 'styles/typography';
+
+const Link = styled.a`
+	${LINKS.lilac};
+`;
+
+
 
 const Translation = ({
 	ariaLabel,
 	className,
 	id,
-	linkColor,
 	url,
 	values
 }) => {
@@ -22,7 +28,7 @@ const Translation = ({
 			defaultMessage={DEFAULTS[id]}
 			values={{
 				bold: string => <strong>{string}</strong>,
-				link: string => <ExternalLink color={linkColor} href={url} target="_blank">{string}</ExternalLink>,
+				link: string => <Link href={url} target="_blank">{string}</Link>,
 				...values
 			}}
 		>
@@ -34,7 +40,7 @@ const Translation = ({
 				}
 
 				if (ariaLabel) {
-					props['aria-label'] = formatMessage({id: ariaLabel});
+					props.ariaLabel = formatMessage({id: ariaLabel});
 				}
 
 				// Some props are needed on the translated message

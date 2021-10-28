@@ -13,7 +13,7 @@ module.exports = {
 			options: {
 				root: path.join(__dirname, 'src'),
 				components: path.join(__dirname, 'src/components'),
-				images: path.join(__dirname, 'src/images'),
+				assets: path.join(__dirname, 'src/assets'),
 				styles: path.join(__dirname, 'src/styles'),
 				fonts: path.join(__dirname, 'src/fonts')
 			}

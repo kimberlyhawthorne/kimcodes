@@ -45,7 +45,6 @@ export const getDefaultLocale = () => {
 	return key;
 }
 
-
 export default {
 	ACTIONS,
 	context,

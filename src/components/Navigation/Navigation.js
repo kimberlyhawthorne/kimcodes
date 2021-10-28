@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Col as ColBase, Row} from 'styles/grid';
-import {PADDING} from 'styles/variables';
 
 import {ButtonLink as ButtonLinkBase} from 'components/Button/ButtonLink';
 
@@ -33,7 +32,7 @@ const Navigation = ({ariaHidden, isSecondary}) => (
 		</Col>
 		<Col col={12} xl={3}>
 			<ButtonLink
-				href="/"
+				href="https:\/\/github.com\/kimberlyhawthorne"
 				isNewWindow={true}
 				isSecondary={isSecondary}
 				message="navigation-github"
@@ -41,8 +40,7 @@ const Navigation = ({ariaHidden, isSecondary}) => (
 		</Col>
 		<Col col={12} xl={3}>
 			<ButtonLink
-				href="/"
-				isNewWindow={true}
+				href="mailto:hi@hawthorne.kim"
 				isSecondary={isSecondary}
 				message="navigation-email"
 			/>

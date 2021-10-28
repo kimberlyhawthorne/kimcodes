@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {PADDING} from 'styles/variables';
+import {SPACING} from 'styles/variables';
 
 const FooterContainer = styled.footer`
-	padding-top: ${PADDING};
 	text-align: center;
+	font-size: 12px;
+	padding-top: ${SPACING.sm};
 `;
 
 const Footer = () => (

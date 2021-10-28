@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import {PADDING} from 'styles/variables';
 import {BodyText} from 'styles/typography';
 
 export const UnorderedList = styled.ul`
@@ -18,10 +17,7 @@ export const ListItem = styled.li`
 	}
 `;
 
-export const Section = styled.section`
-	padding-bottom: ${PADDING};
-	padding-top: ${PADDING};
-`;
+export const Section = styled.section``;
 
 export const ScreenReaderOnly = `
 	&:not(:focus):not(:active) {

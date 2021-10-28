@@ -8,8 +8,8 @@ import {BaseCSS} from 'styled-bootstrap-grid';
 import 'normalize.css';
 import 'styles/index.css';
 import 'prismjs/themes/prism-solarizedlight.css';
-import {COLORS, FONTS} from 'styles/variables';
-import {Container, Row} from 'styles/grid';
+import {COLORS, FONTS, SPACING} from 'styles/variables';
+import {Container} from 'styles/grid';
 
 // CONFIGS
 import {LOCALES, messages as messagesConfig} from 'locales/config';
@@ -27,11 +27,17 @@ import Interests from 'components/Interests/Interests';
 import Jobs from 'components/Jobs/Jobs';
 import Navigation from 'components/Navigation/Navigation';
 import Skills from 'components/Skills/Skills';
+import Squiggle from 'components/Icon/Squiggle';
 
 const App = styled.div`
 	width: 100%;
-	font-family: ${FONTS.recoleta};
+	font-family: ${FONTS.regular};
 	position: relative;
+`;
+
+const Background = styled.div`
+	background-color: ${(props) => props.backgroundColor};
+	color: ${(props) => props.color};
 `;
 
 const AppView = () => {
@@ -56,46 +62,53 @@ const AppView = () => {
 
 					<AccessibilityEasterEgg />
 
-					<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
-						<Container>
+					<Background backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+						<Container paddingV={SPACING.sm}>
 							<Header />
 						</Container>
-					</Row>
+					</Background>
+
+					<Background backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+						<Container>
+							<Navigation />
+						</Container>
+					</Background>
 
 					<main>
-						<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+						<Background backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
 							<Container>
-								<Navigation />
+								<Squiggle />
 								<Jobs />
 							</Container>
-						</Row>
+						</Background>
 
-						<Row backgroundColor={COLORS.brick}>
+						<Background backgroundColor={COLORS.brick}>
 							<Container>
 								<Skills />
 							</Container>
-						</Row>
+						</Background>
 
-						<Row backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
+						<Background backgroundColor={COLORS.maroon} color={COLORS.lilac_light}>
 							<Container>
 								<Interests />
 								<Education />
 							</Container>
-						</Row>
+						</Background>
 
-						<Row backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
+						<Background backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
 							<Container>
 								<About />
 								<Navigation isSecondary={true} ariaHidden="true" />
 							</Container>
-						</Row>
-
-						<Row backgroundColor={COLORS.black} color={COLORS.lilac_light}>
-							<Container>
-								<Footer />
-							</Container>
-						</Row>
+						</Background>
 					</main>
+
+					<Background backgroundColor={COLORS.black} color={COLORS.lilac_light}>
+						<Container paddingV={SPACING.sm}>
+							<Squiggle />
+							<Footer />
+						</Container>
+					</Background>
 
 				</IntlProvider>
 			</localeStore.context.Provider>

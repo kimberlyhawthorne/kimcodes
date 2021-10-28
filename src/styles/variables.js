@@ -7,18 +7,14 @@ export const COLORS = {
 };
 
 export const FONTS = {
-	ibm: 'IBM Plex Sans',
-	playfair: 'Playfair Display',
-	source: 'Source Sans Pro',
-	recoleta: 'Recoleta'
+	regular: 'Recoleta',
+	bold: 'Recoleta Semi-bold'
 };
 
-export const CONTENT_WIDTH = '960px';
-
-export const MARGINS = {
-	small: '0.5rem',
-	medium: '1rem',
-	large: '2rem'
+export const SPACING = {
+	xs: '1rem',
+	sm: '2rem',
+	md: '3rem',
+	lg: '4rem',
+	xl: '6rem'
 };
-
-export const PADDING = '3rem';

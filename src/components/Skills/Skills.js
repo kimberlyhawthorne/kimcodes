@@ -4,7 +4,7 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES AND FONTS
 import {COLORS} from 'styles/variables';
-import {Col, Container, Row as RowBase} from 'styles/grid';
+import {Col, Row as RowBase} from 'styles/grid';
 import {BodyText, SectionTitle as SectionTitleBase} from 'styles/typography';
 import {
 	BulletlessList as BulletlessListBase,

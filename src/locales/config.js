@@ -3,13 +3,15 @@ import FR from 'locales/FR';
 
 export const LOCALES = {
 	EN: {
-		ariaLabel: 'languageToggle-en-aria-label',
-		label: 'languageToggle-en-label',
+		ariaLabel: 'languageToggle-hi-ariaLabel',
+		label: 'languageToggle-hi',
+		name: 'languageToggle-en',
 		value: 'EN'
 	},
 	FR: {
-		ariaLabel: 'languageToggle-fr-aria-label',
-		label: 'languageToggle-fr-label',
+		ariaLabel: 'languageToggle-bonjour-ariaLabel',
+		label: 'languageToggle-bonjour',
+		name: 'languageToggle-fr',
 		value: 'FR'
 	}
 };

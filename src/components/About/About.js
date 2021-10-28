@@ -3,8 +3,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 import styled from 'styled-components';
 
 // STYLES
-import {COLORS} from 'styles/variables';
-import {Container} from 'styles/grid';
+import {COLORS, SPACING} from 'styles/variables';
 import {Heading3, SectionTitle} from 'styles/typography';
 import {UnorderedList, ListItem, Section} from 'styles/base';
 
@@ -16,7 +15,8 @@ const size = '10rem';
 
 const AboutContainer = styled(Section)`
 	position: relative;
-	padding-top: calc(${size} * .75);
+	padding-top: calc(${size} * .6);
+	padding-bottom: ${SPACING.md};
 
 	&:before {
 		content: '';
@@ -25,7 +25,7 @@ const AboutContainer = styled(Section)`
 		margin: 0 auto;
 		width: ${size};
 		height: ${size};
-		bottom: calc(100% - calc(${size} / 2));
+		bottom: calc(100% - calc(${size} * .3));
 		left: 0;
 		right: 0;
 		background-image: url('/images/portrait-kim.jpg');
@@ -33,6 +33,10 @@ const AboutContainer = styled(Section)`
 		background-color: ${COLORS.brick};
 		border-radius: 100%;
 	}
+`;
+
+const Blurb = styled.p`
+	padding-bottom: ${SPACING.sm};
 `;
 
 const About = () => {
@@ -52,7 +56,7 @@ const About = () => {
 				<Translation id="about-title" />
 			</SectionTitle>
 
-			<p>
+			<Blurb>
 				<Translation
 					id="about-me-blurb"
 					values={{
@@ -61,7 +65,7 @@ const About = () => {
 						vegetableEmoji: <span aria-hidden="true">🥦</span>,
 						vintageEmoji: <span aria-hidden="true">🛋</span>
 					}}/>
-			</p>
+			</Blurb>
 
 			<Heading3>
 				<Translation id="about-wants-title" />

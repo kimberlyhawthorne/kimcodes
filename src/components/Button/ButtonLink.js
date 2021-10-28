@@ -5,29 +5,7 @@ import styled from 'styled-components';
 import Translation from 'components/Localization/Translation';
 
 // STYLES
-import {COLORS} from 'styles/variables';
-
-const Primary = `
-	background-color: ${COLORS.brick};
-	color: ${COLORS.lilac};
-
-	&:hover {
-		background-color: ${COLORS.lilac};
-		color: ${COLORS.brick};
-		transition: 0.2s;
-	}
-`;
-
-const Secondary = `
-	background-color: ${COLORS.lilac};
-	color: ${COLORS.brick};
-
-	&:hover {
-		background-color: ${COLORS.maroon};
-		color: ${COLORS.lilac};
-		transition: 0.2s;
-	}
-`;
+import BUTTONS from 'styles/buttons';
 
 const Button = styled.a`
 	display: inline-block;
@@ -35,15 +13,10 @@ const Button = styled.a`
 	border-radius: 25px;
 	text-decoration: none;
 	text-align: center;
-
-	${(props) => {
-		if (props.isSecondary) {
-			return Secondary;
-		}
-
-		return Primary;
-	}}
+	${(props) => props.isSecondary ? BUTTONS.secondary : BUTTONS.primary};
 `;
+
+console.warn(BUTTONS);
 
 export const ButtonLink = ({className, href, isNewWindow, isSecondary, message}) => (
 	<Button
@@ -52,7 +25,10 @@ export const ButtonLink = ({className, href, isNewWindow, isSecondary, message})
 		isSecondary={isSecondary}
 		// element
 		href={href}
-		{...(isNewWindow && {target: '_blank'})}
+		{...(isNewWindow && {
+			target: '_blank',
+			rel: 'noreferrer'
+		})}
 	>
 		<Translation id={message} />
 	</Button>

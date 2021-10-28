@@ -1,14 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import {graphql, useStaticQuery} from 'gatsby'
 
 // STYLES AND FONTS
-import {COLORS} from 'styles/variables';
+import {SPACING} from 'styles/variables';
 import {Section} from 'styles/base';
 import {SectionTitle} from 'styles/typography';
 
 // COMPONENTS
 import Job from 'components/Jobs/Job';
 import Translation from 'components/Localization/Translation';
+
+const JobsSection = styled(Section)`
+	padding-top: ${SPACING.lg};
+`;
 
 const Jobs = () => {
 	const id = "jobs-section";
@@ -35,7 +40,7 @@ const Jobs = () => {
 	}
 
 	return (
-		<Section aria-describedBy={id}>
+		<JobsSection aria-describedby={id}>
 			<SectionTitle id={id}>
 				<Translation id="jobs-title" />
 			</SectionTitle>
@@ -45,7 +50,7 @@ const Jobs = () => {
 					<Job {...job} />
 				);
 			})}
-		</Section>
+		</JobsSection>
 	);
 }
 

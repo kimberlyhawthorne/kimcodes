@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 // STYLES
-import {Heading3, ExternalLink} from 'styles/typography';
-import {COLORS, FONTS} from 'styles/variables';
+import {COLORS} from 'styles/variables';
 import {
-	BulletlessList as BulletlessListBase,
+	BulletlessList,
 	ListItem,
 	UnorderedList
 } from 'styles/base';
-import {Row} from 'styles/grid';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
@@ -21,8 +19,15 @@ const JobContainer = styled.div`
 	}
 `;
 
-const BulletlessList = styled(BulletlessListBase)`
+// Job title
+const JobTitleContainer = styled.div`
+	display: flex;
+	align-items: start;
+`;
+
+const JobTitleList = styled(BulletlessList)`
 	display: inline-block;
+	color: ${COLORS.lilac};
 `;
 
 const Logo = styled.img`
@@ -30,10 +35,6 @@ const Logo = styled.img`
 	max-width: 5rem;
 `;
 
-const JobTitleContainer = styled.div`
-	display: flex;
-	align-items: start;
-`;
 
 const Job = ({
 	company,
@@ -47,22 +48,26 @@ const Job = ({
 	return (
 		<JobContainer>
 			<JobTitleContainer>
-				<Logo alt={company} src={`/images/${logo}.png`} />
-				<BulletlessList>
+
+				<a href={website} target="_blank" rel="noreferrer">
+					<Logo alt={company} src={`/images/${logo}.png`} />
+				</a>
+
+				<JobTitleList>
 					<ListItem>
 						<Translation id={title} />
 					</ListItem>
+
 					<ListItem>
-						<ExternalLink href={website} target="_blank">
-							<Translation id={company} />
-						</ExternalLink>
+						<Translation id={company} />
 					</ListItem>
+
 					<ListItem>
 						<Translation id={startDate} />
 						{` - `}
 						<Translation id={endDate} />
 					</ListItem>
-				</BulletlessList>
+				</JobTitleList>
 			</JobTitleContainer>
 
 			{!!tasks.length &&

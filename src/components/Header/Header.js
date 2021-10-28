@@ -2,43 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 // STYLES
-import {COLORS} from 'styles/variables';
-import {Row} from 'styles/grid';
+import {SPACING} from 'styles/variables';
+import {Col, Row} from 'styles/grid';
 import {Heading1} from 'styles/typography';
 
 // COMPONENTS
 import LanguageToggle from 'components/Localization/LanguageToggle';
 import Translation from 'components/Localization/Translation';
 
-const HeaderContainer = styled.header`
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-`;
-
 const HeadingRow = styled(Row)`
-	margin-top: 3rem;
-	margin-bottom: 0;
-	margin-left: inherit;
-	margin-right: inherit;
-`;
-
-const Heading = styled(Heading1)`
-	color: ${COLORS.lilac};
+	margin-top: ${SPACING.lg};
 `;
 
 const Header = () => {
 	return (
-		<HeaderContainer>
+		<header>
 			<Row justifyContent="center" xlJustifyContent="end">
 				<LanguageToggle />
 			</Row>
 
 			<HeadingRow justifyContent="center">
-				<Heading aria-live="polite">
-					<Translation id="header-introduction" />
-				</Heading>
+				<Col mdAuto>
+					<Heading1 aria-live="polite">
+						<Translation id="header-introduction" />
+					</Heading1>
+				</Col>
 			</HeadingRow>
-		</HeaderContainer>
+		</header>
 	);
 }
 

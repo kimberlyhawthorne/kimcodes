@@ -10,6 +10,7 @@ import {LOCALES} from 'locales/config';
 
 // STYLES
 import {COLORS} from 'styles/variables';
+import {FONTS} from 'styles/variables';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
@@ -67,7 +68,8 @@ const Toggler = styled.button`
 `;
 
 const Label = styled(Translation)`
-	color: ${COLORS.lilac_light}
+	font-family: ${FONTS.bold};
+	color: ${COLORS.lilac_light};
 `;
 
 const LanguageToggle = () => {
@@ -95,7 +97,9 @@ const LanguageToggle = () => {
 	};
 
 	return (
-		<Container aria-label={formatMessage({id: 'languageToggle-aria-title'})}>
+		<Container aria-label={formatMessage({
+			id: 'languageToggle-ariaLabel'
+		})}>
 			<Label
 				id={LOCALES.EN.label}
 				aria-label={LOCALES.EN.ariaLabel} />

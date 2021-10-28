@@ -4,12 +4,16 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 
 // STYLES
 import {UnorderedList, ListItem, Section} from 'styles/base';
-import {COLORS} from 'styles/variables';
-import {Container} from 'styles/grid';
 import {SectionTitle} from 'styles/typography';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
+
+// STYLED COMPONENTS
+const Code = styled(SyntaxHighlighter)`
+	// alignment with the <li> bullet
+	margin-left: -1rem;
+`;
 
 const cssJSCode = `
 export const Container = styled.div\`
@@ -43,9 +47,9 @@ const Interests = () => {
 				<ListItem>
 					<Translation id="interests-cssInJs" />
 
-					<SyntaxHighlighter aria-hidden="true">
+					<Code aria-hidden="true">
 						{cssJSCode}
-					</SyntaxHighlighter>
+					</Code>
 				</ListItem>
 			</UnorderedList>
 		</Section>

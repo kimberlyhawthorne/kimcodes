@@ -22,12 +22,12 @@
 	"education-illinois-endDate": "May 2011",
 	"education-illinois-degree": "B.A. Journalism",	"greeting-title": "Hi, Bonjour!",
 
-	"languageToggle-en-label": "Hi!",
-	"languageToggle-fr-label": "Bonjour!",
-	"languageToggle-en-aria-label": "English",
-	"languageToggle-fr-aria-label": "français",
-	"languageToggle-aria-title": "Choose your language",
-	"languageToggle-changed-announcement": "Your language was changed",
+	"languageToggle-hi": "Hi!",
+	"languageToggle-bonjour": "Bonjour!",
+	"languageToggle-hi-ariaLabel": "Use English",
+	"languageToggle-bonjour-ariaLabel": "Utilisez le français",
+	"languageToggle-ariaLabel": "Choose your language. You are currently in English.",
+
 
 	"interests-title": "What I've Been Doing Lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",
