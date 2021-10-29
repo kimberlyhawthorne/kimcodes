@@ -33,6 +33,7 @@ export const SectionTitle = styled(Heading2)`
 export const BodyText = `
 	font-family: ${FONTS.regular};
 	font-size: 1rem;
+	line-height: 1.25rem;
 `;
 
 // shared styles for all text links
