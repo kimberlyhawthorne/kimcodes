@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import {BodyText} from 'styles/typography';
+import {COLORS} from 'styles/variables';
 
 export const UnorderedList = styled.ul`
 	${BodyText};
@@ -12,8 +13,11 @@ export const BulletlessList = styled(UnorderedList)`
 `;
 
 export const ListItem = styled.li`
+	&::marker {
+		color: ${COLORS.lilac};
+	}
 	&:not(:last-child) {
-		padding-bottom: 0.5rem;
+		margin-bottom: 0.25rem;
 	}
 `;
 

@@ -9,7 +9,7 @@ import BUTTONS from 'styles/buttons';
 
 const Button = styled.a`
 	display: inline-block;
-	padding: 1rem 3.5rem;
+	padding: 1rem;
 	border-radius: 25px;
 	text-decoration: none;
 	text-align: center;

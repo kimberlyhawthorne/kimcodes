@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {media} from 'styled-bootstrap-grid';
 
 // STYLES
 import {SPACING} from 'styles/variables';
@@ -14,6 +15,12 @@ const HeadingRow = styled(Row)`
 	margin-top: ${SPACING.lg};
 `;
 
+const HeadingCol = styled(Col)`
+	${media.md`
+		text-align: center;
+	`}
+`;
+
 const Header = () => {
 	return (
 		<header>
@@ -22,11 +29,11 @@ const Header = () => {
 			</Row>
 
 			<HeadingRow justifyContent="center">
-				<Col mdAuto>
+				<HeadingCol>
 					<Heading1 aria-live="polite">
 						<Translation id="header-introduction" />
 					</Heading1>
-				</Col>
+				</HeadingCol>
 			</HeadingRow>
 		</header>
 	);

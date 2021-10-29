@@ -27,8 +27,9 @@ export const SectionTitle = styled(Heading2)`
 
 // mixin
 export const BodyText = `
-	font-size: 0.875rem;
-	line-height: 1.5rem;
+	font-family: ${FONTS.regular};
+	font-size: 1rem;
+	line-height: 1.25rem;
 `;
 
 // shared styles for all text links

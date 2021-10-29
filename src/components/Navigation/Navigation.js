@@ -22,7 +22,7 @@ const Navigation = ({ariaHidden, isSecondary}) => (
 		as="nav"
 		aria-hidden={ariaHidden}
 		justifyContent="center">
-		<Col col={12} xl={3}>
+		<Col col={12} xl={4}>
 			<ButtonLink
 				href="/"
 				isNewWindow={true}
@@ -30,7 +30,7 @@ const Navigation = ({ariaHidden, isSecondary}) => (
 				message="navigation-resume"
 			/>
 		</Col>
-		<Col col={12} xl={3}>
+		<Col col={12} xl={4}>
 			<ButtonLink
 				href="https:\/\/github.com\/kimberlyhawthorne"
 				isNewWindow={true}
@@ -38,7 +38,7 @@ const Navigation = ({ariaHidden, isSecondary}) => (
 				message="navigation-github"
 			/>
 		</Col>
-		<Col col={12} xl={3}>
+		<Col col={12} xl={4}>
 			<ButtonLink
 				href="mailto:hi@hawthorne.kim"
 				isSecondary={isSecondary}
