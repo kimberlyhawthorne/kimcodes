@@ -8,7 +8,7 @@ import {BaseCSS, GridThemeProvider} from 'styled-bootstrap-grid';
 import 'normalize.css';
 import 'styles/index.css';
 import 'prismjs/themes/prism-solarizedlight.css';
-import {COLORS, FONTS, SPACING} from 'styles/variables';
+import {COLORS, SPACING} from 'styles/variables';
 import {Container} from 'styles/grid';
 import {BodyText} from 'styles/typography';
 
@@ -79,6 +79,12 @@ const AppView = () => {
 							<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
 							<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
 							<link rel="manifest" href="/images/favicon/site.webmanifest" />
+
+							<meta property="og:title" content="Kim Hawthorne" />
+							<meta property="og:description" content="Kim Hawthorne, front-end developer / développeuse front-end" />
+							<meta property="og:image" content="/images/favicon/android-chrome-512x512.png" />
+							<meta property="og:url" content="http://hawthorne.kim" />
+							<meta name="twitter:card" content="summary_large_image" />
 						</Helmet>
 
 						<AccessibilityEasterEgg />
