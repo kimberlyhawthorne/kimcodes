@@ -70,7 +70,8 @@ const AppView = () => {
 						locale={locale}
 						defaultLocale={LOCALES.EN.value}>
 
-						<Helmet>
+						<Helmet
+							htmlAttributes={{lang: locale.toLowerCase()}}>
 							<title>
 								Kim Hawthorne
 							</title>
@@ -118,7 +119,7 @@ const AppView = () => {
 							<Background backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
 								<Container>
 									<About />
-									<Navigation isSecondary={true} ariaHidden="true" />
+									<Navigation isSecondary={true} />
 								</Container>
 							</Background>
 						</main>

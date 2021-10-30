@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import {graphql, useStaticQuery} from 'gatsby';
 
 // STYLES
-import {SPACING} from 'styles/variables';
+import {COLORS, SPACING} from 'styles/variables';
 import {Section} from 'styles/base';
 import {Col, Row} from 'styles/grid';
-import {Heading4, SectionTitle} from 'styles/typography';
+import {Heading3, SectionTitle} from 'styles/typography';
 
 // COMPONENTS
 import Translation from 'components/Localization/Translation';
@@ -24,7 +24,9 @@ const Paragraph = styled.p`
 	margin-bottom: ${marginBottom};
 `;
 
-const Degree = styled(Heading4)`
+const Degree = styled(Heading3)`
+	font-size: 1rem;
+	color: ${COLORS.lilac_light};
 	margin-bottom: ${marginBottom};
 `;
 

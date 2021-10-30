@@ -29,7 +29,7 @@ export const SectionTitle = styled(Heading2)`
 	text-align: center;
 `;
 
-// mixin
+// MIXINS
 export const BodyText = `
 	font-family: ${FONTS.regular};
 	font-size: 1rem;

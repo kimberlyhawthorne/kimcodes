@@ -18,13 +18,12 @@ const ButtonLink = styled(ButtonLinkBase)`
 	max-width: 24rem;
 `;
 
-const Navigation = ({ariaHidden, isSecondary}) => {
+const Navigation = ({isSecondary}) => {
 	const {locale} = useIntl();
 
 	return (
 		<Row
 			as="nav"
-			aria-hidden={ariaHidden}
 			justifyContent="center">
 			<Col col={12} xl={4}>
 				<ButtonLink
