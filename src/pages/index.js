@@ -59,6 +59,12 @@ const AppView = () => {
 	const defaultLocale = localeStore.getDefaultLocale();
 	const [locale, dispatchLocale] = React.useReducer(localeStore.reducer, defaultLocale);
 	const messages = React.useMemo(() => messagesConfig[locale], [locale]);
+	const meta = {
+		title: 'Kim Hawthorne',
+		description: 'Portfolio of Kim Hawthorne, front-end developer | Portfolio de Kim Hawthorne, développeuse front-end',
+		image: 'https://www.hawthorne.kim/images/favicon/android-chrome-512x512.png',
+		url: 'http://hawthorne.kim'
+	};
 
 	return (
 		<GridThemeProvider gridTheme={gridTheme}>
@@ -80,10 +86,11 @@ const AppView = () => {
 							<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
 							<link rel="manifest" href="/images/favicon/site.webmanifest" />
 
-							<meta property="og:title" content="Kim Hawthorne" />
-							<meta property="og:description" content="Kim Hawthorne, front-end developer / développeuse front-end" />
-							<meta property="og:image" content="/images/favicon/android-chrome-512x512.png" />
-							<meta property="og:url" content="http://hawthorne.kim" />
+							<meta name="description" content={meta.description} />
+							<meta property="og:title" content={meta.title} />
+							<meta property="og:description" content={meta.description} />
+							<meta property="og:image" content={meta.image} />
+							<meta property="og:url" content={meta.url} />
 							<meta name="twitter:card" content="summary_large_image" />
 						</Helmet>
 
