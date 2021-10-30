@@ -76,7 +76,6 @@ const LanguageToggle = () => {
 	const dispatchLocale = React.useContext(localeStore.context);
 	const {formatMessage, locale} = useIntl();
 
-
 	/**
 	* Track toggle state in a boolean
 	* Used for styles
@@ -90,6 +89,7 @@ const LanguageToggle = () => {
 	**/
 	const handleClick = () => {
 		const value = isEnglish ? LOCALES.FR.value : LOCALES.EN.value;
+
 		dispatchLocale({
 			type: localeStore.ACTIONS.SET,
 			payload: value

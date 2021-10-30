@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import {ScreenReaderOnly} from 'styles/base';
 import {COLORS} from 'styles/variables';
+import {FocusVisible} from 'styles/base';
 
 import Translation from 'components/Localization/Translation';
 
 const Container = styled.div`
 	${ScreenReaderOnly};
+	${FocusVisible};
 	top: -1rem;
 	transition: top 0.2s ease-out;
 
@@ -20,7 +22,6 @@ const Container = styled.div`
 		padding: 1rem;
 		background-color: ${COLORS.lilac_light};
 		color: ${COLORS.brick};
-		outline: none;
 	}
 `;
 

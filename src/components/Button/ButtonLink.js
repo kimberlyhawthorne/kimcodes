@@ -16,8 +16,6 @@ const Button = styled.a`
 	${(props) => props.isSecondary ? BUTTONS.secondary : BUTTONS.primary};
 `;
 
-console.warn(BUTTONS);
-
 export const ButtonLink = ({className, href, isNewWindow, isSecondary, message}) => (
 	<Button
 		// styles

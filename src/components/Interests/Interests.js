@@ -13,13 +13,14 @@ import Translation from 'components/Localization/Translation';
 const Code = styled(SyntaxHighlighter)`
 	// alignment with the <li> bullet
 	margin-left: -1rem;
+	padding: 1rem !important;
 `;
 
 const cssJSCode = `
 export const Container = styled.div\`
 	margin: 0 auto;
 	padding: 3rem;
-	// how to add props?
+	color: \${(props) => props.color || '#000'}
 \`
 `;
 

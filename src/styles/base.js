@@ -34,3 +34,10 @@ export const ScreenReaderOnly = `
 		width: 1px;
 	}
 `;
+
+export const FocusVisible = `
+	&:-webkit-any-link:focus-visible,
+	&:focus-visible {
+		outline: 2px dashed ${COLORS.lilac_light};
+	}
+`;

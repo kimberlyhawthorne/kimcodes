@@ -4,3 +4,11 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
+a:-webkit-any-link:focus-visible,
+a:focus-visible,
+button:-webkit-any-link:focus-visible,
+button:focus-visible {
+	outline: 2px dashed #e4cef1;
+}

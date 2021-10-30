@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useIntl} from 'react-intl';
 
 import {Col as ColBase, Row} from 'styles/grid';
 
@@ -17,35 +18,39 @@ const ButtonLink = styled(ButtonLinkBase)`
 	max-width: 24rem;
 `;
 
-const Navigation = ({ariaHidden, isSecondary}) => (
-	<Row
-		as="nav"
-		aria-hidden={ariaHidden}
-		justifyContent="center">
-		<Col col={12} xl={4}>
-			<ButtonLink
-				href="/"
-				isNewWindow={true}
-				isSecondary={isSecondary}
-				message="navigation-resume"
-			/>
-		</Col>
-		<Col col={12} xl={4}>
-			<ButtonLink
-				href="https:\/\/github.com\/kimberlyhawthorne"
-				isNewWindow={true}
-				isSecondary={isSecondary}
-				message="navigation-github"
-			/>
-		</Col>
-		<Col col={12} xl={4}>
-			<ButtonLink
-				href="mailto:hi@hawthorne.kim"
-				isSecondary={isSecondary}
-				message="navigation-email"
-			/>
-		</Col>
-	</Row>
-);
+const Navigation = ({ariaHidden, isSecondary}) => {
+	const {locale} = useIntl();
+
+	return (
+		<Row
+			as="nav"
+			aria-hidden={ariaHidden}
+			justifyContent="center">
+			<Col col={12} xl={4}>
+				<ButtonLink
+					href={`/images/KimHawthorne_${locale}.pdf`}
+					isNewWindow={true}
+					isSecondary={isSecondary}
+					message="navigation-resume"
+				/>
+			</Col>
+			<Col col={12} xl={4}>
+				<ButtonLink
+					href="https:\/\/github.com\/kimberlyhawthorne"
+					isNewWindow={true}
+					isSecondary={isSecondary}
+					message="navigation-github"
+				/>
+			</Col>
+			<Col col={12} xl={4}>
+				<ButtonLink
+					href="mailto:hi@hawthorne.kim"
+					isSecondary={isSecondary}
+					message="navigation-email"
+				/>
+			</Col>
+		</Row>
+	);
+};
 
 export default Navigation;
