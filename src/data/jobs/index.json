@@ -8,6 +8,7 @@
 			"jobs-footlocker-task-sprintTeams",
 			"jobs-footlocker-task-reactRedux",
 			"jobs-footlocker-task-accessibility",
+			"jobs-footlocker-task-storybook",
 			"jobs-footlocker-task-accessibleCommonComponents",
 			"jobs-footlocker-task-technicalDebt",
 			"jobs-footlocker-task-localization",
@@ -29,8 +30,7 @@
 			"jobs-grainger-task-featuresAndMaintain",
 			"jobs-grainger-task-searchSelect",
 			"jobs-grainger-task-tieredPricing",
-			"jobs-grainger-task-collaboration",
-			"jobs-grainger-task-compatability"
+			"jobs-grainger-task-collaboration"
 		],
 		"title": "jobs-grainger-title",
 		"website": "http://www.grainger.com"
@@ -41,8 +41,6 @@
 		"startDate": "jobs-fcb-startDate",
 		"tasks": [
 			"jobs-fcb-task-emails",
-			"jobs-fcb-task-clients",
-			"jobs-fcb-task-compataibility",
 			"jobs-fcb-task-template"
 		],
 		"title": "jobs-fcb-title",

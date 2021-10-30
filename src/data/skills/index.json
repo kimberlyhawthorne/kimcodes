@@ -23,8 +23,9 @@
 		"title": "skills-software-title",
 		"items": [
 			"skills-software-git",
-			"skills-software-storybook",
 			"skills-software-github",
+			"skills-software-storybook",
+			"skills-software-figma",
 			"skills-software-devTools",
 			"skills-software-jira",
 			"skills-software-browserStack",

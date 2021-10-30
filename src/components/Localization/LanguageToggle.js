@@ -98,9 +98,7 @@ const LanguageToggle = () => {
 
 	return (
 		<Container>
-			<Label
-				id={LOCALES.EN.label}
-				aria-label={LOCALES.EN.ariaLabel} />
+			<Label id={LOCALES.EN.label} />
 			<div aria-live="assertive">
 				<Toggler
 					aria-label={formatMessage({
@@ -109,9 +107,7 @@ const LanguageToggle = () => {
 					isLeft={isEnglish}
 					onClick={handleClick} />
 			</div>
-			<Label
-				id={LOCALES.FR.label}
-				ariaLabel={LOCALES.FR.ariaLabel} />
+			<Label id={LOCALES.FR.label} />
 		</Container>
 	);
 }
