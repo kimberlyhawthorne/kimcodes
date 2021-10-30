@@ -12,6 +12,7 @@
 	"about-wants-slack": "Il faut utiliser Slack for communiquer au travail (je plaisante, en quelque sorte)",
 	"about-wants-hybrid": "Mélange de travail à distance et en présentiel",
 
+	"accessibility-newWindow": "Ce lien s'ouvre dans une nouvelle fenêtre.",
 	"accessibility-prompt": "Allumez votre lecteur d'écran pour l'expérience accessible!",
 
 	"education-title": "Éducation",
@@ -28,11 +29,8 @@
 	"education-illinois-degree": "Bachelors in Journalism",
 
 	"languageToggle-hi": "Hi!",
-	"languageToggle-hi-ariaLabel": "Use English",
 	"languageToggle-bonjour": "Bonjour!",
-	"languageToggle-bonjour-ariaLabel": "Utilisez le français",
-	"languageToggle-ariaLabel": "Choississez votre langue. Vous êtes actuellement en français.",
-
+	"languageToggle-ariaLabel": "Cliquez pour passer du français à l'anglais. Vous êtes actuellement en français.",
 
 	"interests-title": "What I've been doing lately",
 	"interests-hooks": "All the React hooks — <bold>state, reducers, context, effects</bold>!",

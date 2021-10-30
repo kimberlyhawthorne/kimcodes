@@ -7,6 +7,7 @@
 	"about-wants-slack": "Must use Slack for communication (kidding, sort of)",
 	"about-wants-hybrid": "Hybrid of remote and in-person work",
 
+	"accessibility-newWindow": "This link opens in a new window.",
 	"accessibility-prompt": "Turn on a screen reader for accessibility goodness!",
 
 	"education-title": "Education",
@@ -24,9 +25,7 @@
 
 	"languageToggle-hi": "Hi!",
 	"languageToggle-bonjour": "Bonjour!",
-	"languageToggle-hi-ariaLabel": "Use English",
-	"languageToggle-bonjour-ariaLabel": "Utilisez le français",
-	"languageToggle-ariaLabel": "Choose your language. You are currently in English.",
+	"languageToggle-ariaLabel": "Click to toggle from English to French. You are currently in English.",
 
 
 	"interests-title": "What I've Been Doing Lately",
