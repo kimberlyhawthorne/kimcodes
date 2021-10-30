@@ -23,17 +23,16 @@
 	"education-illinois-endDate": "mai 2011",
 	"education-illinois-degree": "B.S. Journalisme",
 
-	"languageToggle-hi": "Hi!",
-	"languageToggle-bonjour": "Bonjour!",
-	"languageToggle-ariaLabel": "Cliquez pour passer du français à l'anglais. Vous êtes actuellement en français.",
+	"footer-navigation": "Navigation au pied de page",
+
+	"header-introduction": "Je suis Kim, une programmeuse front-end en React.",
 
 	"interests-title": "Ce que je fais dernièrement",
 	"interests-hooks": "Tous les Hooks de React — <bold>state, reducers, context, effects</bold>!",
 	"interests-localization": "Les défis de localisation comme le traitement de pluralisation, l'insertion des données dynamiques et la traduction des attributs ARIA",
 	"interests-reactHookForms": "Je suis en train de découvrir les joies d'utiliser les Hooks pour développer les formulaires complexes avec React Hook Forms",
 	"interests-cssInJs": "CSS en JavaScript — utilisé dans ce portfolio",
-
-	"header-introduction": "Je suis Kim, une programmeuse front-end en React.",
+	"interests-figureCaption": "Extrait de code de CSS en JavaScript",
 
 	"jobs-title": "Expériences de travail",
 	"jobs-fcb-company": "FCB",
@@ -69,6 +68,10 @@
 	"jobs-grainger-task-searchSelect": "Travailler en tant que développeuse front-end principale sur une équipe sprint qui améliore l’expérience utilisateur en recherchant et sélectionnant des produits",
 	"jobs-grainger-task-tieredPricing": "En charge du front-end pour un grand projet de la tarification échelonnée",
 	"jobs-grainger-task-collaboration": "Collaboration avec développeurs back-end, responsables de produit, UX/UI et QA dans un environnement Agile",
+
+	"languageToggle-hi": "Hi!",
+	"languageToggle-bonjour": "Bonjour!",
+	"languageToggle-ariaLabel": "Cliquez pour passer du français à l'anglais. Vous êtes actuellement en français.",
 
 	"navigation-email": "Contactez-moi",
 	"navigation-github": "Github",

@@ -119,7 +119,7 @@ const AppView = () => {
 							<Background backgroundColor={COLORS.brick} color={COLORS.lilac_light}>
 								<Container>
 									<About />
-									<Navigation isSecondary={true} />
+									<Navigation ariaLabel="footer-navigation" isSecondary={true} />
 								</Container>
 							</Background>
 						</main>

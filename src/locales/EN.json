@@ -23,17 +23,16 @@
 	"education-illinois-endDate": "May 2011",
 	"education-illinois-degree": "B.S. Journalism",
 
-	"languageToggle-hi": "Hi!",
-	"languageToggle-bonjour": "Bonjour!",
-	"languageToggle-ariaLabel": "Click to toggle from English to French. You are currently in English.",
+	"footer-navigation": "Footer navigation",
+
+	"header-introduction": "I'm Kim, a front-end React developer.",
 
 	"interests-title": "What I've Been Doing Lately",
 	"interests-hooks": "All the React Hooks — <bold>state, reducers, context, effects</bold>!",
 	"interests-localization": "Localization challenges such as pluralization, inserting dynamic values and translating ARIA attributes",
 	"interests-reactHookForms": "Discovering the joys of using Hooks for building complex forms with <link>React Hook Forms</link>",
 	"interests-cssInJs": "CSS in JS — used for this portfolio",
-
-	"header-introduction": "I'm Kim, a front-end React developer.",
+	"interests-figureCaption": "CSS in JS code snippet",
 
 	"jobs-title": "Professional Experience",
 	"jobs-fcb-company": "FCB",
@@ -47,7 +46,7 @@
 	"jobs-footlocker-endDate": "current",
 	"jobs-footlocker-startDate": "March 2017",
 	"jobs-footlocker-task-sprintTeams": "Work on multiple sprints teams to build and support a new front-end platform for Foot Locker’s multinational brands",
-	"jobs-footlocker-task-reactRedux": "Use React and Typescript to create UIs and components, and Redux to manage application state",
+	"jobs-footlocker-task-reactRedux": "Use React and TypeScript to create UIs and components, and Redux to manage application state",
 	"jobs-footlocker-task-accessibility": "Focus on web accessibility, including focus management for keyboard interactions, ARIA attributes for screen reader announcements and visual considerations such as sufficient contrast",
 	"jobs-footlocker-task-storybook": "Build isolated UI elements in Storybook",
 	"jobs-footlocker-task-accessibleCommonComponents": "Build fully accessible common components, including tabs, accordions, tooltips and dropdowns",
@@ -70,6 +69,10 @@
 	"jobs-grainger-task-tieredPricing": "Managed front-end development for a major tiered pricing project",
 	"jobs-grainger-task-collaboration": "Collaborated with product owners, back-end developers, UX/UI and QA in an agile environment",
 
+	"languageToggle-hi": "Hi!",
+	"languageToggle-bonjour": "Bonjour!",
+	"languageToggle-ariaLabel": "Click to toggle from English to French. You are currently in English.",
+
 	"navigation-email": "Email me",
 	"navigation-github": "Github",
 	"navigation-resume": "Resumé",
@@ -78,7 +81,7 @@
 
 	"skills-languages-title": "Languages",
 	"skills-languages-javascript": "JavaScript",
-	"skills-languages-typescript": "Typescript",
+	"skills-languages-typescript": "TypeScript",
 	"skills-languages-react": "React",
 	"skills-languages-redux": "Redux",
 	"skills-languages-html": "HTML",

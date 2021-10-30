@@ -7,21 +7,21 @@ import {FocusVisible} from 'styles/base';
 
 import Translation from 'components/Localization/Translation';
 
-const Container = styled.div`
-	${ScreenReaderOnly};
+const Container = styled.aside`
 	${FocusVisible};
-	top: -1rem;
+	position: absolute;
+	top: -4rem;
+	left: 1rem;
+	padding: 1rem;
+	z-index: 1;
+	background-color: ${COLORS.lilac_light};
+	color: ${COLORS.brick};
 	transition: top 0.2s ease-out;
 
 	&:active,
 	&:focus {
 		transition: top 0.2s ease-out;
-		position: absolute;
 		top: 1rem;
-		left: 1rem;
-		padding: 1rem;
-		background-color: ${COLORS.lilac_light};
-		color: ${COLORS.brick};
 	}
 `;
 

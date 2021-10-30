@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 // STYLES
-import {UnorderedList, ListItem, Section} from 'styles/base';
+import {UnorderedList, ListItem, ScreenReaderOnly, Section} from 'styles/base';
 import {SectionTitle} from 'styles/typography';
 
 // COMPONENTS
@@ -14,6 +14,10 @@ const Code = styled(SyntaxHighlighter)`
 	// alignment with the <li> bullet
 	margin-left: -1rem;
 	padding: 1rem !important;
+`;
+
+const Caption = styled.figcaption`
+	${ScreenReaderOnly};
 `;
 
 const cssJSCode = `
@@ -48,9 +52,14 @@ const Interests = () => {
 				<ListItem>
 					<Translation id="interests-cssInJs" />
 
-					<Code aria-hidden="true">
-						{cssJSCode}
-					</Code>
+					<figure>
+						<Code>
+							{cssJSCode}
+						</Code>
+						<Caption tabIndex={-1} id="caption">
+							<Translation id="interests-figureCaption" />
+						</Caption>
+					</figure>
 				</ListItem>
 			</UnorderedList>
 		</Section>
