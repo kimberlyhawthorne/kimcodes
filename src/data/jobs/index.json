@@ -3,6 +3,7 @@
 		"company": "jobs-footlocker-company",
 		"endDate": "jobs-footlocker-endDate",
 		"logo": "footlocker",
+		"logoAlt": "jobs-footlocker-logoAlt",
 		"startDate": "jobs-footlocker-startDate",
 		"tasks": [
 			"jobs-footlocker-task-sprintTeams",
@@ -25,6 +26,7 @@
 		"company": "jobs-grainger-company",
 		"endDate": "jobs-grainger-endDate",
 		"logo": "grainger",
+		"logoAlt": "jobs-grainger-logoAlt",
 		"startDate": "jobs-grainger-startDate",
 		"tasks": [
 			"jobs-grainger-task-featuresAndMaintain",
@@ -38,6 +40,7 @@
 		"company": "jobs-fcb-company",
 		"endDate": "jobs-fcb-endDate",
 		"logo": "fcb",
+		"logoAlt": "jobs-fcb-logoAlt",
 		"startDate": "jobs-fcb-startDate",
 		"tasks": [
 			"jobs-fcb-task-emails",

@@ -10,18 +10,18 @@ import Translation from 'components/Localization/Translation';
 const Container = styled.aside`
 	${FocusVisible};
 	position: absolute;
-	top: -4rem;
+	bottom: 100%;
 	left: 1rem;
 	padding: 1rem;
 	z-index: 1;
 	background-color: ${COLORS.lilac_light};
 	color: ${COLORS.brick};
-	transition: top 0.2s ease-out;
+	transition: bottom 0.2s ease-out;
 
 	&:active,
 	&:focus {
-		transition: top 0.2s ease-out;
-		top: 1rem;
+		transition: bottom 0.2s ease-out;
+		bottom: calc(100% - 5rem);
 	}
 `;
 

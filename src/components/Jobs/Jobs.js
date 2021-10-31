@@ -24,6 +24,7 @@ const Jobs = () => {
 					company
 					endDate
 					logo
+					logoAlt
 					startDate
 					tasks
 					title

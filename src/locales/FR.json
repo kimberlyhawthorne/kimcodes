@@ -36,6 +36,7 @@
 
 	"jobs-title": "Expériences de travail",
 	"jobs-fcb-company": "FCB",
+	"jobs-fcb-logoAlt": "Logo de FCB",
 	"jobs-fcb-startDate": "juillet 2014",
 	"jobs-fcb-endDate": "décembre 2017",
 	"jobs-fcb-title": "Développeuse front-end junior",
@@ -43,6 +44,7 @@
 	"jobs-fcb-task-template": "En charge de la création des modèles modulaires afin d'améliorer le procès du développement des courriels",
 
 	"jobs-footlocker-company": "Foot Locker, Inc.",
+	"jobs-footlocker-logoAlt": "Logo de Foot Locker, Inc.",
 	"jobs-footlocker-endDate": "aujourd'hui",
 	"jobs-footlocker-startDate": "mars 2017",
 	"jobs-footlocker-task-sprintTeams": "Faire partie d’une équipe qui a réalisé et qui entretient la nouvelle plateforme front-end de Foot Locker et ses marques multinationales",
@@ -61,6 +63,7 @@
 	"jobs-footlocker-title": "Programmeuse senior front-end",
 
 	"jobs-grainger-company": "Grainger",
+	"jobs-grainger-logoAlt": "Logo de Grainger",
 	"jobs-grainger-startDate": "décembre 2014",
 	"jobs-grainger-endDate": "mars 2017",
 	"jobs-grainger-title": "Développeuse senior front-end",

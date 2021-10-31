@@ -36,6 +36,7 @@
 
 	"jobs-title": "Professional Experience",
 	"jobs-fcb-company": "FCB",
+	"jobs-fcb-logoAlt": "FCB logo",
 	"jobs-fcb-startDate": "July 2014",
 	"jobs-fcb-endDate": "December 2017",
 	"jobs-fcb-title": "Associate front-end developer",
@@ -43,6 +44,7 @@
 	"jobs-fcb-task-template": "Created modular email templates to streamline the development process",
 
 	"jobs-footlocker-company": "Foot Locker, Inc.",
+	"jobs-footlocker-logoAlt": "Foot Locker, Inc. logo",
 	"jobs-footlocker-endDate": "current",
 	"jobs-footlocker-startDate": "March 2017",
 	"jobs-footlocker-task-sprintTeams": "Work on multiple sprints teams to build and support a new front-end platform for Foot Locker’s multinational brands",
@@ -61,6 +63,7 @@
 	"jobs-footlocker-title": "Senior front-end engineer",
 
 	"jobs-grainger-company": "Grainger",
+	"jobs-grainger-logoAlt": "Grainger logo",
 	"jobs-grainger-startDate": "December 2014",
 	"jobs-grainger-endDate": "March 2017",
 	"jobs-grainger-title": "Senior front-end developer",

@@ -56,7 +56,7 @@ const Toggler = styled.button`
 
 
 				&:after {
-					width: calc(${toggleSize} + 4px);
+					width: calc(${toggleSize} + 2px);
 				}
 			}
 

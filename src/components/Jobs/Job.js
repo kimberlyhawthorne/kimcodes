@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useIntl} from 'react-intl';
 
 // STYLES
 import {COLORS} from 'styles/variables';
@@ -40,17 +41,23 @@ const Job = ({
 	company,
 	endDate,
 	logo,
+	logoAlt,
 	startDate,
 	tasks,
 	title,
 	website
 }) => {
+	const {formatMessage} = useIntl();
+
 	return (
 		<JobContainer>
 			<JobTitleContainer>
 
 				<a href={website} target="_blank" rel="noreferrer">
-					<Logo alt={company} src={`/images/${logo}.png`} />
+					<Logo
+						alt={formatMessage({id: logoAlt})}
+						src={`/images/${logo}.png`}
+					/>
 				</a>
 
 				<JobTitleList>
