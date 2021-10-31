@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useIntl} from 'react-intl';
+import PropTypes from 'prop-types';
 
 // STYLES
 import {COLORS} from 'styles/variables';
@@ -80,7 +81,7 @@ const Job = ({
 			{!!tasks.length &&
 				<UnorderedList>
 					{tasks.map(task => (
-						<ListItem>
+						<ListItem key={task}>
 							<Translation id={task} />
 						</ListItem>
 					))}
@@ -88,6 +89,17 @@ const Job = ({
 			}
 		</JobContainer>
 	);
+};
+
+Job.propTypes = {
+	company: PropTypes.string,
+	endDate: PropTypes.string,
+	logo: PropTypes.string,
+	logoAlt: PropTypes.string,
+	startDate: PropTypes.string,
+	tasks: PropTypes.arrayOf(PropTypes.string),
+	title: PropTypes.string,
+	website: PropTypes.string
 };
 
 export default Job;

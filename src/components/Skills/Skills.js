@@ -53,7 +53,7 @@ const Skills = () => {
 				const {title, items} = set;
 
 				return (
-					<Col as={Section} xs={12} lg={4}>
+					<Col key={title} as={Section} xs={12} lg={4}>
 						<SectionTitle>
 							<Translation id={title} />
 						</SectionTitle>
@@ -61,7 +61,7 @@ const Skills = () => {
 						{!!items.length &&
 							<BulletlessList>
 								{items.map(item => (
-									<ListItem>
+									<ListItem key={item}>
 										<Translation id={item} />
 									</ListItem>
 								))}

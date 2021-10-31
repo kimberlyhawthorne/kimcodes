@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {ScreenReaderOnly} from 'styles/base';
 import {COLORS} from 'styles/variables';
 import {FocusVisible} from 'styles/base';
 

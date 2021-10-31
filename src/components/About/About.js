@@ -74,7 +74,7 @@ const About = () => {
 			{!!wishlist.length &&
 				<UnorderedList>
 					{wishlist.map(item => (
-						<ListItem>
+						<ListItem key={item}>
 							<Translation id={item} />
 						</ListItem>
 					))}

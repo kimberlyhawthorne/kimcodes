@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useIntl} from 'react-intl';
+import PropTypes from 'prop-types';
 
 import {Col as ColBase, Row} from 'styles/grid';
 
@@ -51,6 +52,11 @@ const Navigation = ({ariaLabel, isSecondary}) => {
 			</Col>
 		</Row>
 	);
+};
+
+Navigation.propTypes = {
+	ariaLabel: PropTypes.string,
+	isSecondary: PropTypes.bool
 };
 
 export default Navigation;

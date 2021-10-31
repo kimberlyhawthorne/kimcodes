@@ -11,7 +11,7 @@ const FooterContainer = styled.footer`
 
 const Footer = () => (
 	<FooterContainer>
-		<p>© Kimberly Hawthorne, 2021</p>
+		<p>© Kimberly Hawthorne, {new Date().getFullYear()}</p>
 	</FooterContainer>
 );
 

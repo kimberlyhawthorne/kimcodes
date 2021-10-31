@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {FormattedMessage, useIntl} from 'react-intl';
+import PropTypes from 'prop-types';
 
 import DEFAULTS from 'locales/EN';
 
@@ -10,8 +11,6 @@ import {LINKS} from 'styles/typography';
 const Link = styled.a`
 	${LINKS.lilac};
 `;
-
-
 
 const Translation = ({
 	ariaLabel,
@@ -60,6 +59,16 @@ const Translation = ({
 			}}
 		</FormattedMessage>
 	);
+};
+
+Translation.propTypes = {
+	className: PropTypes.string,
+	id: PropTypes.string,
+	url: PropTypes.string,
+	values: PropTypes.objectOf(PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.element
+	]))
 };
 
 export default Translation;

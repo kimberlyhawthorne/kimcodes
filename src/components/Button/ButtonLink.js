@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useIntl} from 'react-intl';
+import PropTypes from 'prop-types';
 
 // STYLES
 import BUTTONS from 'styles/buttons';
@@ -35,5 +36,13 @@ export const ButtonLink = ({className, href, isNewWindow, isSecondary, message})
 		</Button>
 	);
 };
+
+ButtonLink.propTypes = {
+	className: PropTypes.string,
+	href: PropTypes.string,
+	isNewWindow: PropTypes.bool,
+	isSecondary: PropTypes.bool,
+	message: PropTypes.string
+}
 
 export default ButtonLink;

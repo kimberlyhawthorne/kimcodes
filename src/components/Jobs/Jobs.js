@@ -48,7 +48,7 @@ const Jobs = () => {
 
 			{jobs.map(job => {
 				return (
-					<Job {...job} />
+					<Job key={job.company} {...job} />
 				);
 			})}
 		</JobsSection>
