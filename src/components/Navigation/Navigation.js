@@ -45,7 +45,7 @@ const Navigation = ({ariaLabel, isSecondary}) => {
 			</Col>
 			<Col col={12} xl={4}>
 				<ButtonLink
-					href="mailto:hi@hawthorne.kim"
+					href="mailto:kimberlyrhawthorne@gmail.com"
 					isSecondary={isSecondary}
 					message="navigation-email"
 				/>
