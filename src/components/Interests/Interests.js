@@ -45,7 +45,10 @@ const Interests = () => {
 				</ListItem>
 
 				<ListItem>
-					<Translation id="interests-localization" />
+					<Translation
+						id="interests-localization"
+						url="/images/KimHawthorne_localization.pdf"
+					/>
 				</ListItem>
 
 

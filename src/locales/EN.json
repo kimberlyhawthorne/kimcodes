@@ -1,6 +1,6 @@
 {
 	"about-title": "About Me",
-	"about-me-blurb": "My name is Kim and I'm a front-end developer. I hail from Chicago but now call Montréal {montrealEmoji} home. I love my cat (Lola) {catEmoji}, cooking vegetarian dishes {vegetableEmoji} and hunting for vintage goods {vintageEmoji}.",
+	"about-me-blurb": "My name is Kim and I'm a front-end developer. I hail from Chicago but now call Montréal {montrealEmoji} home. I love cats {catEmoji}, cooking vegetarian dishes {vegetableEmoji} and hunting for vintage goods {vintageEmoji}.",
 	"about-wants-title": "What I'm looking for",
 	"about-wants-react": "A front-end gig using React",
 	"about-wants-ecommerce": "E-commerce companies preferred",
@@ -29,7 +29,7 @@
 
 	"interests-title": "What I've Been Doing Lately",
 	"interests-hooks": "All the React Hooks — <bold>state, reducers, context, effects</bold>!",
-	"interests-localization": "Localization challenges such as pluralization, inserting dynamic values and translating ARIA attributes",
+	"interests-localization": "Localization challenges such as pluralization, inserting dynamic values and translating ARIA attributes. (I even wrote a <link>paper</link> about localization as part of my  Master's in Translation.)",
 	"interests-reactHookForms": "Discovering the joys of using Hooks for building complex forms with <link>React Hook Forms</link>",
 	"interests-cssInJs": "CSS in JS — used for this portfolio",
 	"interests-figureCaption": "CSS in JS code snippet",
@@ -49,7 +49,7 @@
 	"jobs-footlocker-startDate": "March 2017",
 	"jobs-footlocker-task-sprintTeams": "Work on multiple sprints teams to build and support a new front-end platform for Foot Locker’s multinational brands",
 	"jobs-footlocker-task-reactRedux": "Use React and TypeScript to create UIs and components, and Redux to manage application state",
-	"jobs-footlocker-task-accessibility": "Focus on web accessibility, including focus management for keyboard interactions, ARIA attributes for screen reader announcements and visual considerations such as sufficient contrast",
+	"jobs-footlocker-task-accessibility": "Focus on web accessibility, including focus management for keyboard interactions, ARIA attributes for screen reader announcements and visual considerations such as sufficient contrast.",
 	"jobs-footlocker-task-storybook": "Build isolated UI elements in Storybook",
 	"jobs-footlocker-task-accessibleCommonComponents": "Build fully accessible common components, including tabs, accordions, tooltips and dropdowns",
 	"jobs-footlocker-task-technicalDebt": "Lead refactoring efforts to address technical debt, including cart, checkout, header, forms, product details page and typeahead search",

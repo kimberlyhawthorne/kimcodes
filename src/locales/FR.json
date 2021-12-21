@@ -1,6 +1,6 @@
 {
 	"about-title": "Un peu sur moi",
-	"about-me-blurb": "Je suis Kim, une programmeuse front-end. Je viens de Chicago mais c'est maintenant à Montréal {montrealEmoji} que je suis chez moi. J'adore mon chat (Lola) {catEmoji}, cuisinier les plats végétariens {vegetableEmoji} et chercher la déco vintage {vintageEmoji}.",
+	"about-me-blurb": "Je suis Kim, une programmeuse front-end. Je viens de Chicago mais c'est maintenant à Montréal {montrealEmoji} que je suis chez moi. J'adore les chats {catEmoji}, cuisinier les plats végétariens {vegetableEmoji} et chercher la déco vintage {vintageEmoji}.",
 	"about-wants-title": "Ce que je cherche",
 	"about-wants-react": "Un boulot front-end en React",
 	"about-wants-ecommerce": "Les entreprises e-commerce de préférence",
@@ -15,7 +15,7 @@
 	"education-concordia-location": "Montréal, Québec",
 	"education-concordia-startDate": "septembre 2019",
 	"education-concordia-endDate": "décembre 2021",
-	"education-concordia-degree": "Maîtrise de Traductologie, du français vers l'anglais",
+	"education-concordia-degree": "Maîtrise en traductologie, du français vers l'anglais",
 
 	"education-illinois-school": "Université d'Illinois",
 	"education-illinois-location": "Urbana-Champaign, Illinois",
@@ -29,7 +29,7 @@
 
 	"interests-title": "Ce que je fais dernièrement",
 	"interests-hooks": "Tous les Hooks de React — <bold>state, reducers, context, effects</bold>!",
-	"interests-localization": "Les défis de localisation comme le traitement de pluralisation, l'insertion des données dynamiques et la traduction des attributs ARIA",
+	"interests-localization": "Les défis de localisation comme le traitement de pluralisation, l'insertion des données dynamiques et la traduction des attributs ARIA. (J'ai même écrit <link>une dissertation</link> sur la localisation dans le cadre de ma maîtrise en traductologie.)",
 	"interests-reactHookForms": "Je suis en train de découvrir les joies d'utiliser les Hooks pour développer les formulaires complexes avec React Hook Forms",
 	"interests-cssInJs": "CSS en JavaScript — utilisé dans ce portfolio",
 	"interests-figureCaption": "Extrait de code de CSS en JavaScript",
@@ -49,7 +49,7 @@
 	"jobs-footlocker-startDate": "mars 2017",
 	"jobs-footlocker-task-sprintTeams": "Faire partie d’une équipe qui a réalisé et qui entretient la nouvelle plateforme front-end de Foot Locker et ses marques multinationales",
 	"jobs-footlocker-task-reactRedux": "Création des interfaces utilisateurs en utilisant React et Typescript; gestion du state à l’aide de Redux",
-	"jobs-footlocker-task-accessibility": "L’assurance de conformité avec des standards d’accessibilité du web, y compris la gestion du focus en navigation au clavier, les attributs ARIA pour les lecteurs d’écran et les questions visuelles tel que la contraste suffisante",
+	"jobs-footlocker-task-accessibility": "L’assurance de conformité avec des standards d’accessibilité du web, y compris la gestion du focus en navigation au clavier, les attributs ARIA pour les lecteurs d’écran et les questions visuelles tel que la contraste suffisante.",
 	"jobs-footlocker-task-storybook": "Utiliser Storybook pour développer les composants UI en isolation",
 	"jobs-footlocker-task-accessibleCommonComponents": "Développement des composants complètement accessibles dont les onglets, les accordéons, les infobulles et les menus déroulants",
 	"jobs-footlocker-task-technicalDebt": "Gérer les efforts de refactorisation pour traiter la dette technique, notamment au panier, à la caisse, à la navigation globale, aux formulaires, à la page produit et à la barre de recherche principale",
